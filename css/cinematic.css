@@ -1,0 +1,430 @@
+/* ==========================================================================
+   Cinematic System — SMK Web Design upgrade
+   Deep black foundation / cobalt+royal-blue illumination / red-orange focus
+   Editorial typography / halftone grain / precision grid / layered depth
+   ========================================================================== */
+
+/* -- Cinematic palette ------------------------------------------------------ */
+:root {
+  --cin-bg: #050507;
+  --cin-bg-2: #0a0a10;
+  --cin-cobalt: #2563eb;
+  --cin-royal: #3b82f6;
+  --cin-blue-glow: rgba(59, 130, 246, 0.16);
+  --cin-blue-haze: rgba(37, 99, 235, 0.10);
+  --cin-red: #ff4d2e;
+  --cin-red-soft: #ff6a4d;
+  --cin-red-glow: rgba(255, 77, 46, 0.14);
+  --cin-line: rgba(148, 163, 184, 0.14);
+  --cin-text: #f4f4f6;
+  --cin-text-dim: #9aa0ae;
+  --cin-white: #ffffff;
+  --cin-hairline: rgba(255, 255, 255, 0.07);
+}
+
+/* -- Section chrome: large editorial headers --------------------------------- */
+.cin-section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--cin-line);
+  margin-bottom: var(--space-3xl);
+}
+
+.cin-section-head h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--cin-white);
+  text-transform: uppercase;
+}
+
+.cin-section-head .cin-kicker {
+  font-family: var(--font-display);
+  font-size: var(--body-xs);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cin-royal);
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.cin-section-head .cin-head-note {
+  font-size: var(--body-sm);
+  color: var(--cin-text-dim);
+  max-width: 34ch;
+  line-height: var(--leading-snug);
+}
+
+@media (max-width: 768px) {
+  .cin-section-head { flex-direction: column; align-items: flex-start; gap: var(--space-md); }
+}
+
+/* -- Cinematic hero ----------------------------------------------------------- */
+#cinematic-hero {
+  position: relative;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+#ch-track {
+  position: relative;
+  height: 400vh;                /* pinned scroll distance, overridden per device */
+}
+
+#ch-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Layer 1 — distant atmosphere */
+.ch-depth-1 {
+  position: absolute;
+  inset: -6%;
+  z-index: 1;
+  background:
+    radial-gradient(120% 90% at 50% 108%, rgba(37, 99, 235, 0.22) 0%, transparent 55%),
+    radial-gradient(80% 60% at 50% -10%, rgba(59, 130, 246, 0.10) 0%, transparent 60%),
+    linear-gradient(180deg, #050507 0%, #07070c 45%, #050508 100%);
+  transform: translateZ(0);
+}
+
+/* Layer 2 — blue volumetric glow */
+.ch-depth-2 {
+  position: absolute;
+  inset: -4%;
+  z-index: 2;
+  background:
+    radial-gradient(46% 34% at 50% 62%, rgba(59, 130, 246, 0.20) 0%, transparent 70%),
+    radial-gradient(70% 50% at 50% 30%, rgba(37, 99, 235, 0.13) 0%, transparent 70%);
+  filter: blur(2px);
+  will-change: transform;
+}
+
+/* Layer 3 — portrait frames (canvas stays fixed: no edge gaps, face never distorts) */
+#ch-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+}
+
+#ch-poster {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 26%;
+  transition: opacity 0.6s ease;
+}
+
+#ch-poster.is-hidden { opacity: 0; }
+
+/* Layer 4 — halftone particles */
+#ch-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Layer 5 — red focus light */
+.ch-focus {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  --fp: 0;
+  background:
+    radial-gradient(38% 30% at var(--fx, 50%) var(--fy, 58%), rgba(255, 77, 46, calc(0.22 * var(--fp))) 0%, transparent 70%);
+  mix-blend-mode: screen;
+  opacity: var(--fp);
+}
+
+/* Layer 6 — grain + vignette */
+.ch-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  background-image:
+    repeating-conic-gradient(from 11deg, rgba(255,255,255,0.028) 0% 25%, transparent 0% 50%),
+    radial-gradient(140% 100% at 50% 50%, transparent 55%, rgba(0,0,0,0.55) 100%);
+  background-size: 3px 3px, 100% 100%;
+  mix-blend-mode: overlay;
+}
+
+/* Layer 7 — copy */
+.ch-copy {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(20px, 4vw, 56px) clamp(20px, 5vw, 80px) clamp(24px, 5vh, 60px);
+  --cp: 0;
+  pointer-events: none;
+}
+
+.ch-copy > * { pointer-events: auto; }
+
+.ch-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-display);
+  font-size: var(--body-xs);
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cin-royal);
+  margin-bottom: var(--space-lg);
+}
+
+.ch-eyebrow::before {
+  content: '';
+  width: 34px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--cin-royal), transparent);
+}
+
+.ch-wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3rem, 9vw, 8.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--cin-white);
+  margin-bottom: var(--space-lg);
+  text-wrap: balance;
+}
+
+.ch-wordmark .ch-wm-line {
+  display: block;
+  overflow: hidden;
+}
+
+.ch-wordmark .ch-wm-in {
+  display: block;
+  transform: translateY(110%);
+  transition: transform 1.1s var(--ease-out);
+}
+
+#cinematic-hero[data-stage="reveal"] .ch-wm-in,
+#cinematic-hero[data-stage="depth"] .ch-wm-in,
+#cinematic-hero[data-stage="focus"] .ch-wm-in,
+#cinematic-hero[data-stage="full"] .ch-wm-in {
+  transform: translateY(0);
+}
+
+.ch-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+  font-weight: 500;
+  color: var(--cin-text);
+  margin-bottom: var(--space-md);
+}
+
+.ch-tagline em { font-style: normal; color: var(--cin-royal); }
+
+.ch-desc {
+  max-width: 58ch;
+  font-size: var(--body-md);
+  line-height: var(--leading-snug);
+  color: var(--cin-text-dim);
+  margin-bottom: var(--space-2xl);
+}
+
+.ch-desc { color: rgba(214, 219, 228, calc(0.35 + 0.61 * var(--cp, 0))); }
+
+.ch-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+/* Stage: dark opening — copy hidden, layers quiet */
+#cinematic-hero[data-stage="in"] .ch-copy { opacity: 0; }
+#cinematic-hero[data-stage="in"] .ch-eyebrow,
+#cinematic-hero[data-stage="in"] .ch-wordmark,
+#cinematic-hero[data-stage="in"] .ch-tagline { opacity: 0; }
+
+/* Stage: focus — red light on subject */
+#cinematic-hero[data-stage="focus"] .ch-eyebrow::before {
+  background: linear-gradient(90deg, var(--cin-red), transparent);
+}
+#cinematic-hero[data-stage="focus"] .ch-eyebrow { color: var(--cin-red-soft); }
+
+/* Copy enters during depth/focus stages */
+#cinematic-hero .ch-copy {
+  opacity: calc(0.4 + 0.6 * var(--cp, 0));
+  transform: translate3d(0, calc((1 - var(--cp, 0)) * 30px), 0);
+}
+
+/* Static / reduced-motion hero */
+#cinematic-hero.is-static #ch-track { height: 100vh; }
+#cinematic-hero.is-static #ch-stage { position: relative; height: auto; min-height: 100vh; }
+#cinematic-hero.is-static .ch-copy { opacity: 1; --cp: 1; position: relative; padding-top: 46vh; }
+#cinematic-hero.is-static .ch-wordmark,
+#cinematic-hero.is-static .ch-tagline,
+#cinematic-hero.is-static .ch-eyebrow { opacity: 1; }
+#cinematic-hero.is-static .ch-wm-in { transform: translateY(0); }
+#cinematic-hero.is-static .ch-copy { opacity: 1; transform: none; }
+
+/* Scroll hint */
+.ch-scrollhint {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 8;
+  font-family: var(--font-display);
+  font-size: var(--label-xs);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--cin-text-dim);
+  opacity: 0.6;
+  transition: opacity 0.5s ease;
+}
+
+.ch-scrollhint::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 26px;
+  margin: 8px auto 0;
+  background: linear-gradient(180deg, var(--cin-royal), transparent);
+  animation: ch-hint 2.2s var(--ease-gentle) infinite;
+}
+
+@keyframes ch-hint {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+#cinematic-hero[data-stage="in"] .ch-scrollhint { opacity: 0.75; }
+#cinematic-hero[data-stage="full"] .ch-scrollhint { opacity: 0; }
+
+/* -- About cinematic stage ------------------------------------------------------ */
+.about-stage {
+  position: relative;
+  margin: var(--space-3xl) 0;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: #07070c;
+  border: 1px solid var(--cin-hairline);
+}
+
+.about-stage__poster,
+.about-stage__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-stage__poster.is-hidden { opacity: 0; }
+.about-stage__poster { transition: opacity 0.6s ease; }
+
+.about-stage__grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-conic-gradient(from 11deg, rgba(255,255,255,0.025) 0% 25%, transparent 0% 50%);
+  background-size: 3px 3px;
+  mix-blend-mode: overlay;
+}
+
+.about-stage__vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(0,0,0,0.5) 100%);
+}
+
+.about-stage__caption {
+  position: absolute;
+  left: var(--space-xl);
+  bottom: var(--space-lg);
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: var(--body-xs);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(196, 214, 255, 0.85);
+  text-shadow: 0 1px 12px rgba(5, 5, 8, 0.8);
+}
+
+/* -- Cinematic CTA ----------------------------------------------------------- */
+.cin-cta { position: relative; overflow: hidden; }
+
+.cta__glow {
+  position: absolute;
+  inset: -20% -10%;
+  pointer-events: none;
+  background:
+    radial-gradient(40% 34% at 72% 40%, rgba(255, 77, 46, 0.10) 0%, transparent 70%),
+    radial-gradient(50% 40% at 24% 60%, rgba(59, 130, 246, 0.13) 0%, transparent 70%);
+  filter: blur(6px);
+}
+
+.cin-cta .cta__title,
+.cin-cta .cta__desc,
+.cin-cta .cta__actions { position: relative; }
+
+/* -- Hero scrub status (a11y) -------------------------------------------------- */
+#ch-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* -- Mobile hero tuning ---------------------------------------------------------- */
+@media (max-width: 768px) {
+  #ch-track { height: 300vh; }
+  .ch-copy { padding-bottom: 96px; }
+  .ch-desc { max-width: 100%; }
+}
+
+/* No-JS safety: without JS no stage is ever set — show everything, no pin */
+#cinematic-hero:not([data-stage]) #ch-track { height: 100vh; }
+#cinematic-hero:not([data-stage]) #ch-stage { position: relative; }
+#cinematic-hero:not([data-stage]) .ch-copy { opacity: 1; --cp: 1; transform: none; }
+#cinematic-hero:not([data-stage]) .ch-wm-in { transform: translateY(0); }
+#cinematic-hero:not([data-stage]) .ch-eyebrow,
+#cinematic-hero:not([data-stage]) .ch-wordmark { opacity: 1; }
+#cinematic-hero:not([data-stage]) .ch-scrollhint { display: none; }
+#cinematic-hero:not([data-stage]) #ch-canvas { display: none; }
+#cinematic-hero:not([data-stage]) #ch-particles { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  #ch-track { height: auto; }
+  .ch-scrollhint { display: none; }
+  .ch-copy { opacity: 1 !important; transform: none !important; }
+  .ch-wm-in { transform: translateY(0) !important; }
+}

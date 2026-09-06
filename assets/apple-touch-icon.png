@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+<!-- ═══ SEO: Primary Meta ═══ -->
+<title>Web Designer Johannesburg | SMK Web Design | Stopher Malik</title>
+<meta name="description" content="Web designer in Johannesburg helping South African businesses get more clients. High-converting websites built for performance &amp; real results. Free quote."/>
+<meta name="keywords" content="web designer Johannesburg, web design South Africa, business websites South Africa, website design Johannesburg, affordable web design Johannesburg, small business website South Africa, conversion focused web design, SMK Web Design, Stopher Malik, web developer Johannesburg, landing page design South Africa, SEO Johannesburg, Sandton web designer, Gauteng web design"/>
+<meta name="author" content="Stopher Malik — SMK Web Design"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<link rel="canonical" href="https://www.stopher-malik.co.za/"/>
+
+<!-- ═══ Open Graph ═══ -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://www.stopher-malik.co.za/"/>
+<meta property="og:title" content="Web Designer Johannesburg | SMK Web Design | Stopher Malik"/>
+<meta property="og:description" content="Web designer in Johannesburg building high-converting websites for South African businesses. Get more clients &amp; grow your business online. Free quote today."/>
+<meta property="og:image" content="https://www.stopher-malik.co.za/og-image.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="SMK Web Design — Professional Website Design in Johannesburg, South Africa"/>
+<meta property="og:locale" content="en_ZA"/>
+<meta property="og:site_name" content="SMK Web Design"/>
+
+<!-- ═══ Twitter Card ═══ -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@stopher_malik"/>
+<meta name="twitter:creator" content="@stopher_malik"/>
+<meta name="twitter:title" content="Web Designer Johannesburg | SMK Web Design | Stopher Malik"/>
+<meta name="twitter:description" content="High-performing, conversion-focused websites for South African businesses. Free quote from SMK Web Design."/>
+<meta name="twitter:image" content="https://www.stopher-malik.co.za/og-image.jpg"/>
+
+<!-- ═══ PWA / Mobile ═══ -->
+<meta name="theme-color" content="#03070f"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="SMK Web Design"/>
+
+<!-- ═══ Performance: DNS prefetch + preconnect ═══ -->
+<link rel="dns-prefetch" href="//fonts.googleapis.com"/>
+<link rel="dns-prefetch" href="//fonts.gstatic.com"/>
+<link rel="dns-prefetch" href="//api.web3forms.com"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://api.web3forms.com"/>
+
+<!-- ═══ Fonts ═══ -->
+<!-- Preload critical display font used for hero H1 -->
+<link rel="preload" href="https://fonts.gstatic.com/s/bebasneue/v14/JTUSjIg69CK48gW7PXooxW5rygbi49c.woff2" as="font" type="font/woff2" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/></noscript>
+
+<!-- ═══ Favicon ═══ -->
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAEYklEQVR42rVWS4gcVRS959Wnk57u6czHyRiSMRiYiMY4QkA3ghsXBomoiUJ+CAmCcaOu3IobFyq4UFzoxp0rRRBFUURhBAUXgclo4iffSdqZMZrpX33eOy5eVXVVdU9CAjazKOa9e++599x77oM/vVMo/99PkULcgiFEhLwxNAURcIjxjX4UEeDGN9V6xreWUyG/gQAFOIC6yQBMrIDkuxig791SQpqbhw8OZK8ywP27vNmCZD4gpBSZTwPQiPD69BbRcbA+adIYDMBhLCPvmkNzQ7mwiR3KAZAeM5c/S45Q6A57nTn8uf+yb++WscMiSOkq5gKuMyVJhgVg/S5iLnkFaG2iOBaBUASAAikkAVDE0JY7Aa+UolApJUmDJv6Z/FFloWwbB53eaK1228R4HEWx1mJMFMZCOo4TRZGQFd+HiFJKROI47rU7jnKCXqAgFNpSIyOC4looAJRC3Ont3nXXSy8cW15e+fLb+ZdPHNv7+KEjR5/Zc//uU7+e+X7+pxPHD7/2+ttXo+jQ/n3TU5N/rf4tIhNjm775bv7kyVOu72ujmXYjIZB0XClUUDoKt23dMjU58dUXXy9dae6Z23X8uaPPHtw/MlLdPrP1w/fe+Ojjz5rN5SgM253u6tV/giCsjVSDMGo0GuG1VrfVjmMNAW1TMUcyBNoYb2Tkhx9/7q61Djz9RBAEb777wYF9jy6e/u3cxaXt27YCqlGvSxxXG/Uoiv84e7691joVxWPjm+JYP/DQg7XR2sLimZWVVcd1bbloxAVgq6SAMAhn53Y99eRjQRCcu3BJRA4feX5mdsfeRx4+f/HSW++8/+orLy4s/NJcXhkdrd0xs2V2x50Xly5vqPjdXjg5MXb+wlKr1b5y+Yrre9RM2tHbvDNrMgBhEGyf2SYiZ/88V2vUW/+uuRXf9z0F1e50fd+tVCqta2vTt2++tta25IvWu++7Z8vmqU8+/dypVKIoEgWYpHngTc3mhR1AEIRCVkc2+p4nAEmjjSFd14FIGEae72utjdae78VxLJReEOoo8nxfIAIIRJg0p5uNOyGgGGMqG3ytjed5c/ferY0xhkqh1epUqxujOO50u65S9Xr9crM5OTHuOk4UxYunf+/1erbaWafaQU1LlOaQHFNIam2UsgwlxyQBRRqSSimmM+w4TqYZpUF3kSqhAPmRFgVPuSTFZswMleUOkhzBTjVSeUhmPp1eNyu9LVFRYJiX6dSL1QojAJgekrQhU2HIRMMta3zKTz4YB3YN01nNCyIBKSiPFTsUFxkF/c+UFRRCZjz1VRPIbwIWFg5FoFi6kHUCBCyXDuyv4Bz85CZY2D+uWF1eDx2HLWMOWc35m2Cfs/LbZBBvfhVThBTaUbrO6yUNzmThUJhLiig8JvPOkPURy3swM0GxkgpZYzGPs2DT/5B0LAp3c2VJrZhf+hjy7LNyCykHTRyVkioRm2fKtQ+CTAmsKmTKIHZ6mNvc7N8WiJjc44UD3UD+BwqOUftzovl+AAAAAElFTkSuQmCC"/>
+<link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABcElEQVR42pVSwU4UQRSset3jjLPL4CwHEiMHTxiIxOjBg3/nwSv/xJ0DxmC4KYqGBd1ZjJkRurs8zLjsJiaEd+lOd1XlpaqYbW4T9xi7FxqAAQDuZBHkMkF3K2vA+EGBZK8hiYQkyYwAJUm3ir6HhxDi9Q2MAJEizGUPsq69RkpwlheFUtKCkELYmNQv93Z/zJq26zYm9Ww2/3L27enOVp7nzXz+8fjEF4WRGggpVePRm9evqmo8Ksu1tfGn069v3+3v7T4ry4fzq18xpu/nF23XGekBmHPTy5+HRx/OLy4/n55tPXkcYyxG5fvjkzLP1x9VL57vTKcHgECyD07Qze+2mtR1vd62HQjvfAjBzLruT9M0PsvMGQRmm9sASBjNOefMBAGIMZF0ZiHGEEPvvAAPCaSEpBRT7A3kUjTs9QACBDwG/6E+TxuwXMB7bUIANSS91I9/ylo5QIG6rcbw99+G9I/iSvlWdtCw3splMX8BGy2iXjGl7kgAAAAASUVORK5CYII="/>
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png"/>
+
+<!-- ═══ Google Search Console Verification ═══ -->
+<!-- Replace content value with your GSC verification code after connecting -->
+<meta name="google-site-verification" content="2eb5f1f9b4260ae5"/>
+
+<!-- ═══ Schema: WebSite (enables Google Sitelinks Search) ═══ -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"SMK Web Design","alternateName":"Stopher Malik Web Design","url":"https://www.stopher-malik.co.za","description":"Web designer in Johannesburg helping South African businesses get more clients with high-converting websites.","inLanguage":"en-ZA","publisher":{"@type":"Person","name":"Stopher Malik"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.stopher-malik.co.za/?s={search_term_string}"},"query-input":"required name=search_term_string"}}
+</script>
+
+<!-- ═══ Schema: Person ═══ -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Stopher Malik","url":"https://www.stopher-malik.co.za","image":"https://www.stopher-malik.co.za/assets/stopher-portrait.png","jobTitle":"Web Designer & Full-Stack Developer","description":"Stopher Malik is a professional web designer and developer based in Johannesburg, South Africa. Founder of SMK Web Design, he builds high-converting websites for South African businesses.","address":{"@type":"PostalAddress","addressLocality":"Sandton","addressRegion":"Gauteng","addressCountry":"ZA"},"telephone":"+27729998863","email":"info@stopher-malik.co.za","worksFor":{"@type":"Organization","name":"SMK Web Design","url":"https://www.stopher-malik.co.za"},"knowsAbout":["Web Design","Website Development","SEO","UI/UX Design","React","Next.js","Johannesburg Business Websites","South Africa Digital Marketing"],"sameAs":["https://www.facebook.com/stophermalik","https://x.com/stopher_malik","https://www.linkedin.com/in/stophermalik/","https://www.instagram.com/stophermalik"]}</script>
+
+<!-- ═══ Schema: LocalBusiness ═══ -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://www.stopher-malik.co.za/#business","name":"SMK Web Design","alternateName":"Stopher Malik Web Design","url":"https://www.stopher-malik.co.za","logo":"https://www.stopher-malik.co.za/assets/logo.png","image":"https://www.stopher-malik.co.za/assets/stopher-portrait.png","telephone":"+27729998863","email":"info@stopher-malik.co.za","description":"SMK Web Design is a professional web design studio in Johannesburg, South Africa. We build high-converting, performance-optimised websites that help South African businesses attract more clients and grow online.","address":{"@type":"PostalAddress","streetAddress":"6 Wroxham Rd Paulshof","addressLocality":"Sandton","addressRegion":"Gauteng","postalCode":"2191","addressCountry":"ZA"},"geo":{"@type":"GeoCoordinates","latitude":"-26.0500","longitude":"28.0500"},"areaServed":[{"@type":"City","name":"Johannesburg"},{"@type":"City","name":"Sandton"},{"@type":"City","name":"Pretoria"},{"@type":"Country","name":"South Africa"}],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"14:00"}],"priceRange":"R1500–R9000+","currenciesAccepted":"ZAR","paymentAccepted":"EFT, SnapScan, Card","hasOfferCatalog":{"@type":"OfferCatalog","name":"Web Design Services Johannesburg","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Website Design Johannesburg","description":"Professional website design for South African businesses. Mobile-first, conversion-focused websites built to get you more clients."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Full-Stack Web Development","description":"React, Next.js and Node.js web applications built with clean, scalable architecture."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"SEO & Performance Optimisation","description":"Technical SEO and Core Web Vitals optimisation to help your business rank higher on Google in South Africa."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Branding & Logo Design","description":"Logo design, brand kits and visual identity for South African businesses."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"UI/UX Design","description":"User interface and experience design that converts visitors into paying customers."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Cloud Deployment","description":"Secure, fast website hosting on Cloudflare Pages, AWS and Vercel."}}]}}</script>
+
+<!-- ═══ Schema: BreadcrumbList (improves SERP appearance) ═══ -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.stopher-malik.co.za/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://www.stopher-malik.co.za/#services"},{"@type":"ListItem","position":3,"name":"Portfolio","item":"https://www.stopher-malik.co.za/#portfolio"},{"@type":"ListItem","position":4,"name":"Pricing","item":"https://www.stopher-malik.co.za/#packages"},{"@type":"ListItem","position":5,"name":"Contact","item":"https://www.stopher-malik.co.za/#contact"}]}
+</script>
+
+<!-- ═══ Schema: FAQPage (targets featured snippets) ═══ -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does a website cost in South Africa?","acceptedAnswer":{"@type":"Answer","text":"Website design in South Africa typically costs between R1,500 and R9,000+ depending on the project. SMK Web Design offers a Starter Package from R1,500–R3,000, a Business Growth package from R4,000–R8,000, and Premium Brand projects from R9,000+. All packages include mobile-responsive design and SEO setup."}},{"@type":"Question","name":"How long does it take to build a website in Johannesburg?","acceptedAnswer":{"@type":"Answer","text":"SMK Web Design delivers a first draft within 48 hours of project start. A full business website typically takes 7–14 days from deposit to launch, depending on the package and feedback turnaround."}},{"@type":"Question","name":"Do you build websites for small businesses in South Africa?","acceptedAnswer":{"@type":"Answer","text":"Yes. SMK Web Design specialises in websites for South African small businesses, particularly in Johannesburg, Sandton, and Gauteng. Every site is built to generate enquiries and convert visitors into paying clients."}},{"@type":"Question","name":"What is the best web designer in Johannesburg?","acceptedAnswer":{"@type":"Answer","text":"Stopher Malik at SMK Web Design is a professional web designer based in Johannesburg offering conversion-focused websites, SEO, branding and full-stack development for South African businesses. Contact us for a free quote."}},{"@type":"Question","name":"Does SMK Web Design offer SEO services?","acceptedAnswer":{"@type":"Answer","text":"Yes. SEO and performance optimisation is included in all website packages. Services include on-page SEO, technical SEO, Core Web Vitals optimisation, Google Business setup, and local SEO for Johannesburg and South Africa."}}]}
+</script>
+
+<!-- ═══ Stylesheets ═══ -->
+<link rel="stylesheet" href="css/styles.css"/>
+<link rel="stylesheet" href="css/cosmic-bg.css"/>
+</head>
+<body>
+
+<!-- Skip to content — accessibility + SEO -->
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- ═══════════════════════════════ COSMIC BACKGROUND ═══════════════════════════════ -->
+<!-- z-index: -2 — sits entirely behind all site content, starfield canvas, and noise overlay -->
+<div id="cosmic-bg" aria-hidden="true">
+  <!-- Deep space gradient + vignette -->
+  <div id="cosmic-gradient"></div>
+  <div id="cosmic-vignette"></div>
+  <!-- Nebula colour wisps -->
+  <div id="cosmic-nebula-1"></div>
+  <div id="cosmic-nebula-2"></div>
+  <!-- Star canvas — JS renders all stars individually with per-star flicker -->
+  <canvas id="cosmic-star-canvas"></canvas>
+  <!-- Moon -->
+  <div id="cosmic-moon"></div>
+  <!-- Planets — JS fades these in after page load -->
+  <div id="planet-1"></div>
+  <div id="planet-2"></div>
+  <div id="planet-3"></div>
+  <div id="planet-4"></div>
+</div>
+
+<!-- Noise overlay -->
+<div id="noise-overlay" aria-hidden="true"></div>
+
+<!-- Custom Cursor -->
+<!-- Custom cursor dot -->
+<div id="cursor" aria-hidden="true"></div>
+
+<!-- Starfield canvas -->
+<canvas id="starfield" aria-hidden="true"></canvas>
+
+<!-- ═══════════════════════════════ NAVIGATION ═══════════════════════════════ -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <a href="/" class="nav-logo" aria-label="SMK Web Design — Stopher Malik"><picture><source srcset="assets/logo.webp" type="image/webp"/><img src="assets/logo.png" alt="SMK Web Design logo" class="nav-logo-img" width="120" height="80" loading="eager" decoding="sync"/></picture></a>
+
+  <ul class="nav-links" role="list">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#packages">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+    Get a Quote
+  </button>
+
+  <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+<div class="nav-drawer" id="nav-drawer" role="dialog" aria-label="Navigation menu">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#process">Process</a>
+  <a href="#portfolio">Work</a>
+  <a href="#packages">Pricing</a>
+  <a href="#payment">Payment</a>
+  <a href="#contact">Contact</a>
+  <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
+</div>
+
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<main id="main-content">
+<header class="hero" id="home">
+  <div class="hero-eyebrow">
+    <span class="dot"></span>
+    SMK Web Design · South Africa
+  </div>
+
+  <h1 class="hero-name" aria-label="Stopher Malik">
+    <canvas id="name-sparks" aria-hidden="true"></canvas>
+    STOPHER MALIK
+  </h1>
+
+  <p class="hero-tagline">Website Design Johannesburg — Built to Win Clients</p>
+
+  <p class="hero-sub">
+    I'm Stopher Malik, a web designer based in Johannesburg. I help South African businesses
+    get more clients through high-performing, conversion-focused websites that rank on Google
+    and turn visitors into paying customers.
+  </p>
+
+  <div class="hero-actions">
+    <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      Get a Free Quote →
+    </button>
+    <button class="btn btn-outline" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+      View My Work
+    </button>
+  </div>
+
+  <div class="hero-trust">
+    <div class="trust-item"><span class="check">✓</span> Built for Performance</div>
+    <div class="trust-item"><span class="check">✓</span> Designed to Convert</div>
+    <div class="trust-item"><span class="check">✓</span> Trusted by Growing Businesses</div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════ MARQUEE ═══════════════════════════════ -->
+<div class="marquee-section" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">React <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Next.js <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Web Design <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Node.js <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Full-Stack Dev <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">SEO Optimization <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">UI/UX Design <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Cloud Deployment <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">TypeScript <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Branding <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">PostgreSQL <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Cloudflare <span class="marquee-sep">◆</span></span>
+    <!-- Duplicate for seamless loop -->
+    <span class="marquee-item">React <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Next.js <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Web Design <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Node.js <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Full-Stack Dev <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">SEO Optimization <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">UI/UX Design <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Cloud Deployment <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">TypeScript <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Branding <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">PostgreSQL <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Cloudflare <span class="marquee-sep">◆</span></span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ ABOUT ═══════════════════════════════ -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+
+      <div class="reveal">
+        <div class="about-media">
+          <!-- Personal brand portrait card with real photo -->
+          <div class="about-portrait-card">
+            <div class="portrait-frame">
+              <div class="portrait-avatar" aria-label="Stopher Malik — SMK Web Design">
+                <picture><source srcset="assets/stopher-portrait.webp" type="image/webp"/><img
+                  src="assets/stopher-portrait.png" fetchpriority="high"
+                  alt="Stopher Malik — founder of SMK Web Design, web developer based in Johannesburg"
+                  class="portrait-photo"
+                  width="180" height="180"
+                  loading="eager"
+                  decoding="async"
+                /></picture>
+                <div class="portrait-ring"></div>
+                <div class="portrait-glow"></div>
+              </div>
+              <div class="portrait-status">
+                <span class="status-dot"></span>
+                <span>Available for projects</span>
+              </div>
+            </div>
+            <div class="portrait-tags">
+              <span class="p-tag">⚡ Web Developer</span>
+              <span class="p-tag">🎯 Conversion Expert</span>
+              <span class="p-tag">📍 Johannesburg, ZA</span>
+            </div>
+          </div>
+          <div class="about-float-badge">
+            <div class="badge-num" data-count="6" data-suffix="+">6+</div>
+            <div class="badge-label">Projects<br/>Delivered</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <div class="label">About Me</div>
+        <h2 class="about-name">Stopher Malik</h2>
+        <div class="about-role">Web Designer &amp; Developer — Johannesburg, South Africa</div>
+
+        <p class="about-bio">I'm a web designer and developer based in Johannesburg, focused on helping South African businesses turn their websites into client-generating machines. I don't just build websites — I design <strong>systems that attract, engage, and convert</strong> visitors into paying customers.</p>
+        <p class="about-bio" style="margin-top:0.8rem">Every web design project I take on is built with performance, speed, and real business results in mind. My goal is simple: <em>help businesses across South Africa grow online with websites that actually make money — not just look good.</em></p>
+
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="stat-n" data-count="6" data-suffix="+">6+</div>
+            <div class="stat-l">Projects</div>
+          </div>
+          <div class="about-stat">
+            <div class="stat-n" data-count="100" data-suffix="%">100%</div>
+            <div class="stat-l">Satisfaction</div>
+          </div>
+          <div class="about-stat">
+            <div class="stat-n" data-count="48" data-suffix="h">48h</div>
+            <div class="stat-l">First Draft</div>
+          </div>
+        </div>
+
+        <div class="pills">
+          <span class="pill">React</span><span class="pill">Next.js</span><span class="pill">Node.js</span>
+          <span class="pill">TypeScript</span><span class="pill">PostgreSQL</span><span class="pill">MongoDB</span>
+          <span class="pill">AWS</span><span class="pill">Cloudflare</span><span class="pill">SEO</span>
+          <span class="pill">UI/UX</span><span class="pill">Branding</span>
+        </div>
+
+        <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          Work With Me →
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ SERVICES ═══════════════════════════════ -->
+<section class="section" id="services" style="background:var(--ink2)">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 0">
+      <div class="label" style="justify-content:center">What I Offer</div>
+      <h2 class="display-heading"><span class="accent">SERVICES</span> BUILT<br/><span class="outline">FOR RESULTS</span></h2>
+      <p class="section-intro" style="margin:0 auto">Professional web design services for South African businesses — built around one goal: getting you more clients online.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="svc-card reveal reveal-delay-1">
+        <div class="svc-icon">🎨</div>
+        <div class="svc-num">01_</div>
+        <h3 class="svc-title">Website Design</h3>
+        <p class="svc-desc">Professional website design for Johannesburg businesses — fast, mobile-first, and built to turn visitors into paying customers.</p>
+        <button class="svc-expand-btn" aria-expanded="false">
+          <span class="expand-label">Details</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="svc-panel">
+          <div class="svc-panel-inner">
+            <ul>
+              <li>Landing pages designed to convert</li>
+              <li>Multi-page business websites</li>
+              <li>Mobile-first responsive layouts</li>
+              <li>Brand-consistent UI systems</li>
+              <li>Performance-optimised delivery</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-card reveal reveal-delay-2">
+        <div class="svc-icon">⚡</div>
+        <div class="svc-num">02_</div>
+        <h3 class="svc-title">Full-Stack Development</h3>
+        <p class="svc-desc">React, Next.js and Node.js applications built with clean architecture, ready for scale from day one.</p>
+        <button class="svc-expand-btn" aria-expanded="false">
+          <span class="expand-label">Details</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="svc-panel">
+          <div class="svc-panel-inner">
+            <ul>
+              <li>React / Next.js frontends</li>
+              <li>Node.js / Express APIs</li>
+              <li>Database design (PostgreSQL, MongoDB)</li>
+              <li>Authentication &amp; user management</li>
+              <li>Third-party integrations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-card reveal reveal-delay-3">
+        <div class="svc-icon">📈</div>
+        <div class="svc-num">03_</div>
+        <h3 class="svc-title">SEO &amp; Performance</h3>
+        <p class="svc-desc">Technical SEO and speed optimisation that moves your website up Google in South Africa and keeps your visitors engaged.</p>
+        <button class="svc-expand-btn" aria-expanded="false">
+          <span class="expand-label">Details</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="svc-panel">
+          <div class="svc-panel-inner">
+            <ul>
+              <li>Core Web Vitals optimisation</li>
+              <li>On-page &amp; technical SEO</li>
+              <li>Google Business setup</li>
+              <li>Image &amp; asset optimisation</li>
+              <li>Analytics &amp; tracking setup</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-card reveal reveal-delay-4">
+        <div class="svc-icon">☁️</div>
+        <div class="svc-num">04_</div>
+        <h3 class="svc-title">Cloud Deployment</h3>
+        <p class="svc-desc">Secure, lightning-fast hosting on Cloudflare, AWS or Vercel with CI/CD pipelines and zero downtime.</p>
+        <button class="svc-expand-btn" aria-expanded="false">
+          <span class="expand-label">Details</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="svc-panel">
+          <div class="svc-panel-inner">
+            <ul>
+              <li>Cloudflare Pages / Workers</li>
+              <li>AWS EC2 / S3 / Lambda</li>
+              <li>Vercel / Netlify deployment</li>
+              <li>SSL certificates &amp; security</li>
+              <li>Domain configuration</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-card reveal reveal-delay-5">
+        <div class="svc-icon">🖥️</div>
+        <div class="svc-num">05_</div>
+        <h3 class="svc-title">UI/UX Design</h3>
+        <p class="svc-desc">Intuitive, beautiful interfaces that guide visitors through your funnel and towards a decision — every pixel deliberate.</p>
+        <button class="svc-expand-btn" aria-expanded="false">
+          <span class="expand-label">Details</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="svc-panel">
+          <div class="svc-panel-inner">
+            <ul>
+              <li>Wireframes &amp; prototypes</li>
+              <li>Conversion-focused layout design</li>
+              <li>Design systems &amp; style guides</li>
+              <li>Interactive micro-animations</li>
+              <li>Accessibility compliance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-card reveal reveal-delay-6">
+        <div class="svc-icon">✦</div>
+        <div class="svc-num">06_</div>
+        <h3 class="svc-title">Branding &amp; Identity</h3>
+        <p class="svc-desc">Logos, brand kits and visual identity that make your business impossible to forget in a crowded market.</p>
+        <button class="svc-expand-btn" aria-expanded="false">
+          <span class="expand-label">Details</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="svc-panel">
+          <div class="svc-panel-inner">
+            <ul>
+              <li>Logo design (primary + variants)</li>
+              <li>Color palette &amp; typography system</li>
+              <li>Business card design</li>
+              <li>Social media branding kit</li>
+              <li>Brand guidelines document</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ HOW I WORK ═══════════════════════════════ -->
+<section class="section process-section" id="process">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 0">
+      <div class="label" style="justify-content:center">My Process</div>
+      <h2 class="display-heading">HOW I <span class="accent">WORK</span></h2>
+      <p class="section-intro" style="margin:0 auto">A clear, proven process from first call to launch — no confusion, no surprises.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-num">01</div>
+        <div class="process-content">
+          <h3 class="process-title">Discovery Call</h3>
+          <p class="process-desc">We talk about your business, your goals, and what success looks like. Free, no commitment, no sales pitch.</p>
+        </div>
+      </div>
+      <div class="process-connector" aria-hidden="true"></div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-num">02</div>
+        <div class="process-content">
+          <h3 class="process-title">Strategy &amp; Design</h3>
+          <p class="process-desc">I map out a conversion-focused layout and design system tailored to your audience and business objectives.</p>
+        </div>
+      </div>
+      <div class="process-connector" aria-hidden="true"></div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-num">03</div>
+        <div class="process-content">
+          <h3 class="process-title">Build &amp; Optimise</h3>
+          <p class="process-desc">Fast, clean code. Mobile-first. SEO-ready. Performance-tested. You get a first draft within 48 hours.</p>
+        </div>
+      </div>
+      <div class="process-connector" aria-hidden="true"></div>
+      <div class="process-step reveal reveal-delay-4">
+        <div class="process-num">04</div>
+        <div class="process-content">
+          <h3 class="process-title">Launch &amp; Grow</h3>
+          <p class="process-desc">We go live, you start getting enquiries. I'm available post-launch to make sure everything performs as expected.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ PORTFOLIO ═══════════════════════════════ -->
+<section class="section portfolio-section" id="portfolio">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 0">
+      <div class="label" style="justify-content:center">Portfolio</div>
+      <h2 class="display-heading">FEATURED<br/><span class="accent">PROJECTS</span></h2>
+      <p class="section-intro" style="margin:0 auto">Real websites built for real businesses across South Africa and beyond — each designed to generate enquiries and rank on Google.</p>
+    </div>
+
+    <div class="proj-grid">
+
+      <a class="proj-card reveal reveal-delay-1" href="https://salemhi.co.za" target="_blank" rel="noopener noreferrer">
+        <div class="proj-thumb">
+          <picture><source srcset="assets/salem.webp" type="image/webp"/><img src="assets/salem.jpg" alt="Salem Home Innovation — Property renovation and management website, Johannesburg" loading="lazy" width="800" height="352" decoding="async"/></picture>
+          <div class="proj-thumb-overlay"></div>
+          <span class="proj-tag">Home Services</span>
+          <div class="proj-hover-overlay"><span>View Site →</span></div>
+        </div>
+        <div class="proj-body">
+          <h3 class="proj-title">Salem Home Innovation</h3>
+          <p class="proj-desc">A full business website that started generating enquiries from day one. Built for local SEO and client conversion in the Johannesburg home services market.</p>
+          <div class="proj-meta">
+            <div class="proj-stack"><span>HTML/CSS</span><span>JS</span><span>SEO</span></div>
+            <div class="proj-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 10-10M7 7h10v10"/></svg>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a class="proj-card reveal reveal-delay-2" href="https://101onfraser.pages.dev/" target="_blank" rel="noopener noreferrer">
+        <div class="proj-thumb">
+          <picture><source srcset="assets/fraser.webp" type="image/webp"/><img src="assets/fraser.jpg" alt="101 On Fraser — Restaurant booking and menu website, Johannesburg" loading="lazy" width="800" height="352" decoding="async"/></picture>
+          <div class="proj-thumb-overlay"></div>
+          <span class="proj-tag">Restaurant</span>
+          <div class="proj-hover-overlay"><span>View Site →</span></div>
+        </div>
+        <div class="proj-body">
+          <h3 class="proj-title">101 On Fraser</h3>
+          <p class="proj-desc">A booking-first restaurant website that made table reservations seamless. Elegant design that reflects the dining experience and drives direct bookings.</p>
+          <div class="proj-meta">
+            <div class="proj-stack"><span>React</span><span>CSS</span><span>Cloudflare</span></div>
+            <div class="proj-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 10-10M7 7h10v10"/></svg></div>
+          </div>
+        </div>
+      </a>
+
+      <a class="proj-card reveal reveal-delay-3" href="https://penzura.pages.dev/" target="_blank" rel="noopener noreferrer">
+        <div class="proj-thumb">
+          <picture><source srcset="assets/penzura.webp" type="image/webp"/><img src="assets/penzura.jpg" alt="Penzura — Cleaning products and hygiene supply web application, South Africa" loading="lazy" width="800" height="352" decoding="async"/></picture>
+          <div class="proj-thumb-overlay"></div>
+          <span class="proj-tag">Web App</span>
+          <div class="proj-hover-overlay"><span>View Site →</span></div>
+        </div>
+        <div class="proj-body">
+          <h3 class="proj-title">Penzura</h3>
+          <p class="proj-desc">A premium web application for South Africa's cleaning &amp; hygiene supply sector. Product showcase and lead capture built to convert trade buyers.</p>
+          <div class="proj-meta">
+            <div class="proj-stack"><span>React</span><span>Node.js</span><span>UX</span></div>
+            <div class="proj-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 10-10M7 7h10v10"/></svg></div>
+          </div>
+        </div>
+      </a>
+
+      <a class="proj-card reveal reveal-delay-4" href="https://junior-5qm.pages.dev/" target="_blank" rel="noopener noreferrer">
+        <div class="proj-thumb">
+          <picture><source srcset="assets/jk.webp" type="image/webp"/><img src="assets/jk.jpg" alt="JK Electricity — Lead generation website for electrical contractor, Johannesburg" loading="lazy" width="800" height="352" decoding="async"/></picture>
+          <div class="proj-thumb-overlay"></div>
+          <span class="proj-tag">Electrical Services</span>
+          <div class="proj-hover-overlay"><span>View Site →</span></div>
+        </div>
+        <div class="proj-body">
+          <h3 class="proj-title">JK Electric</h3>
+          <p class="proj-desc">A local lead-generation site that turns Google searches into phone calls. Ranked for Johannesburg electrical services and converts visitors into booked jobs.</p>
+          <div class="proj-meta">
+            <div class="proj-stack"><span>HTML/CSS</span><span>SEO</span><span>Local</span></div>
+            <div class="proj-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 10-10M7 7h10v10"/></svg></div>
+          </div>
+        </div>
+      </a>
+
+      <a class="proj-card reveal reveal-delay-5" href="https://uzapardc.pages.dev/" target="_blank" rel="noopener noreferrer">
+        <div class="proj-thumb">
+          <picture><source srcset="assets/uzapa.webp" type="image/webp"/><img src="assets/uzapa.jpg" alt="UZAPA Construction — Professional construction company website, DRC" loading="lazy" width="800" height="352" decoding="async"/></picture>
+          <div class="proj-thumb-overlay"></div>
+          <span class="proj-tag">Construction</span>
+          <div class="proj-hover-overlay"><span>View Site →</span></div>
+        </div>
+        <div class="proj-body">
+          <h3 class="proj-title">UZAPA Construction</h3>
+          <p class="proj-desc">A credibility-building website for a DRC-based construction firm. Showcases completed projects and services in French, establishing trust with enterprise clients.</p>
+          <div class="proj-meta">
+            <div class="proj-stack"><span>React</span><span>Branding</span><span>SEO</span></div>
+            <div class="proj-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 10-10M7 7h10v10"/></svg></div>
+          </div>
+        </div>
+      </a>
+
+      <a class="proj-card reveal reveal-delay-6" href="https://marchelteben-ezer.com" target="_blank" rel="noopener noreferrer">
+        <div class="proj-thumb">
+          <picture><source srcset="assets/marche.webp" type="image/webp"/><img src="assets/marche.jpg" alt="Marché LT Eben-Ezer — African grocery e-commerce website, Montreal" loading="lazy" width="800" height="352" decoding="async"/></picture>
+          <div class="proj-thumb-overlay"></div>
+          <span class="proj-tag">E-Commerce</span>
+          <div class="proj-hover-overlay"><span>View Site →</span></div>
+        </div>
+        <div class="proj-body">
+          <h3 class="proj-title">Marché LT Eben-Ezer</h3>
+          <p class="proj-desc">E-commerce website for an Afro-Caribbean grocery store in Montréal. Bilingual (FR/EN) product catalogue connecting the African diaspora community with familiar foods.</p>
+          <div class="proj-meta">
+            <div class="proj-stack"><span>HTML/CSS</span><span>JS</span><span>E-Commerce</span></div>
+            <div class="proj-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 10-10M7 7h10v10"/></svg></div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ TESTIMONIALS ═══════════════════════════════ -->
+<section class="section" id="testimonials">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 0">
+      <div class="label" style="justify-content:center">Social Proof</div>
+      <h2 class="display-heading">WHAT <span class="accent">CLIENTS</span> SAY</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Stopher delivered our website in record time and it looked absolutely amazing. We've been getting enquiries ever since we launched. Would highly recommend to any business owner."</p>
+        <div class="testi-author">Salem Home Innovation</div>
+        <div class="testi-role">Home Services, Johannesburg</div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Professional, fast, and understood exactly what we needed. Our restaurant site has made bookings so much easier. Very pleased with the result and the whole experience."</p>
+        <div class="testi-author">101 On Fraser</div>
+        <div class="testi-role">Restaurant, Johannesburg</div>
+      </div>
+      <div class="testi-card reveal reveal-delay-3">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Stopher is a talented designer who truly cares about the end result. He kept us informed throughout the project and delivered beyond our expectations. Excellent work."</p>
+        <div class="testi-author">JK Electric</div>
+        <div class="testi-role">Electrical Services, Gauteng</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ STARTUP ═══════════════════════════════ -->
+<section class="section" id="startup" style="background:var(--ink2)">
+  <div class="section-inner">
+    <div class="startup-grid">
+      <div class="reveal">
+        <div class="label">For New Businesses</div>
+        <h2 class="display-heading">STARTUP<br/><span class="accent">SERVICES</span></h2>
+        <p class="section-intro">Everything a new business needs to launch with confidence — from logo to live website, all under one roof.</p>
+        <button class="btn btn-primary" style="margin-top:2rem" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          Launch Your Business →
+        </button>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="startup-items">
+          <div class="startup-item">
+            <div class="si-icon">🎯</div>
+            <div class="si-title">Logo Design</div>
+            <p class="si-desc">Modern, clean logos tailored to your brand and target market.</p>
+          </div>
+          <div class="startup-item">
+            <div class="si-icon">📝</div>
+            <div class="si-title">Business Profile</div>
+            <p class="si-desc">Compelling descriptions for Google, social media, and listings.</p>
+          </div>
+          <div class="startup-item">
+            <div class="si-icon">🪪</div>
+            <div class="si-title">Business Cards</div>
+            <p class="si-desc">Professional card designs that leave a lasting impression.</p>
+          </div>
+          <div class="startup-item">
+            <div class="si-icon">🌐</div>
+            <div class="si-title">Website Launch</div>
+            <p class="si-desc">Fast, responsive, SEO-ready site to establish your presence.</p>
+          </div>
+          <div class="startup-item">
+            <div class="si-icon">📍</div>
+            <div class="si-title">Google Business</div>
+            <p class="si-desc">Full Google Business setup so local customers can find you.</p>
+          </div>
+          <div class="startup-item">
+            <div class="si-icon">📱</div>
+            <div class="si-title">Social Branding</div>
+            <p class="si-desc">Branded social media assets for a cohesive online presence.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ PRICING ═══════════════════════════════ -->
+<section class="section pricing-section" id="packages">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 0">
+      <div class="label" style="justify-content:center">Pricing</div>
+      <h2 class="display-heading">SIMPLE,<br/><span class="outline">TRANSPARENT</span><br/><span class="accent">PACKAGES</span></h2>
+      <p class="section-intro" style="margin:0 auto">Straightforward pricing built for South African businesses. No hidden fees, no surprises.</p>
+    </div>
+
+    <div class="price-grid">
+
+      <div class="price-card reveal reveal-delay-1">
+        <div class="price-tier">Starter</div>
+        <div class="price-name">Starter Package</div>
+        <div class="price-amount"><span class="currency">R</span>1,500<span style="font-size:1.2rem">–3,000</span></div>
+        <div class="price-range-note">One-time payment · starts immediately</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li><span class="feature-icon">✓</span>Logo Design (primary + 2 variants)</li>
+          <li><span class="feature-icon">✓</span>Business Profile Copywriting</li>
+          <li><span class="feature-icon">✓</span>Business Card Design</li>
+          <li><span class="feature-icon">✓</span>Google Business Setup</li>
+          <li><span class="feature-icon">✓</span>Social Media Guidance</li>
+        </ul>
+        <div class="price-note"><span class="hl">Best for:</span> New businesses getting started online</div>
+        <button class="btn btn-outline btn-full" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started →</button>
+      </div>
+
+      <div class="price-card featured reveal reveal-delay-2">
+        <div class="price-badge">Most Popular</div>
+        <div class="price-glow"></div>
+        <div class="price-tier">Growth</div>
+        <div class="price-name">Business Growth</div>
+        <div class="price-amount"><span class="currency">R</span>4,000<span style="font-size:1.2rem">–8,000</span></div>
+        <div class="price-range-note">One-time payment · delivery in 7–14 days</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li><span class="feature-icon">✓</span>Professional Logo + Brand Kit</li>
+          <li><span class="feature-icon">✓</span>1–3 Page Website</li>
+          <li><span class="feature-icon">✓</span>Mobile-Responsive Design</li>
+          <li><span class="feature-icon">✓</span>Basic SEO Setup</li>
+          <li><span class="feature-icon">✓</span>Contact Form Integration</li>
+          <li><span class="feature-icon">✓</span>Google Business Setup</li>
+          <li><span class="feature-icon">✓</span>Business Card Design</li>
+        </ul>
+        <div class="price-note"><span class="hl">Best for:</span> Businesses ready to grow and attract clients online</div>
+        <button class="btn btn-primary btn-full" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Start Growing →</button>
+      </div>
+
+      <div class="price-card reveal reveal-delay-3">
+        <div class="price-tier">Premium</div>
+        <div class="price-name">Premium Brand</div>
+        <div class="price-amount"><span class="currency">R</span>9,000<span style="font-size:1.2rem">+</span></div>
+        <div class="price-range-note">Project-based · custom timeline</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li><span class="feature-icon">✓</span>Premium Logo + Full Brand Kit</li>
+          <li><span class="feature-icon">✓</span>Full Website (5+ pages)</li>
+          <li><span class="feature-icon">✓</span>Advanced SEO Optimisation</li>
+          <li><span class="feature-icon">✓</span>Analytics &amp; Tracking Setup</li>
+          <li><span class="feature-icon">✓</span>Social Media Branding Kit</li>
+          <li><span class="feature-icon">✓</span>Google Business + Local SEO</li>
+          <li><span class="feature-icon">✓</span>Ongoing Support (60 days)</li>
+        </ul>
+        <div class="price-note"><span class="hl">Best for:</span> Established businesses wanting a dominant digital presence</div>
+        <button class="btn btn-outline btn-full" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Go Premium →</button>
+      </div>
+
+    </div>
+    <p class="reveal" style="text-align:center;font-family:var(--font-mono);font-size:0.65rem;color:var(--white-mute);margin-top:2.5rem;letter-spacing:0.08em">
+      Not sure which package is right for you? <a href="#contact" style="color:var(--cyan)">Let's chat and find the perfect fit →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CTA BANNER ═══════════════════════════════ -->
+<div class="cta-banner">
+  <div class="grid-lines"></div>
+  <div class="cta-inner">
+    <div class="label reveal" style="justify-content:center;margin-bottom:1.5rem">Ready to grow?</div>
+    <h2 class="cta-heading reveal">
+      <span class="solid">LET'S </span><span class="out">BUILD</span><br/>
+      <span class="solid">SOMETHING </span><span class="out">GREAT</span>
+    </h2>
+    <div class="cta-actions reveal">
+      <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Free Quote →</button>
+      <button class="btn btn-outline" onclick="window.open('https://wa.me/27729998863','_blank')">WhatsApp Me</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ PAYMENT ═══════════════════════════════ -->
+<section class="section payment-section" id="payment">
+  <div class="section-inner">
+    <div class="reveal" style="max-width:600px">
+      <div class="label">Payment Options</div>
+      <h2 class="display-heading">SECURE<br/><span class="accent">PAYMENTS</span></h2>
+      <p class="section-intro">Flexible options to make getting started as easy as possible. Every payment is secure and a receipt is sent automatically.</p>
+    </div>
+
+    <div class="pay-grid">
+
+      <div class="pay-card reveal reveal-delay-1">
+        <div class="pay-icon-wrap">🏦</div>
+        <div class="pay-title">Bank Transfer (EFT)</div>
+        <p class="pay-desc">Direct EFT to my business account. Work begins within 24 hours of payment reflecting.</p>
+        <div class="pay-table">
+          <div class="pay-row"><span class="pay-key">Bank</span><span class="pay-val">GoTyme Bank</span></div>
+          <div class="pay-row"><span class="pay-key">Name</span><span class="pay-val">SMK Web Design</span></div>
+          <div class="pay-row"><span class="pay-key">Account</span><span class="pay-val">5300 2514 056</span></div>
+          <div class="pay-row"><span class="pay-key">Branch</span><span class="pay-val">678910</span></div>
+          <div class="pay-row"><span class="pay-key">PayShap</span><span class="pay-val">0825100050@tymebank</span></div>
+          <div class="pay-row"><span class="pay-key">Reference</span><span class="pay-val">Your Name + Service</span></div>
+        </div>
+        <p class="pay-note">Send proof of payment to <strong style="color:var(--white-dim)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cba2a5ada48bb8bfa4bba3aeb9e6a6aaa7a2a0e5a8a4e5b1aa">[email&#160;protected]</a></strong> or WhatsApp.</p>
+      </div>
+
+      <div class="pay-card featured-pay reveal reveal-delay-2">
+        <div class="pay-badge-top">Instant</div>
+        <div class="pay-icon-wrap">⚡</div>
+        <div class="pay-title">PayFast / Card</div>
+        <p class="pay-desc">Pay instantly by credit/debit card or PayFast. Secure, no sign-up required. Confirmation sent automatically.</p>
+        <button class="btn btn-primary btn-full" style="margin:1.2rem 0" onclick="window.open('https://www.payfast.co.za','_blank')">Pay with Card / PayFast →</button>
+        <p class="pay-note">Receipt emailed instantly after payment.</p>
+      </div>
+
+      <div class="pay-card reveal reveal-delay-3">
+        <div class="pay-icon-wrap">📱</div>
+        <div class="pay-title">SnapScan</div>
+        <p class="pay-desc">Scan with SnapScan or your mobile banking app. Instant confirmation, no cash handling.</p>
+        <div style="display:flex;justify-content:center;padding:1.2rem;background:rgba(255,255,255,0.03);border:var(--b1);border-radius:var(--radius-sm);margin:1rem 0">
+          <picture><source srcset="assets/snapscan-qr.webp" type="image/webp"/><img src="assets/snapscan-qr.png" alt="SnapScan QR Code — scan to pay Stopher Malik" width="120" height="120" loading="lazy" decoding="async"/></picture>
+        </div>
+        <p class="pay-note">Open SnapScan → tap "Scan" → pay securely.</p>
+      </div>
+
+      <div class="pay-card reveal reveal-delay-4">
+        <div class="pay-icon-wrap"><svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797H9.614c-.428 0-.79.307-.858.722l-1.68 10.884Z"/><path d="M20.09 6.434c-.025.156-.05.314-.077.475-1.091 5.527-4.355 7.442-8.612 7.442H7.36c-.494 0-.906.36-.983.843L4.02 22.252a.563.563 0 0 0 .555.649h3.765c.396 0 .734-.287.797-.679l.88-5.597c.065-.398.402-.685.797-.685h.502c2.727 0 5.165-.88 6.976-2.597 1.502-1.426 2.463-3.29 2.829-5.459Z"/></svg></div>
+        <div class="pay-title">PayPal</div>
+        <p class="pay-desc">Pay using your PayPal account or credit/debit card via PayPal. Fast, secure, and globally accepted.</p>
+        <div class="pay-table">
+          <div class="pay-row"><span class="pay-key">PayPal Email</span><span class="pay-val">info@stopher-malik.co.za</span></div>
+        </div>
+        <button class="btn btn-primary btn-full" style="margin:1.2rem 0" onclick="window.open('https://www.paypal.com/send?email=info@stopher-malik.co.za','_blank')">Pay with PayPal →</button>
+        <p class="pay-note">Receipt emailed instantly after payment.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CONTACT ═══════════════════════════════ -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+
+      <div class="reveal">
+        <div class="label">Get in Touch</div>
+        <h2 class="display-heading">LET'S<br/><span class="accent">TALK</span></h2>
+        <p class="section-intro">Ready to grow your business online? Let's build a website that ranks on Google, attracts clients, and delivers real results for your South African business.</p>
+
+        <div class="contact-audit" style="margin-top:2rem">
+          <span class="audit-icon">🎯</span>
+          <span class="audit-text">Free Website Audit — I'll review your current site and show you exactly what needs to be improved. No strings attached.</span>
+        </div>
+
+        <ul class="contact-list">
+          <li>
+            <span class="c-key">Email</span>
+            <span class="c-val"><a href="/cdn-cgi/l/email-protection#84edeae2ebc4f7f0ebf4ece1f6a9e9e5e8edefaae7ebaafee5"><span class="__cf_email__" data-cfemail="771e19111837040318071f12055a1a161b1e1c591418590d16">[email&#160;protected]</span></a></span>
+          </li>
+          <li>
+            <span class="c-key">Phone</span>
+            <span class="c-val"><a href="tel:+27729998863">+27 72 999 8863</a></span>
+          </li>
+          <li>
+            <span class="c-key">WhatsApp</span>
+            <span class="c-val"><a href="https://wa.me/27825100050" target="_blank" rel="noopener">+27 82 510 0050</a></span>
+          </li>
+          <li>
+            <span class="c-key">Location</span>
+            <span class="c-val">Paulshof, Sandton, Johannesburg</span>
+          </li>
+        </ul>
+
+        <button id="wa-cta" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Me
+        </button>
+
+        <div class="socials">
+          <a class="social-link" href="https://www.facebook.com/profile.php?id=61584357221305" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z"/></svg>
+          </a>
+          <a class="social-link" href="https://www.instagram.com/stophermalik/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a class="social-link" href="https://www.linkedin.com/in/stophermalik/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a class="social-link" href="https://x.com/stopher_malik" target="_blank" rel="noopener" aria-label="X">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a class="social-link" href="https://www.tiktok.com/@stopher_malik" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+          <a class="social-link" href="https://www.youtube.com/channel/UCh92kSW3JN6gLHXo1kenLWQ" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <div class="contact-form-wrap">
+          <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+            <input type="hidden" name="access_key" value="23d51a8d-11fc-48a5-bae3-02ca670202c3"/>
+            <input type="hidden" name="subject" value="New enquiry from SMK Web Design — stopher-malik.co.za"/>
+            <input type="hidden" name="from_name" value="SMK Web Design Website"/>
+            <input type="hidden" name="redirect" value="false"/>
+            <!-- Honeypot: bots fill this, humans don't see it -->
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" aria-hidden="true"/>
+            <!-- Extra honeypot text field — positioned off-screen -->
+            <input type="text" name="website_url" style="position:absolute;left:-9999px;top:-9999px;opacity:0;height:0;width:0;" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+
+            <div class="form-row">
+              <div class="f-group">
+                <label class="f-label" for="f-name">Name *</label>
+                <input class="f-input" id="f-name" name="name" type="text" placeholder="John Smith" required autocomplete="name"/>
+              </div>
+              <div class="f-group">
+                <label class="f-label" for="f-email">Email *</label>
+                <input class="f-input" id="f-email" name="email" type="email" placeholder="john@example.com" required autocomplete="email"/>
+              </div>
+            </div>
+
+            <div class="f-group">
+              <label class="f-label" for="f-phone">Phone (optional)</label>
+              <input class="f-input" id="f-phone" name="phone" type="tel" placeholder="+27 __ ___ ____" autocomplete="tel"/>
+            </div>
+
+            <div class="f-group">
+              <label class="f-label" for="f-service">Service</label>
+              <select class="f-select" id="f-service" name="service">
+                <option value="">Select a service…</option>
+                <option>Website Design</option>
+                <option>Full-Stack Development</option>
+                <option>E-Commerce Store</option>
+                <option>SEO &amp; Performance</option>
+                <option>Branding &amp; Logo</option>
+                <option>Startup Package</option>
+                <option>Other / Not Sure</option>
+              </select>
+            </div>
+
+            <div class="f-group">
+              <label class="f-label" for="f-msg">Message *</label>
+              <textarea class="f-textarea" id="f-msg" name="message" placeholder="Tell me about your project — what do you need and when?" required></textarea>
+            </div>
+
+            <button class="form-submit" id="form-btn" type="submit">
+              <span class="spinner" aria-hidden="true"></span>
+              <span class="btn-label">Send Message</span>
+            </button>
+
+            <div id="form-status" class="form-status-msg" role="alert" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+</main>
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-top">
+
+      <div>
+        <div class="footer-brand-name"><picture><source srcset="assets/logo.webp" type="image/webp"/><img src="assets/logo.png" alt="SMK Web Design" class="footer-logo-img" width="120" height="80" loading="lazy" decoding="async"/></picture></div>
+        <p class="footer-tagline">Web designer based in Johannesburg, South Africa. SMK Web Design builds websites that help South African businesses rank on Google and get more clients.</p>
+        <div class="socials" style="margin-top:1.5rem">
+          <a class="social-link" href="https://www.facebook.com/profile.php?id=61584357221305" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg fill="currentColor" viewBox="0 0 24 24" width="14" height="14"><path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z"/></svg>
+          </a>
+          <a class="social-link" href="https://www.instagram.com/stophermalik/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg fill="currentColor" viewBox="0 0 24 24" width="14" height="14"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a class="social-link" href="https://www.linkedin.com/in/stophermalik/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg fill="currentColor" viewBox="0 0 24 24" width="14" height="14"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a class="social-link" href="https://x.com/stopher_malik" target="_blank" rel="noopener" aria-label="X">
+            <svg fill="currentColor" viewBox="0 0 24 24" width="14" height="14"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a class="social-link" href="https://www.tiktok.com/@stopher_malik" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg fill="currentColor" viewBox="0 0 24 24" width="14" height="14"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-nav">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#startup">Startup</a></li>
+          <li><a href="#packages">Pricing</a></li>
+          <li><a href="#payment">Payment</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-nav">
+          <li><a href="#services">Website Design</a></li>
+          <li><a href="#services">Full-Stack Dev</a></li>
+          <li><a href="#services">SEO &amp; Performance</a></li>
+          <li><a href="#services">Cloud Deployment</a></li>
+          <li><a href="#services">UI/UX Design</a></li>
+          <li><a href="#services">Branding</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-items">
+          <a href="/cdn-cgi/l/email-protection#670e09010827141308170f02154a0a060b0e0c490408491d06"><span class="ico">📧</span><span class="__cf_email__" data-cfemail="0d64636b624d7e79627d65687f20606c616466236e6223776c">[email&#160;protected]</span></a>
+          <a href="tel:+27729998863"><span class="ico">📞</span>+27 72 999 8863</a>
+          <a href="https://wa.me/27825100050" target="_blank" rel="noopener"><span class="ico">💬</span>WhatsApp Me</a>
+          <a href="#contact" style="color:var(--white-mute)"><span class="ico">📍</span>Paulshof, Sandton, Johannesburg</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 SMK Web Design — Stopher Malik. All rights reserved. Crafted with precision in Johannesburg, ZA.</p>
+      <p class="footer-copy" style="color:var(--white-mute)">Designed &amp; Built by <a href="https://www.stopher-malik.co.za" style="color:var(--cyan);text-decoration:none">Stopher Malik</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts — deferred for performance -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.js" defer></script>
+<script src="js/contact.js" defer></script>
+<script src="js/cosmic-bg.js" defer></script>
+<!-- ═══════════ FLOATING WHATSAPP BUTTON ═══════════ -->
+<a class="whatsapp-float"
+   href="https://wa.me/27729998863?text=Hi%20Stopher%2C%20I%27d%20like%20to%20discuss%20a%20project%20with%20you."
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Chat with Stopher Malik on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="28" height="28">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"098471135af5426cbb161ff9ba5c57f2","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
