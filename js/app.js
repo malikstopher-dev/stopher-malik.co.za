@@ -226,33 +226,55 @@
       const dotSpacing = isSmall ? 8 : 7;
       let rotY = 0;
       let running = true;
+      let lastDraw = 0;
+      const FRAME_MIN = 1000 / 30;   /* 30fps is visually identical for this slow rotation */
 
-      // Stop drawing when offscreen (battery save on mobile)
+      // Static base (glow + sphere fill + ring) pre-rendered ONCE — never
+      // rebuilt per frame. Only the rotating dots are drawn each tick.
+      const base = document.createElement('canvas');
+      base.width = W; base.height = H;
+      const bctx = base.getContext('2d');
+      (function paintBase() {
+        const glowOuter = bctx.createRadialGradient(cx, cy, R * 0.5, cx, cy, R * 1.3);
+        glowOuter.addColorStop(0, 'rgba(100, 60, 220, 0.12)');
+        glowOuter.addColorStop(0.4, 'rgba(80, 50, 200, 0.06)');
+        glowOuter.addColorStop(0.7, 'rgba(60, 40, 180, 0.03)');
+        glowOuter.addColorStop(1, 'transparent');
+        bctx.fillStyle = glowOuter;
+        bctx.fillRect(0, 0, W, H);
+
+        const sphereGrad = bctx.createRadialGradient(cx - R * 0.2, cy - R * 0.2, 0, cx, cy, R);
+        sphereGrad.addColorStop(0, 'rgba(60, 40, 140, 0.08)');
+        sphereGrad.addColorStop(1, 'rgba(20, 10, 60, 0.02)');
+        bctx.beginPath();
+        bctx.arc(cx, cy, R, 0, Math.PI * 2);
+        bctx.fillStyle = sphereGrad;
+        bctx.fill();
+
+        bctx.beginPath();
+        bctx.arc(cx, cy, R, 0, Math.PI * 2);
+        bctx.strokeStyle = 'rgba(120, 90, 255, 0.15)';
+        bctx.lineWidth = 1.5 * scale;
+        bctx.stroke();
+      })();
+
+      // Stop drawing when offscreen (battery save)
       const io = new IntersectionObserver(([entry]) => {
         running = entry.isIntersecting;
         if (running) drawGlobe();
       }, { threshold: 0 });
       io.observe(canvas);
 
-      function drawGlobe() {
+      function drawGlobe(now) {
         if (!running) return;
+        if (now && now - lastDraw < FRAME_MIN) {
+          requestAnimationFrame(drawGlobe);
+          return;
+        }
+        lastDraw = now || 0;
+
         ctx.clearRect(0, 0, W, H);
-
-        const glowOuter = ctx.createRadialGradient(cx, cy, R * 0.5, cx, cy, R * 1.3);
-        glowOuter.addColorStop(0, 'rgba(100, 60, 220, 0.12)');
-        glowOuter.addColorStop(0.4, 'rgba(80, 50, 200, 0.06)');
-        glowOuter.addColorStop(0.7, 'rgba(60, 40, 180, 0.03)');
-        glowOuter.addColorStop(1, 'transparent');
-        ctx.fillStyle = glowOuter;
-        ctx.fillRect(0, 0, W, H);
-
-        const sphereGrad = ctx.createRadialGradient(cx - R * 0.2, cy - R * 0.2, 0, cx, cy, R);
-        sphereGrad.addColorStop(0, 'rgba(60, 40, 140, 0.08)');
-        sphereGrad.addColorStop(1, 'rgba(20, 10, 60, 0.02)');
-        ctx.beginPath();
-        ctx.arc(cx, cy, R, 0, Math.PI * 2);
-        ctx.fillStyle = sphereGrad;
-        ctx.fill();
+        ctx.drawImage(base, 0, 0);
 
         for (let lat = -85; lat <= 85; lat += dotSpacing) {
           const latRad = lat * Math.PI / 180;
@@ -278,17 +300,11 @@
           }
         }
 
-        ctx.beginPath();
-        ctx.arc(cx, cy, R, 0, Math.PI * 2);
-        ctx.strokeStyle = 'rgba(120, 90, 255, 0.15)';
-        ctx.lineWidth = 1.5 * scale;
-        ctx.stroke();
-
         rotY += 0.004;
         requestAnimationFrame(drawGlobe);
       }
 
-      drawGlobe();
+      requestAnimationFrame(drawGlobe);
     }
   }
 

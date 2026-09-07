@@ -136,6 +136,7 @@
 }
 
 .hero__globe-canvas {
+  will-change: transform;
   width: 260px;
   height: 260px;
   opacity: 0.9;
