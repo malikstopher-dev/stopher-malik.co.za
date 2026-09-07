@@ -126,7 +126,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 26%;
+  object-position: 50% 22%;
   transition: opacity 0.6s ease;
 }
 
@@ -279,7 +279,7 @@
 
 /* Static / reduced-motion hero */
 #cinematic-hero.is-static #ch-track { height: 100vh; }
-#cinematic-hero.is-static #ch-stage { position: relative; height: auto; min-height: 100vh; }
+#cinematic-hero.is-static #ch-stage { position: relative; height: auto; min-height: 100svh; }
 #cinematic-hero.is-static .ch-copy { opacity: 1; --cp: 1; position: relative; padding-top: 46vh; }
 #cinematic-hero.is-static .ch-wordmark,
 #cinematic-hero.is-static .ch-tagline,
@@ -407,20 +407,33 @@
 /* -- Mobile hero tuning ---------------------------------------------------------- */
 @media (max-width: 768px) {
   #ch-track { height: 300vh; }
-  .ch-copy { padding-bottom: 96px; }
+
+  /* Text-over-face fix: dark scrim anchoring the copy block so the face
+     reads cleanly above it and the CTAs never fight the portrait. */
+  .ch-copy {
+    padding-bottom: 96px;
+    background: linear-gradient(180deg,
+      transparent 0%,
+      rgba(4, 5, 9, 0.18) 38%,
+      rgba(4, 5, 9, 0.55) 62%,
+      rgba(4, 5, 9, 0.82) 84%,
+      rgba(4, 5, 9, 0.94) 100%);
+  }
   .ch-desc { max-width: 100%; }
+  .ch-wordmark { font-size: clamp(2.6rem, 12vw, 3.4rem); }
+
+  /* Keep CTA touch targets comfortable */
+  .ch-ctas .btn { padding: 13px 22px; }
 }
 
 /* No-JS safety: without JS no stage is ever set — show everything, no pin */
-#cinematic-hero:not([data-stage]) #ch-track { height: 100vh; }
 #cinematic-hero:not([data-stage]) #ch-stage { position: relative; }
 #cinematic-hero:not([data-stage]) .ch-copy { opacity: 1; --cp: 1; transform: none; }
 #cinematic-hero:not([data-stage]) .ch-wm-in { transform: translateY(0); }
 #cinematic-hero:not([data-stage]) .ch-eyebrow,
 #cinematic-hero:not([data-stage]) .ch-wordmark { opacity: 1; }
 #cinematic-hero:not([data-stage]) .ch-scrollhint { display: none; }
-#cinematic-hero:not([data-stage]) #ch-canvas { display: none; }
-#cinematic-hero:not([data-stage]) #ch-particles { display: none; }
+/* Canvas paints nothing until JS draws frames; poster covers it meanwhile. */
 
 @media (prefers-reduced-motion: reduce) {
   #ch-track { height: auto; }

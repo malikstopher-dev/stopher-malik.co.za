@@ -26,7 +26,9 @@
     this.dirDesktop = o.dirDesktop || null;       // e.g. 'assets/hero-frames/desktop'
     this.dirMobile = o.dirMobile || null;          // e.g. 'assets/hero-frames/mobile'
     this.mobileMedia = o.mobileMedia || '(max-width: 768px)';
-    this.count = o.count || 0;
+    this.countDesktop = o.countDesktop || o.count || 0;
+    this.countMobile = o.countMobile || o.countDesktop;   // per-breakpoint frame counts
+    this.dprCap = o.dprCap || 2;                   // mobile passes 1.5 to cut GPU cost
     this.concurrency = Math.max(1, o.concurrency || 3);
     this.windowBack = o.windowBack != null ? o.windowBack : 2;
     this.windowFwd = o.windowFwd != null ? o.windowFwd : 10;
@@ -34,12 +36,13 @@
     this.onFirstFrame = o.onFirstFrame || null;
     this.onDisabled = o.onDisabled || null;
 
-    this.enabled = !!this.canvas && !!this.dirDesktop && !!this.dirMobile && this.count > 0 && !REDUCED;
+    this._lastDir = null;
+    this.enabled = !!this.canvas && !!this.dirDesktop && !!this.dirMobile && this.countDesktop > 0 && !REDUCED;
     this.ctx = null;
     this.dpr = 1;
     this.cw = 0;
     this.ch = 0;
-    this.cache = new Map();      // index -> HTMLImageElement (compressed, decode-on-draw)
+    this.cache = new Map();      // index -> HTMLImageElement
     this.pending = new Set();
     this.queue = [];
     this.active = 0;
@@ -75,15 +78,22 @@
     this._io = null;
   }
 
+  /* Active frame count for the current breakpoint. */
+  FrameSequence.prototype.count = function () {
+    var m = global.matchMedia(this.mobileMedia);
+    return (m && m.matches && this.countMobile) ? this.countMobile : this.countDesktop;
+  };
+
   FrameSequence.prototype.begin = function () {
     if (!this.enabled || this.destroyed) return;
 
     this._measure();
 
     // Initial burst: first frames cover the opening of the sequence.
-    for (var i = 0; i < this.initialBurst && i < this.count; i++) this._request(i);
+    var n = this.count();
+    for (var i = 0; i < this.initialBurst && i < n; i++) this._request(i);
 
-    this.lastQueued = Math.min(this.initialBurst, this.count) - 1;
+    this.lastQueued = Math.min(this.initialBurst, n) - 1;
 
     // Offscreen pause
     if ('IntersectionObserver' in global) {
@@ -107,7 +117,8 @@
 
   FrameSequence.prototype.setProgress = function (p) {
     if (!this.enabled || this.destroyed) return;
-    var t = Math.round(Math.min(1, Math.max(0, p)) * (this.count - 1));
+    var n = this.count();
+    var t = Math.round(Math.min(1, Math.max(0, p)) * (n - 1));
     if (t !== this.target) {
       this.direction = t > this.target ? 1 : -1;
       this.target = t;
@@ -130,7 +141,7 @@
 
   FrameSequence.prototype._measure = function () {
     var rect = this.canvas.getBoundingClientRect();
-    this.dpr = Math.min(global.devicePixelRatio || 1, 2);
+    this.dpr = Math.min(global.devicePixelRatio || 1, this.dprCap);
     this.cw = Math.max(1, Math.round(rect.width * this.dpr));
     this.ch = Math.max(1, Math.round(rect.height * this.dpr));
     if (this.canvas.width !== this.cw) this.canvas.width = this.cw;
@@ -158,7 +169,7 @@
   };
 
   FrameSequence.prototype._request = function (i) {
-    if (this.destroyed || i < 0 || i >= this.count) return;
+    if (this.destroyed || i < 0 || i >= this.count()) return;
     if (this.cache.has(i) || this.pending.has(i)) return;
     this.pending.add(i);
     this.queue.push(i);
@@ -178,7 +189,6 @@
     this.active++;
 
     img.onload = function () {
-      self.cache.set(i, img);
       self.pending.delete(i);
       self.active--;
       self.dirty = true;
@@ -198,28 +208,39 @@
 
     img.decoding = 'async';
     img.src = this._src(i);
+
+    // Decode off the draw path: the frame enters the cache only once the
+    // browser has decoded it, so drawImage() is a cheap blit — no scroll hitch.
+    if (img.decode) {
+      img.decode().then(function () { self.cache.set(i, img); })
+        .catch(function () { self.cache.set(i, img); }); // fallback: mark available anyway
+    } else {
+      this.cache.set(i, img);
+    }
   };
 
   FrameSequence.prototype._nearestLoaded = function (t) {
     if (this.cache.has(t)) return t;
-    for (var d = 1; d < this.count; d++) {
+    var n = this.count();
+    for (var d = 1; d < n; d++) {
       if (t - d >= 0 && this.cache.has(t - d)) return t - d;
-      if (t + d < this.count && this.cache.has(t + d)) return t + d;
+      if (t + d < n && this.cache.has(t + d)) return t + d;
     }
     return -1;
   };
 
   FrameSequence.prototype._queueWindow = function (t) {
+    var n = this.count() - 1;
     var b = t - this.windowBack, f = t + this.windowFwd;
     if (this.direction < 0) { b = t - this.windowFwd; f = t + this.windowBack; }
-    for (var i = Math.max(0, b); i <= Math.min(this.count - 1, f); i++) this._request(i);
+    for (var i = Math.max(0, b); i <= Math.min(n, f); i++) this._request(i);
   };
 
   FrameSequence.prototype._backgroundFill = function () {
     if (this.queue.length || this.active > 0) return;
-    var d = this._dir();
-    for (var i = 0; i < this.count; i++) {
-      var idx = (this.lastQueued + 1 + i) % this.count;
+    var n = this.count();
+    for (var i = 0; i < n; i++) {
+      var idx = (this.lastQueued + 1 + i) % n;
       if (!this.cache.has(idx) && !this.pending.has(idx)) {
         this.lastQueued = idx;
         this._request(idx);
@@ -234,12 +255,25 @@
     var s = Math.max(this.cw / iw, this.ch / ih);      // cover
     var dw = iw * s, dh = ih * s;
     this.ctx.imageSmoothingEnabled = true;
-    this.ctx.drawImage(img, (this.cw - dw) / 2, (this.ch - dh) / 2, dw, dh);
+    // Vertical bias: portraits are top-anchored (face + headpiece always
+    // in frame); on wide canvases the crop trims the empty lower body.
+    var dx = (this.cw - dw) / 2;
+    var dy = dh > this.ch ? Math.max(0, (this.ch - dh) * 0.28) : (this.ch - dh) / 2;
+    this.ctx.drawImage(img, dx, dy, dw, dh);
   };
 
   FrameSequence.prototype._tick = function () {
     this.raf = 0;
     if (this.destroyed || !this.enabled) return;
+
+    // Self-heal sizing: the canvas may have been display:none (pre-JS safety
+    // or hidden tab) when begin() measured it. Re-measure whenever the CSS
+    // rect disagrees with the stored bitmap size before any draw.
+    var rect = this.canvas.getBoundingClientRect();
+    if (rect.width > 0 && (Math.abs(rect.width * this.dpr - this.cw) > 1 || Math.abs(rect.height * this.dpr - this.ch) > 1)) {
+      this._measure();
+      this.dirty = true;
+    }
 
     if (this.dirty) {
       this.dirty = false;

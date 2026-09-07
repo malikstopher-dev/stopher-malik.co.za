@@ -11,9 +11,53 @@
 
 .nav.is-scrolled {
   padding: var(--space-sm) 0;
-  background: rgba(9, 9, 11, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(9, 9, 11, 0.72);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+}
+
+/* ── MOBILE NAV — no wrapping, aligned avatar, transparent over hero ── */
+@media (max-width: 768px) {
+  .nav { padding: 10px 0; }
+  .nav.is-scrolled {
+    background: rgba(9, 9, 11, 0.62);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .nav__inner { gap: var(--space-md); }
+
+  .nav__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+  .nav__avatar--portrait { border-width: 1.5px; }
+
+  .nav__profile {
+    align-items: center;
+    min-width: 0;
+  }
+  .nav__identity {
+    min-width: 0;
+    gap: 2px;
+    line-height: 1.15;
+  }
+  .nav__name {
+    font-size: var(--body-sm);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .nav__role {
+    font-size: var(--label-xs);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* The badge wraps worst on phones — hide it; "Available for work"
+     also lives on the About page and in the mobile menu. */
+  .nav .badge { display: none; }
 }
 
 .nav__inner {

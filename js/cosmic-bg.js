@@ -20,14 +20,31 @@
   const planet4 = document.getElementById('planet-4');
   if (!canvas) return;
 
+  /* ── Mobile/performance tier: fewer stars, zero glow gradients ──
+     The hero frame-sequence canvas is the priority on small screens;
+     the starfield must not compete for the compositor. */
+  const IS_MOBILE_TIER = window.matchMedia('(max-width: 768px)').matches
+    || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
   const ctx = canvas.getContext('2d');
   let W = 0, H = 0;
 
   /* ══════════════════════════════════════════════════════════════
      STAR CONFIGURATION — 3 depth layers
   ══════════════════════════════════════════════════════════════ */
-  const STAR_CONFIG = [
-    { count: 160, rMin: 0.4, rMax: 0.9,  opMin: 0.35, opMax: 0.72,
+  const STAR_CONFIG = IS_MOBILE_TIER
+    ? [ /* mobile tier: ~90 flat stars, no per-star gradients */
+      { count: 60, rMin: 0.4, rMax: 0.9,  opMin: 0.35, opMax: 0.72,
+        flickerSpeed: [0.003, 0.009], scrollFactor: 0.02,
+        glowChance: 0.0, glowScale: 0,
+        colors: ['200,220,255', '220,240,255', '255,255,255'] },
+      { count: 30, rMin: 0.9, rMax: 1.6,  opMin: 0.45, opMax: 0.88,
+        flickerSpeed: [0.005, 0.013], scrollFactor: 0.05,
+        glowChance: 0.0, glowScale: 0,
+        colors: ['220,235,255', '255,255,255'] },
+    ]
+    : [
+      { count: 160, rMin: 0.4, rMax: 0.9,  opMin: 0.35, opMax: 0.72,
       flickerSpeed: [0.003, 0.009], scrollFactor: 0.02,
       glowChance: 0.06, glowScale: 2.5,
       colors: ['200,220,255', '210,230,255', '220,240,255', '255,255,255'] },
@@ -35,11 +52,11 @@
       flickerSpeed: [0.005, 0.013], scrollFactor: 0.05,
       glowChance: 0.18, glowScale: 3.5,
       colors: ['220,235,255', '200,220,255', '240,248,255', '255,255,255'] },
-    { count: 40,  rMin: 1.6, rMax: 2.6,  opMin: 0.60, opMax: 0.95,
-      flickerSpeed: [0.006, 0.018], scrollFactor: 0.10,
-      glowChance: 0.55, glowScale: 5.0,
-      colors: ['255,255,255', '230,240,255', '210,230,255'] },
-  ];
+      { count: 40,  rMin: 1.6, rMax: 2.6,  opMin: 0.60, opMax: 0.95,
+        flickerSpeed: [0.006, 0.018], scrollFactor: 0.10,
+        glowChance: 0.55, glowScale: 5.0,
+        colors: ['255,255,255', '230,240,255', '210,230,255'] },
+    ];
 
   /* ── Seeded PRNG for stable star positions across resizes ── */
   function seededRand(seed) {
@@ -227,8 +244,26 @@
      MAIN RENDER LOOP
   ══════════════════════════════════════════════════════════════ */
   let t = 0;
+  let heroOverlaying = false;   /* true while the cinematic hero fills the viewport */
+
+  /* On mobile the hero frame-sequence canvas covers the starfield entirely —
+     pause star rendering while it is on screen to free the compositor. */
+  if (IS_MOBILE_TIER) {
+    const heroEl = document.getElementById('cinematic-hero');
+    if (heroEl && 'IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        heroOverlaying = entries[0].isIntersecting;
+      }, { threshold: 0 }).observe(heroEl);
+    } else {
+      heroOverlaying = false;
+    }
+  }
 
   function render(ts) {
+    if (heroOverlaying) {
+      requestAnimationFrame(render);
+      return;
+    }
     t += 0.016;
     ctx.clearRect(0, 0, W, H);
 

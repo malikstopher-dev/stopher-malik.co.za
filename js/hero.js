@@ -64,7 +64,7 @@
     if (!track) return 0;
     var rect = track.getBoundingClientRect();
     var total = rect.height - window.innerHeight;
-    if (total <= 0) return 1;
+    if (total <= 0) return 0;   // not yet scrollable — stay on the dark opening
     return Math.min(1, Math.max(0, -rect.top / total));
   }
 
@@ -244,9 +244,12 @@
       dirDesktop: 'assets/hero-frames/desktop',
       dirMobile: 'assets/hero-frames/mobile',
       mobileMedia: '(max-width: 768px)',
-      count: 192,
-      concurrency: 3,
-      initialBurst: 12
+      countDesktop: 192,
+      countMobile: 96,
+      dprCap: isMobile ? 1.5 : 2,
+      concurrency: isMobile ? 2 : 3,
+      windowFwd: isMobile ? 6 : 10,
+      initialBurst: isMobile ? 8 : 12
     });
 
     if (!seq.enabled) { goStatic(''); return; }
