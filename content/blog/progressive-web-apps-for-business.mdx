@@ -1,0 +1,43 @@
+---
+title: "Progressive Web Apps for Business - App-Like Web Experiences"
+description: "When and why to build a PWA for your South African business."
+date: "2027-01-10"
+category: "Web Design"
+readTime: "6 min read"
+---
+
+PWAs bridge web and native app. Installable, offline-capable, push notifications — no app store required.
+
+## When PWA Makes Sense
+
+Repeat engagement (daily/weekly users). Offline needs (field workers, commuters). Push notifications critical. App store friction too high. Budget < native development.
+
+## Core PWA Requirements
+
+HTTPS. Web App Manifest (name, icons, theme_color, start_url, display: standalone). Service Worker (cache strategy, offline fallback, background sync). Install prompt UX.
+
+## Caching Strategies
+
+Cache-first: static assets (CSS, JS, fonts, images). Network-first: API calls, dynamic content. Stale-while-revalidate: HTML pages. Background sync: form submissions, analytics.
+
+## Push Notifications
+
+VAPID keys. Permission UX (soft ask after engagement). Segmentation. Frequency capping. Deep linking to relevant page. SA POPIA consent required.
+
+## Offline UX
+
+Custom offline page with cached content access. Queue form submissions. Show sync status. "You're offline — changes will sync when connected."
+
+## Performance Impact
+
+Service Worker adds ~200ms first load. Subsequent loads instant. LCP improvement 30–50% on repeat visits.
+
+## When NOT to Build PWA
+
+Simple brochure site. One-time visitors. No repeat engagement. Budget/timeline tight. SEO-only strategy.
+
+## SA Context
+
+Data costs matter. Cache aggressively. Background sync on WiFi. Install prompt after 2+ visits. Test on low-end Android (majority market).
+
+Our Premium Brand package includes PWA upgrade: manifest, service worker, push setup, offline UX — adds ~R3,000 to project.

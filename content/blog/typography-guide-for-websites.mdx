@@ -1,0 +1,43 @@
+---
+title: "Typography Guide for Websites - Fonts That Read Well"
+description: "Choosing and implementing web typography for readability and brand."
+date: "2027-02-25"
+category: "Web Design"
+readTime: "6 min read"
+---
+
+Typography is 90% of web design. Get it right and everything else falls into place.
+
+## Font Selection
+
+Display: personality, headlines, logos. Body: readability, long-form, UI. Pair: contrast (serif/sans, weight, width), harmony (x-height, proportions). Our stack: Bai Jamjuree (display) + Inter (body) — both variable, open-source, extensive Latin support.
+
+## Variable Fonts
+
+Single file, infinite weights (100–900), widths, slants. Inter Variable + Bai Jamjuree Variable = ~50KB total vs 200KB+ static. Use `@font-face` with `font-weight: 100 900`.
+
+## Type Scale
+
+Modular scale (1.250 major third): 16, 20, 25, 31, 39, 49, 61, 77, 96px. CSS clamp() for fluid scaling: `clamp(1rem, 2vw, 1.5rem)`. Consistent rhythm across breakpoints.
+
+## Line Length & Height
+
+45–75 chars/line (optimal). `max-width: 65ch`. Line height: 1.5–1.7 body, 1.1–1.3 headings. `line-height: 1.6` body, `1.2` display.
+
+## Hierarchy & Colour
+
+Weight over size for subtle hierarchy. Colour for semantic meaning (muted for secondary, accent for links/CTAs). Never grey body text on dark backgrounds — use `color-mix()` for accessible muted tones.
+
+## Loading Performance
+
+`font-display: swap`. Preload critical fonts. Subset (Latin only = ~60% size reduction). Self-host (privacy, speed, reliability). WOFF2 only.
+
+## Accessibility
+
+Relative units (rem/em). User zoom respected. High contrast mode tested. Dyslexia-friendly fonts available (OpenDyslexic fallback).
+
+## SA Context
+
+Multilingual: Latin Extended for Afrikaans, isiZulu, isiXhosa. Data costs: variable fonts + subsetting = faster on 3G.
+
+Our design system: Bai Jamjuree Variable (display) + Inter Variable (body), modular scale, fluid clamp(), self-hosted, preloaded.

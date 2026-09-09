@@ -1,0 +1,55 @@
+---
+title: "Website Speed Optimisation Techniques - Core Web Vitals"
+description: "Practical speed optimisation techniques for faster South African websites."
+date: "2027-04-20"
+category: "SEO"
+readTime: "7 min read"
+---
+
+Speed is a ranking factor, conversion factor, and trust factor. Here's the playbook for SA conditions.
+
+## LCP (Largest Contentful Paint) under 2.5s
+
+• **Critical CSS**: inline above-fold styles.
+• **Preload hero image**: `<link rel="preload" as="image">`.
+• **Optimise hero**: WebP/AVIF, correct dimensions, `fetchpriority="high"`.
+• **Server**: Cloudflare Pages (edge), TTFB under 600ms.
+• **Font**: `font-display: swap`, preload variable fonts, subset Latin.
+
+## INP (Interaction to Next Paint) under 200ms
+
+• **Main thread**: minimise JS. Code splitting (route-level). `defer` non-critical scripts. Web Workers for heavy calc. Debounce/throttle handlers. Avoid layout thrashing.
+
+## CLS (Cumulative Layout Shift) under 0.1
+
+• **Dimensions**: width/height on all images, iframes, ads.
+• **Font fallback**: `size-adjust`, `ascent-override`, `descent-override`, `line-gap-override`.
+• **Dynamic content**: reserve space (skeleton loaders).
+• **Animations**: `transform`/`opacity` only, no layout-triggering.
+
+## Image Optimisation
+
+• **Format**: WebP (all), AVIF (progressive).
+• **Responsive**: `srcset` + `sizes`, `picture` for art direction.
+• **Lazy load**: `loading="lazy"` below fold.
+• **CDN**: Cloudflare Images / Cloudinary auto-format.
+
+## Caching Strategy
+
+• **Static**: immutable, `Cache-Control: public, max-age=31536000, immutable`.
+• **HTML**: `stale-while-revalidate=86400`.
+• **API**: `stale-while-revalidate=60`.
+• **Service Worker**: cache-first static, network-first HTML, background sync forms.
+
+## SA-Specific
+
+• **Data costs**: aggressive compression, subset fonts, minimal JS.
+• **Load shedding**: PWA offline, service worker cache-first.
+• **Mobile networks**: 3G throttle testing mandatory.
+• **Edge**: Cloudflare Cape Town/Johannesburg PoPs.
+
+## Tools & Budgets
+
+Lighthouse CI (every PR). WebPageTest (3G Cape Town). Chrome DevTools Performance. Bundle analyzer (`@next/bundle-analyzer`). Budget: under 100KB CSS, under 200KB JS, under 500KB total, under 50 requests.
+
+Every site we build ships with: critical CSS, preload hero, WebP images, Cloudflare edge, service worker, Lighthouse CI gate.
