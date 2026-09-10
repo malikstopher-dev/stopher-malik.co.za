@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { baiJamjuree, inter } from "@/lib/fonts";
 import "./globals.css";
 import { CosmicBackground } from "@/components/layout/CosmicBackground";
+import { BackToTop } from "@/components/layout/BackToTop";
 
 export const metadata: Metadata = {
   title: "Web Designer Johannesburg | SMK Web Design | Stopher Malik",
@@ -56,6 +57,7 @@ export default function RootLayout({
       >
         <CosmicBackground />
         {children}
+        <BackToTop />
       </body>
     </html>
   );
