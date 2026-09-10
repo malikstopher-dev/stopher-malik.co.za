@@ -4,24 +4,57 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const destinations = [
-  { href: "/", label: "Home", path: "M3 10 12 3l9 7v11h-7v-7h-4v7H3Z" },
-  { href: "/about/", label: "About", path: "M20 21v-2a6 6 0 0 0-6-6h-4a6 6 0 0 0-6 6v2M16 6a4 4 0 1 1-8 0 4 4 0 0 1 8 0" },
-  { href: "/projects/", label: "Projects", path: "M3 7h18v14H3ZM8 7V3h8v4M3 12h18" },
-  { href: "/stack/", label: "Stack", path: "m2 7 10-5 10 5-10 5ZM2 12l10 5 10-5M2 17l10 5 10-5" },
-  { href: "/blog/", label: "Blog", path: "M4 19a2 2 0 0 1 2-2h14M6 2h14v20H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2ZM8 6h8M8 10h6" },
-  { href: "/contact/", label: "Contact", path: "m22 2-7 20-4-9-9-4ZM22 2 11 13" },
+  {
+    href: "/",
+    label: "Home",
+    icon: <><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></>,
+  },
+  {
+    href: "/about/",
+    label: "About",
+    icon: <><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></>,
+  },
+  {
+    href: "/projects/",
+    label: "Projects",
+    icon: <><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></>,
+  },
+  {
+    href: "/stack/",
+    label: "Stack",
+    icon: <><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></>,
+  },
+  {
+    href: "/blog/",
+    label: "Blog",
+    icon: <><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></>,
+  },
+  {
+    href: "/contact/",
+    label: "Contact",
+    icon: <><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></>,
+  },
 ];
 
 export function FloatingNav() {
   const pathname = usePathname();
+
   return (
-    <nav className="floating-nav" aria-label="Site navigation">
-      {destinations.map(({ href, label, path }) => {
+    <nav className="floating-nav" aria-label="Site navigation" data-reveal>
+      {destinations.map(({ href, label, icon }) => {
         const active = href === "/" ? pathname === "/" : pathname === href.slice(0, -1) || pathname.startsWith(href);
+
         return (
-          <Link href={href} key={href} className={`floating-nav__item${active ? " floating-nav__item--active" : ""}`} aria-label={label} aria-current={active ? "page" : undefined}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={path} /></svg>
-            <span className="floating-nav__label">{label}</span>
+          <Link
+            href={href}
+            key={href}
+            className={`floating-nav__item${active ? " floating-nav__item--active" : ""}`}
+            aria-label={label}
+            aria-current={active ? "page" : undefined}
+          >
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              {icon}
+            </svg>
           </Link>
         );
       })}
