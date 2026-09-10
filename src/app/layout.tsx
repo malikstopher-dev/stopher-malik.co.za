@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { baiJamjuree, inter } from "@/lib/fonts";
 import "./globals.css";
 import { CosmicBackground } from "@/components/layout/CosmicBackground";
-import { BackToTop } from "@/components/layout/BackToTop";
+import { SiteShell } from "@/components/layout/SiteShell";
 
 export const metadata: Metadata = {
   title: "Web Designer Johannesburg | SMK Web Design | Stopher Malik",
@@ -56,8 +56,7 @@ export default function RootLayout({
         className={`${baiJamjuree.variable} ${inter.variable} antialiased has-floating-nav`}
       >
         <CosmicBackground />
-        {children}
-        <BackToTop />
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );

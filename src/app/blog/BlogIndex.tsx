@@ -1,10 +1,10 @@
 "use client";
 
-import { Nav } from "@/components/layout/Nav";
-import { Footer } from "@/components/layout/Footer";
 import Link from "next/link";
 
 const posts = [
+  { slug: "what-is-seo-and-how-it-works", title: "What Is SEO and How It Works - Explained Simply", category: "SEO", date: "20 March 2026", excerpt: "SEO doesn't have to be confusing. Here's a simple explanation of how search engine optimisation works and why your business needs it.", readTime: "6 min read" },
+  { slug: "web-design-johannesburg", title: "Web Design Johannesburg - Professional Websites for Local Businesses", category: "SEO", date: "15 August 2026", excerpt: "Professional web design services in Johannesburg. Get a high-performance website that helps your local business grow.", readTime: "5 min read" },
   { slug: "affordable-web-design-south-africa", title: "Affordable Web Design South Africa - Quality Websites at Fair Prices", category: "SEO", date: "10 September 2026", excerpt: "Quality web design at fair prices is what we do. Here's what you get at each price point.", readTime: "5 min read" },
   { slug: "architect-website-design", title: "Architect Website Design - Portfolio Sites That Win Projects", category: "Web Design", date: "15 September 2026", excerpt: "How to build an architecture website that showcases your portfolio and converts visitors into clients.", readTime: "6 min read" },
   { slug: "brand-identity-website-design", title: "Brand Identity Website Design - Consistent Visual Language", category: "Branding", date: "20 September 2026", excerpt: "Why your website needs a cohesive brand identity system and how to implement it.", readTime: "5 min read" },
@@ -43,7 +43,6 @@ const posts = [
   { slug: "visual-hierarchy-in-web-design", title: "Visual Hierarchy in Web Design - Guide the Eye", category: "Web Design", date: "5 March 2027", excerpt: "How visual hierarchy directs user attention and improves conversions.", readTime: "6 min read" },
   { slug: "voice-search-seo-optimization", title: "Voice Search SEO Optimisation - Ready for the Future", category: "SEO", date: "10 March 2027", excerpt: "Optimising for voice search in the South African context.", readTime: "5 min read" },
   { slug: "web-design-cost-south-africa-2026", title: "Web Design Cost South Africa 2026 - Complete Price Breakdown", category: "Web Design", date: "15 March 2027", excerpt: "Detailed pricing for every type of website in the South African market.", readTime: "6 min read" },
-  { slug: "web-design-johannesburg", title: "Web Design Johannesburg - Professional Websites for Local Businesses", category: "SEO", date: "15 August 2026", excerpt: "Professional web design services in Johannesburg. Get a high-performance website that helps your local business grow.", readTime: "5 min read" },
   { slug: "web-design-south-africa", title: "Web Design South Africa - Nationwide Services", category: "Web Design", date: "20 March 2027", excerpt: "Remote web design services for businesses across South Africa.", readTime: "5 min read" },
   { slug: "website-accessibility-compliance-south-africa", title: "Website Accessibility Compliance South Africa - WCAG Guide", category: "Web Design", date: "25 March 2027", excerpt: "Making your website accessible to all users and compliant with regulations.", readTime: "6 min read" },
   { slug: "website-design-johannesburg", title: "Website Design Johannesburg - Custom Solutions for Local Business", category: "Web Design", date: "20 March 2027", excerpt: "Bespoke website design for Johannesburg businesses that want to stand out.", readTime: "5 min read" },
@@ -52,31 +51,37 @@ const posts = [
   { slug: "website-maintenance-importance", title: "Website Maintenance Importance - Keep Your Site Running", category: "Web Design", date: "10 April 2027", excerpt: "Why ongoing maintenance is critical for security and performance.", readTime: "5 min read" },
   { slug: "website-redesign-strategy", title: "Website Redesign Strategy - When and How to Refresh", category: "Web Design", date: "15 April 2027", excerpt: "Signs you need a redesign and how to execute it without losing SEO.", readTime: "7 min read" },
   { slug: "website-speed-optimization-techniques", title: "Website Speed Optimisation Techniques - Core Web Vitals", category: "SEO", date: "20 April 2027", excerpt: "Practical speed optimisation techniques for faster South African websites.", readTime: "7 min read" },
-  { slug: "what-is-seo-and-how-it-works", title: "What Is SEO and How It Works - Explained Simply", category: "SEO", date: "20 March 2026", excerpt: "SEO doesn't have to be confusing. Here's a simple explanation of how search engine optimisation works and why your business needs it.", readTime: "6 min read" },
   { slug: "why-seo-takes-time", title: "Why SEO Takes Time - The Reality of Organic Growth", category: "SEO", date: "25 April 2027", excerpt: "Understanding the timeline of SEO and why patience pays off.", readTime: "5 min read" },
   { slug: "why-your-business-needs-a-website", title: "Why Your Business Needs a Website - The Digital Imperative", category: "Web Design", date: "30 April 2027", excerpt: "The business case for having a professional website in 2027.", readTime: "5 min read" },
 ];
 
+const today = new Date();
+const publishedPosts = posts.filter((post) => {
+  const d = new Date(post.date);
+  return d <= today;
+});
+
 export function BlogIndex() {
   return (
-    <>
-      <Nav />
-      <main className="main-content">
-        <section className="about-hero">
-          <div className="container">
-            <div className="hero__card card" data-tilt data-magnetic data-holo>
-              <div style={{ display: "flex", alignItems: "center", gap: "var(--space-sm)", marginBottom: "var(--space-md)" }}>
-                <span className="badge"><span className="badge__dot" />Blog</span>
-              </div>
-              <h1 className="hero__title" data-reveal>Insights & Guides</h1>
-              <div className="hero__desc" style={{ fontSize: "var(--body-md)", color: "var(--white-muted)", marginBottom: 0 }}>
-                Practical guides on web design, SEO, e-commerce, and digital strategy for South African businesses.
-              </div>
+    <main className="main-content">
+      <section className="about-hero">
+        <div className="container">
+          <div className="hero__card card" data-tilt data-magnetic data-holo>
+            <div style={{ display: "flex", alignItems: "center", gap: "var(--space-sm)", marginBottom: "var(--space-md)" }}>
+              <span className="badge"><span className="badge__dot" />Blog</span>
             </div>
+            <h1 className="hero__title" data-reveal>Insights & Guides</h1>
+            <div className="hero__desc" style={{ fontSize: "var(--body-md)", color: "var(--white-muted)", marginBottom: 0 }}>
+              Practical guides on web design, SEO, e-commerce, and digital strategy for South African businesses.
+            </div>
+          </div>
 
-            <div className="section-card card" data-tilt data-morph data-holo>
+          <div className="section-card card" data-tilt data-morph data-holo>
+            {publishedPosts.length === 0 ? (
+              <p style={{ color: "var(--white-muted)", textAlign: "center", padding: "var(--space-2xl)" }}>No published articles yet. Check back soon.</p>
+            ) : (
               <div className="blog-listing" style={{ display: "flex", flexDirection: "column", gap: "var(--space-lg)" }}>
-                {posts.map((post) => (
+                {publishedPosts.map((post) => (
                   <Link
                     key={post.slug}
                     href={`/blog/${post.slug}/`}
@@ -99,11 +104,10 @@ export function BlogIndex() {
                   </Link>
                 ))}
               </div>
-            </div>
+            )}
           </div>
-        </section>
-      </main>
-      <Footer />
-    </>
+        </div>
+      </section>
+    </main>
   );
 }

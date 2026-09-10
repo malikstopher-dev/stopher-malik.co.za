@@ -143,13 +143,6 @@ export function Footer() {
             }}>
               Privacy Policy
             </Link>
-            <Link href="/terms/" className="footer__legal-link" style={{
-              fontSize: "0.8125rem",
-              color: "#52525b",
-              transition: "color 0.2s",
-            }}>
-              Terms of Service
-            </Link>
           </div>
         </div>
       </div>

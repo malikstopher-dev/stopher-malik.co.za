@@ -1,12 +1,9 @@
 "use client";
 
-import { Nav } from "@/components/layout/Nav";
-import { Footer } from "@/components/layout/Footer";
 
 export function PrivacyPage() {
   return (
     <>
-      <Nav />
       <main className="main-content">
         <section className="about-hero">
           <div className="container">
@@ -83,7 +80,6 @@ export function PrivacyPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }

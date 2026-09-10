@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Nav } from "@/components/layout/Nav";
-import { Footer } from "@/components/layout/Footer";
 import { ServiceSelect } from "./ServiceSelect";
 
 export function ContactPage() {
@@ -86,7 +84,6 @@ export function ContactPage() {
 
   return (
     <>
-      <Nav />
       <main className="main-content">
         <section className="contact-page">
           <div className="container">
@@ -223,7 +220,6 @@ export function ContactPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }

@@ -1,7 +1,5 @@
 "use client";
 
-import { Nav } from "@/components/layout/Nav";
-import { Footer } from "@/components/layout/Footer";
 import Link from "next/link";
 
 const features = [
@@ -22,8 +20,7 @@ const packages = [
 export function WebDesignPage() {
   return (
     <>
-      <Nav />
-      <main className="main-content">
+      <main className="main-content service-page">
         <section className="about-hero">
           <div className="container">
             <div className="hero__card card" data-tilt data-magnetic data-holo>
@@ -80,7 +77,6 @@ export function WebDesignPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }
