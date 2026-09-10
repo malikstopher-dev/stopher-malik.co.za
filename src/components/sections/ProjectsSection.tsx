@@ -2,6 +2,14 @@ import { ProjectCard } from "./ProjectCard";
 
 const projects = [
   {
+    title: "AKGLOBAL Trading",
+    description: "Bilingual industrial supply and procurement website connecting South African sourcing with businesses in the DRC.",
+    tags: ["Industrial Supply", "Bilingual"],
+    image: "/assets/ak-globaltrading.jpg",
+    href: "https://ak-globaltrading.com",
+    external: true,
+  },
+  {
     title: "Salem Home Innovation",
     description: "Home services website generating enquiries from day one. Built for local SEO and client conversion.",
     tags: ["Web Design", "SEO"],
@@ -39,14 +47,6 @@ const projects = [
     tags: ["Solar / CCTV", "Security"],
     image: "/assets/jk.jpg",
     href: "https://jkjsolatech.co.za/",
-    external: true,
-  },
-  {
-    title: "Cleanisa Solutions",
-    description: "Cleaning services website with service cards, trust-building layout, and contact conversion flow.",
-    tags: ["Cleaning", "Lead Gen"],
-    image: "/assets/cleaningsa.png",
-    href: "https://cleanisa-solutions.pages.dev/",
     external: true,
   },
 ];

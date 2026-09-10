@@ -6,6 +6,13 @@ import Link from "next/link";
 
 const projects = [
   {
+    title: "AKGLOBAL Trading",
+    description: "Bilingual industrial supply and procurement website connecting South African sourcing with businesses in the DRC.",
+    tags: ["Industrial Supply", "Bilingual"],
+    image: "/assets/ak-globaltrading.jpg",
+    href: "https://ak-globaltrading.com",
+  },
+  {
     title: "Salem Home Innovation",
     description: "A full business website that started generating enquiries from day one. Built for local SEO and client conversion in the Johannesburg home services market.",
     tags: ["Home Services", "SEO"],
@@ -171,7 +178,7 @@ export function ProjectsPage() {
             <div className="hero__card card" data-tilt data-magnetic data-holo>
               <h1 className="hero__title">My Projects</h1>
               <p className="hero__desc" style={{ marginBottom: 0 }}>
-                Welcome to my Project Page! I&apos;m Stopher, a web designer focused on crafting seamless, captivating digital experiences. With 22+ projects shipped across South Africa, the DRC, Mozambique, and Canada, each build is a blend of responsive design and intuitive UI. Let&apos;s create digital stories together.
+                Welcome to my Project Page! I&apos;m Stopher, a web designer focused on crafting seamless, captivating digital experiences. With 23+ projects shipped across South Africa, the DRC, Mozambique, and Canada, each build is a blend of responsive design and intuitive UI. Let&apos;s create digital stories together.
               </p>
             </div>
 
