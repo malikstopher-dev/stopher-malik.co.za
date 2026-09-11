@@ -42,18 +42,6 @@ function project(
   };
 }
 
-function wrapPi(x: number) {
-  return ((x + Math.PI) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - Math.PI;
-}
-
-function focusAngles(v: [number, number, number]) {
-  const phi = Math.atan2(-v[0], v[2]);
-  const sp = Math.sin(phi);
-  const cp = Math.cos(phi);
-  const a = sp * v[0] - cp * v[2];
-  return { phi, theta: Math.atan2(v[1], -a) };
-}
-
 const DEFAULT_MARKERS: GlobeMarkerGeo[] = [
   {
     id: "south-africa",
