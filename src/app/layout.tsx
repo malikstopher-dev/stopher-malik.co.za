@@ -5,11 +5,20 @@ import { CosmicBackground } from "@/components/layout/CosmicBackground";
 import { SiteShell } from "@/components/layout/SiteShell";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://stopher-malik.co.za"),
   title: "Web Designer Johannesburg | SMK Web Design | Stopher Malik",
   description: "Web designer in Johannesburg helping South African businesses get more clients. High-converting websites built for performance & real results. Free quote.",
   keywords: ["web designer Johannesburg", "web design South Africa", "business websites South Africa", "website design Johannesburg", "affordable web design Johannesburg", "small business website South Africa", "conversion focused web design", "SMK Web Design", "Stopher Malik", "web developer Johannesburg", "landing page design South Africa", "SEO Johannesburg", "Sandton web designer", "Gauteng web design"],
   authors: [{ name: "Stopher Malik — SMK Web Design" }],
   robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", type: "image/x-icon", sizes: "32x32" },
+      { url: "/assets/logo.png", type: "image/png", sizes: "240x240" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [{ url: "/assets/logo.png", type: "image/png", sizes: "240x240" }],
+  },
   openGraph: {
     type: "website",
     url: "https://www.stopher-malik.co.za/",

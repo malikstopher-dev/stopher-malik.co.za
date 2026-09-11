@@ -1,5 +1,7 @@
 "use client";
 
+import { AboutSequence } from "./AboutSequence";
+
 export function AboutPage() {
   return (
     <main className="main-content">
@@ -24,19 +26,7 @@ export function AboutPage() {
             </p>
           </section>
 
-          <div id="about-stage" className="about-stage" data-count="96">
-            <img
-              className="about-stage__poster"
-              src="/assets/about-frames/poster.webp"
-              alt="Stopher Malik in blue studio light — cinematic portrait sequence"
-              loading="lazy"
-              decoding="async"
-            />
-            <canvas className="about-stage__canvas" aria-hidden="true" />
-            <div className="about-stage__grain" aria-hidden="true" />
-            <div className="about-stage__vignette" aria-hidden="true" />
-            <p className="about-stage__caption">Crafted with intent — light, depth, and precision.</p>
-          </div>
+          <AboutSequence />
 
           <div className="internal-panel card" data-tilt>
             <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", gap: "var(--space-xl)", justifyContent: "flex-start" }}>

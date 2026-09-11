@@ -160,6 +160,77 @@
     @apply border-white/10 shadow-premium;
   }
 
+  .premium-surface {
+    --surface-x: 50%;
+    --surface-y: 50%;
+    --surface-rx: 0deg;
+    --surface-ry: 0deg;
+    --surface-lift: 0px;
+    position: relative;
+    isolation: isolate;
+    transform: perspective(1200px) translate3d(0, var(--surface-lift), 0) rotateX(var(--surface-rx)) rotateY(var(--surface-ry));
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition-property: transform, border-color, background-color, box-shadow;
+    transition-duration: 480ms;
+    transition-timing-function: var(--ease-out);
+  }
+
+  .premium-surface:not(.internal-page__hero):not(.contact-page__hero)::after {
+    position: absolute;
+    z-index: 4;
+    inset: -1px;
+    border: 1px solid rgba(94, 188, 255, 0);
+    border-radius: inherit;
+    background: radial-gradient(
+      420px circle at var(--surface-x) var(--surface-y),
+      rgba(81, 174, 255, 0.16),
+      rgba(77, 125, 255, 0.055) 34%,
+      transparent 68%
+    );
+    box-shadow: inset 0 0 32px rgba(90, 180, 255, 0.035);
+    opacity: 0;
+    pointer-events: none;
+    content: "";
+    transition: opacity 300ms var(--ease-out), border-color 300ms var(--ease-out);
+  }
+
+  .premium-surface[data-premium-active="true"] {
+    --surface-lift: -4px;
+    z-index: 2;
+    border-color: rgba(90, 178, 255, 0.34);
+    box-shadow:
+      0 24px 70px rgba(0, 0, 0, 0.48),
+      0 10px 30px rgba(24, 112, 214, 0.14),
+      0 0 0 1px rgba(118, 200, 255, 0.08);
+    transition-duration: 120ms;
+    will-change: transform;
+  }
+
+  .premium-surface[data-premium-active="true"]:not(.internal-page__hero):not(.contact-page__hero)::after,
+  .premium-surface:focus-within:not(.internal-page__hero):not(.contact-page__hero)::after {
+    border-color: rgba(111, 199, 255, 0.16);
+    opacity: 1;
+  }
+
+  .premium-surface:focus-within {
+    border-color: rgba(90, 178, 255, 0.32);
+    box-shadow: 0 18px 48px rgba(23, 101, 190, 0.13);
+  }
+
+  @media (hover: none), (pointer: coarse) {
+    .premium-surface:active {
+      scale: 0.99;
+      border-color: rgba(90, 178, 255, 0.3);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .premium-surface {
+      transform: none !important;
+    }
+  }
+
   .nav {
     position: relative;
     z-index: 100;
@@ -732,14 +803,169 @@ body { isolation: isolate; }
 }
 
 .internal-page .about-stage {
+  --sequence-progress: 0;
+  position: relative;
+  isolation: isolate;
   overflow: hidden;
+  aspect-ratio: 16 / 9;
   border: 1px solid rgba(55, 138, 221, 0.16);
   border-radius: 20px;
   background: rgba(12, 13, 17, 0.92);
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(91, 173, 255, 0.025);
+  transition: border-color 500ms var(--ease-out), box-shadow 500ms var(--ease-out);
+}
+
+.internal-page .about-stage:hover {
+  border-color: rgba(74, 161, 241, 0.34);
+  box-shadow:
+    0 34px 100px rgba(0, 0, 0, 0.52),
+    0 12px 52px rgba(24, 107, 205, 0.13),
+    0 0 0 1px rgba(107, 192, 255, 0.08);
+}
+
+.internal-page .about-stage__poster,
+.internal-page .about-stage__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .internal-page .about-stage__poster {
-  width: 100%;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 650ms var(--ease-out);
+}
+
+.internal-page .about-stage__poster.is-hidden {
+  opacity: 0;
+}
+
+.internal-page .about-stage__canvas {
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 650ms var(--ease-out);
+}
+
+.internal-page .about-stage.is-ready .about-stage__canvas {
+  opacity: 1;
+}
+
+.about-stage__grain,
+.about-stage__vignette {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+}
+
+.about-stage__grain {
+  background-image:
+    repeating-radial-gradient(circle at 30% 20%, transparent 0 1px, rgba(255, 255, 255, 0.08) 1px 2px),
+    repeating-radial-gradient(circle at 70% 80%, transparent 0 2px, rgba(55, 138, 221, 0.07) 2px 3px);
+  background-size: 5px 5px, 7px 7px;
+  opacity: 0.055;
+  mix-blend-mode: screen;
+}
+
+.about-stage__vignette {
+  background:
+    linear-gradient(180deg, rgba(4, 7, 14, 0.3), transparent 28%, transparent 64%, rgba(4, 7, 14, 0.78)),
+    radial-gradient(circle at center, transparent 48%, rgba(2, 5, 12, 0.5) 100%);
+}
+
+.about-stage__hud,
+.about-stage__caption {
+  position: absolute;
+  z-index: 3;
+  color: rgba(250, 250, 250, 0.78);
+  font-family: var(--font-display);
+  font-size: clamp(0.58rem, 1.2vw, 0.72rem);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.8);
+}
+
+.about-stage__hud {
+  top: clamp(14px, 2.5vw, 26px);
+  right: clamp(14px, 2.5vw, 26px);
+  left: clamp(14px, 2.5vw, 26px);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.about-stage__hud span:first-child::before {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 9px;
+  border-radius: 50%;
+  background: #59b7ff;
+  box-shadow: 0 0 14px rgba(89, 183, 255, 0.9);
+  vertical-align: 1px;
+  content: "";
+}
+
+.about-stage__caption {
+  right: clamp(14px, 2.5vw, 26px);
+  bottom: clamp(18px, 3vw, 30px);
+  left: clamp(14px, 2.5vw, 26px);
+  letter-spacing: 0.11em;
+  text-align: center;
+}
+
+.about-stage__progress {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.about-stage__progress span {
+  position: absolute;
+  inset: 0;
+  transform-origin: left;
+}
+
+.about-stage__progress span {
+  background: linear-gradient(90deg, #378add, #69c7ff 70%, #d7f0ff);
+  box-shadow: 0 0 18px rgba(77, 172, 255, 0.85);
+  transform: scaleX(var(--sequence-progress));
+}
+
+@media (max-width: 560px) {
+  .about-stage__caption {
+    text-align: left;
+  }
+
+  .about-stage__hud span:first-child {
+    font-size: 0;
+  }
+
+  .about-stage__hud span:first-child::before {
+    margin-right: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .internal-page .about-stage__canvas,
+  .about-stage__progress {
+    display: none;
+  }
+
+  .about-stage__caption {
+    display: none;
+  }
 }
 
 .internal-project-grid,
@@ -1374,11 +1600,11 @@ body { isolation: isolate; }
   @keyframes animate-in {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      translate: 0 20px;
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      translate: 0 0;
     }
   }
 
