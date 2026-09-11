@@ -671,6 +671,49 @@ body { isolation: isolate; }
   border-color: rgba(55,138,221,.22);
 }
 .three-globe { max-width: 320px; max-height: 320px; margin: 24px auto 0; }
+
+/* Globe — cobe style ported from smk.stopher-malik.co.za reference */
+.location-card .aspect-square { max-width: 320px; margin: 0 auto; }
+.atmo-ring {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(255, 255, 255, 0.09) 42deg,
+    transparent 95deg,
+    transparent 180deg,
+    rgba(255, 255, 255, 0.05) 235deg,
+    transparent 285deg
+  );
+  -webkit-mask-image: radial-gradient(
+    closest-side,
+    transparent 85%,
+    black 93%,
+    black 97%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    closest-side,
+    transparent 85%,
+    black 93%,
+    black 97%,
+    transparent 100%
+  );
+}
+@media (prefers-reduced-motion: no-preference) {
+  .orbit-slow {
+    animation: orbit-spin 44s linear infinite;
+  }
+  @keyframes orbit-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .orbit-slow {
+    animation: none;
+  }
+}
 @media (max-width: 768px) {
   .cin-section-head { flex-direction: column; align-items: flex-start; gap: 12px; }
   .section-card { padding: 20px; }

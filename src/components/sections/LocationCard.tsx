@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 
-const ThreeGlobe = dynamic(() => import("@/components/globe/ThreeGlobe").then((mod) => mod.ThreeGlobe), {
+const CobeGlobe = dynamic(() => import("@/components/globe/CobeGlobe").then((mod) => mod.CobeGlobe), {
   ssr: false,
   loading: () => (
     <div className="relative flex-1 min-h-[200px] flex items-center justify-center text-white/40 font-display text-label-sm">
@@ -23,11 +23,7 @@ export function LocationCard() {
           <span className="font-display font-semibold text-body-lg">Sandton, Johannesburg, South Africa</span>
         </div>
         <div className="relative flex-1 min-h-[200px]">
-          <ThreeGlobe
-            markerLat={-26.1076}
-            markerLon={28.0567}
-            markerLabel="Sandton, Johannesburg, South Africa"
-          />
+          <CobeGlobe className="mx-auto max-w-full" />
         </div>
       </div>
     </div>
