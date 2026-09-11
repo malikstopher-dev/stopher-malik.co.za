@@ -7,15 +7,12 @@ export function PrivacyPage() {
         <div className="container">
           <div className="internal-page__hero hero__card card" data-tilt data-magnetic data-holo>
             <h1 className="hero__title">Privacy Policy</h1>
-            <p className="hero__desc" style={{ marginBottom: 0 }}>
-              How SMK Web Design collects, uses, and protects the information you share.
-            </p>
           </div>
 
           <section className="internal-panel card" data-tilt data-morph data-holo>
             <div className="privacy-content">
               <p className="privacy-content__intro">
-                This policy applies to stopher-malik.co.za and any website I build for clients that uses the SMK Web Design contact or payment flow.
+                This policy explains how SMK Web Design collects, uses, and protects the information you share. It applies to stopher-malik.co.za and any website I build for clients that uses the SMK Web Design contact or payment flow.
               </p>
 
               <div>

@@ -18,16 +18,15 @@ export function BlogPost({ frontmatter, mdxContent }: BlogPostProps) {
       <section className="internal-page about-hero">
         <div className="container">
           <div className="internal-page__hero hero__card card" data-tilt data-magnetic data-holo>
-            <div style={{ display: "flex", alignItems: "center", gap: "var(--space-sm)", marginBottom: "var(--space-md)" }}>
-              <span className="badge">{frontmatter.category}</span>
-            </div>
             <h1 className="hero__title" data-reveal>{frontmatter.title}</h1>
-            <div className="hero__desc" style={{ fontSize: "var(--body-sm)", color: "var(--white-muted)", marginBottom: 0 }}>
-              {frontmatter.date} · {frontmatter.readTime}
-            </div>
           </div>
 
           <div className="internal-panel section-card card" data-tilt data-morph data-holo>
+            <div className="article-meta">
+              <span className="badge">{frontmatter.category}</span>
+              <span>{frontmatter.date}</span>
+              <span>{frontmatter.readTime}</span>
+            </div>
             {mdxContent}
           </div>
 

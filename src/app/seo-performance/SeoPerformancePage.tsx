@@ -25,9 +25,6 @@ export function SeoPerformancePage() {
           <div className="container">
             <div className="internal-page__hero hero__card card" data-tilt data-magnetic data-holo>
               <h1 className="hero__title">SEO & Performance</h1>
-              <p className="hero__desc" style={{ marginBottom: 0 }}>
-                Technical SEO and speed optimisation that moves your website up Google in South Africa. Core Web Vitals, structured data, and performance gains you can measure.
-              </p>
             </div>
 
             <div className="internal-panel section-card card" data-tilt data-morph data-holo>
@@ -37,6 +34,9 @@ export function SeoPerformancePage() {
                   What&apos;s Included
                 </h2>
               </div>
+              <p className="internal-panel__intro">
+                Technical SEO and speed optimisation that moves your website up Google in South Africa. Core Web Vitals, structured data, and performance gains you can measure.
+              </p>
               <div className="service-feature-grid">
                 {features.map((feature) => (
                   <div key={feature.title} className="service-feature-card card" data-flip data-magnetic data-holo>

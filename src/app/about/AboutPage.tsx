@@ -7,13 +7,22 @@ export function AboutPage() {
         <div className="container">
           <div className="internal-page__hero hero__card card" data-tilt data-magnetic data-holo>
             <h1 className="hero__title">Get to Know Me Better!</h1>
-            <p className="hero__desc" style={{ marginBottom: "var(--space-xl)" }}>
+          </div>
+
+          <section className="internal-panel card" data-tilt data-morph data-holo>
+            <div className="internal-panel__header">
+              <h2 className="section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="18" height="18" aria-hidden="true"><polygon points="12,3 21,12 12,21 3,12"/></svg>
+                About Stopher
+              </h2>
+            </div>
+            <p className="internal-panel__intro">
               I&apos;m Stopher, a web designer based in Johannesburg. I build websites that look premium, load fast, and turn visitors into paying clients. Every project I take on blends clean design with conversion-focused strategy.
             </p>
-            <p className="hero__desc" style={{ marginBottom: 0 }}>
+            <p className="internal-panel__intro" style={{ marginBottom: 0 }}>
               My toolkit spans Figma, HTML, CSS, JavaScript, React, Next.js, and Cloudflare. I stay current with emerging technologies and design trends so each build stays both timeless and competitive.
             </p>
-          </div>
+          </section>
 
           <div id="about-stage" className="about-stage" data-count="96">
             <img

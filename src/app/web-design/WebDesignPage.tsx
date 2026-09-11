@@ -25,9 +25,6 @@ export function WebDesignPage() {
           <div className="container">
             <div className="internal-page__hero hero__card card" data-tilt data-magnetic data-holo>
               <h1 className="hero__title">Web Design</h1>
-              <p className="hero__desc" style={{ marginBottom: 0 }}>
-                High-converting, mobile-first websites custom-designed for South African businesses. Built to look premium, load fast, and turn visitors into paying clients.
-              </p>
             </div>
 
             <div className="internal-panel section-card card" data-tilt data-morph data-holo>
@@ -37,6 +34,9 @@ export function WebDesignPage() {
                   What&apos;s Included
                 </h2>
               </div>
+              <p className="internal-panel__intro">
+                High-converting, mobile-first websites custom-designed for South African businesses. Built to look premium, load fast, and turn visitors into paying clients.
+              </p>
               <div className="service-feature-grid">
                 {features.map((feature) => (
                   <div key={feature.title} className="service-feature-card card" data-flip data-magnetic data-holo>

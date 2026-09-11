@@ -25,9 +25,6 @@ export function BrandingPage() {
           <div className="container">
             <div className="internal-page__hero hero__card card" data-tilt data-magnetic data-holo>
               <h1 className="hero__title">Branding & Identity</h1>
-              <p className="hero__desc" style={{ marginBottom: 0 }}>
-                Logos, brand kits, and visual identity that make your business impossible to forget. Built for South African brands that want to look serious, trustworthy, and memorable from day one.
-              </p>
             </div>
 
             <div className="internal-panel section-card card" data-tilt data-morph data-holo>
@@ -37,6 +34,9 @@ export function BrandingPage() {
                   What&apos;s Included
                 </h2>
               </div>
+              <p className="internal-panel__intro">
+                Logos, brand kits, and visual identity that make your business impossible to forget. Built for South African brands that want to look serious, trustworthy, and memorable from day one.
+              </p>
               <div className="service-feature-grid">
                 {features.map((feature) => (
                   <div key={feature.title} className="service-feature-card card" data-flip data-magnetic data-holo>

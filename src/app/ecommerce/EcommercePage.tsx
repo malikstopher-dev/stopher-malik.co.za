@@ -25,9 +25,6 @@ export function EcommercePage() {
           <div className="container">
             <div className="internal-page__hero hero__card card" data-tilt data-magnetic data-holo>
               <h1 className="hero__title">E-Commerce</h1>
-              <p className="hero__desc" style={{ marginBottom: 0 }}>
-                Online stores built to sell. Secure payments, product management, and a checkout experience that turns browsers into paying customers. Built for South African businesses ready to trade online.
-              </p>
             </div>
 
             <div className="internal-panel section-card card" data-tilt data-morph data-holo>
@@ -37,6 +34,9 @@ export function EcommercePage() {
                   What&apos;s Included
                 </h2>
               </div>
+              <p className="internal-panel__intro">
+                Online stores built to sell. Secure payments, product management, and a checkout experience that turns browsers into paying customers. Built for South African businesses ready to trade online.
+              </p>
               <div className="service-feature-grid">
                 {features.map((feature) => (
                   <div key={feature.title} className="service-feature-card card" data-flip data-magnetic data-holo>
