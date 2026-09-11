@@ -3,9 +3,9 @@
 export function AboutPage() {
   return (
     <main className="main-content">
-      <section className="about-hero">
+      <section className="internal-page about-hero">
         <div className="container">
-          <div className="hero__card card" data-tilt data-magnetic data-holo>
+          <div className="internal-page__hero hero__card card" data-tilt data-magnetic data-holo>
             <h1 className="hero__title">Get to Know Me Better!</h1>
             <p className="hero__desc" style={{ marginBottom: "var(--space-xl)" }}>
               I&apos;m Stopher, a web designer based in Johannesburg. I build websites that look premium, load fast, and turn visitors into paying clients. Every project I take on blends clean design with conversion-focused strategy.
@@ -29,8 +29,8 @@ export function AboutPage() {
             <p className="about-stage__caption">Crafted with intent — light, depth, and precision.</p>
           </div>
 
-          <div className="hero__card card" data-tilt style={{ marginTop: "var(--space-xl)", padding: "var(--space-2xl)" }}>
-            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flexStart", gap: "var(--space-xl)", justifyContent: "flex-start" }}>
+          <div className="internal-panel card" data-tilt>
+            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", gap: "var(--space-xl)", justifyContent: "flex-start" }}>
               <div style={{
                 position: "relative",
                 width: "160px",
@@ -60,7 +60,7 @@ export function AboutPage() {
                 <p style={{ fontSize: "var(--label-sm)", color: "var(--white-muted)", margin: "8px 0 0", textTransform: "uppercase", letterSpacing: "var(--tracking-wider)" }}>
                   Johannesburg, South Africa
                 </p>
-                <div style={{ display: "inlineFlex", alignItems: "center", gap: 8, padding: "6px 14px", background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.25)", borderRadius: "999px", marginTop: "var(--space-lg)" }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 14px", background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.25)", borderRadius: "999px", marginTop: "var(--space-lg)" }}>
                   <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#4ade80", boxShadow: "0 0 8px #4ade80" }} />
                   <span style={{ fontSize: "var(--label-sm)", color: "var(--white)", fontWeight: 500 }}>Available for projects</span>
                 </div>
@@ -68,8 +68,8 @@ export function AboutPage() {
             </div>
           </div>
 
-          <div className="hero__bottom" style={{ marginTop: "var(--space-xl)", marginBottom: "var(--space-3xl)" }}>
-            <div className="hero__skills-card" style={{ minHeight: "auto" }}>
+          <div className="internal-page__split">
+            <div className="internal-panel card">
               <h2 className="hero__skills-title">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="18" height="18"><polygon points="12,3 21,12 12,21 3,12"/></svg>
                 Experience
@@ -88,7 +88,7 @@ export function AboutPage() {
               </div>
             </div>
 
-            <div className="hero__skills-card" style={{ minHeight: "auto" }}>
+            <div className="internal-panel card">
               <h2 className="hero__skills-title">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="18" height="18"><polygon points="12,3 21,12 12,21 3,12"/></svg>
                 What I Do

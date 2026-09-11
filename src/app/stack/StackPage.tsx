@@ -125,16 +125,16 @@ const tools = [
 export function StackPage() {
   return (
     <main className="main-content">
-      <section className="stack-page">
+      <section className="internal-page stack-page">
         <div className="container">
-          <div className="hero__card card" data-tilt data-magnetic data-holo style={{ marginBottom: "var(--space-xl)" }}>
+          <div className="internal-page__hero hero__card card" data-tilt data-magnetic data-holo>
             <h1 className="hero__title">Full Stack</h1>
             <p className="hero__desc" style={{ marginBottom: 0 }}>
               Design tools, frontend frameworks, infrastructure, and everything in between. I pick the right tool for each job and keep the stack lean.
             </p>
           </div>
 
-          <div className="section-card card" data-tilt data-morph data-holo style={{ marginBottom: "var(--space-3xl)" }}>
+          <div className="internal-panel section-card card" data-tilt data-morph data-holo>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "var(--space-lg)" }}>
               {tools.map((item) => (
                 <div

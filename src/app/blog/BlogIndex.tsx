@@ -64,11 +64,11 @@ const publishedPosts = posts.filter((post) => {
 export function BlogIndex() {
   return (
     <main className="main-content">
-      <section className="about-hero">
+      <section className="internal-page about-hero">
         <div className="container">
-          <div className="hero__card card" data-tilt data-magnetic data-holo>
+          <div className="internal-page__hero hero__card card" data-tilt data-magnetic data-holo>
             <div style={{ display: "flex", alignItems: "center", gap: "var(--space-sm)", marginBottom: "var(--space-md)" }}>
-              <span className="badge"><span className="badge__dot" />Blog</span>
+              <span className="badge">Blog</span>
             </div>
             <h1 className="hero__title" data-reveal>Insights & Guides</h1>
             <div className="hero__desc" style={{ fontSize: "var(--body-md)", color: "var(--white-muted)", marginBottom: 0 }}>
@@ -76,11 +76,11 @@ export function BlogIndex() {
             </div>
           </div>
 
-          <div className="section-card card" data-tilt data-morph data-holo>
+          <div className="internal-panel section-card card" data-tilt data-morph data-holo>
             {publishedPosts.length === 0 ? (
               <p style={{ color: "var(--white-muted)", textAlign: "center", padding: "var(--space-2xl)" }}>No published articles yet. Check back soon.</p>
             ) : (
-              <div className="blog-listing" style={{ display: "flex", flexDirection: "column", gap: "var(--space-lg)" }}>
+              <div className="blog-listing">
                 {publishedPosts.map((post) => (
                   <Link
                     key={post.slug}

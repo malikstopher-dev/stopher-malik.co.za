@@ -15,11 +15,11 @@ interface BlogPostProps {
 export function BlogPost({ frontmatter, mdxContent }: BlogPostProps) {
   return (
     <main className="main-content">
-      <section className="about-hero">
+      <section className="internal-page about-hero">
         <div className="container">
-          <div className="hero__card card" data-tilt data-magnetic data-holo>
+          <div className="internal-page__hero hero__card card" data-tilt data-magnetic data-holo>
             <div style={{ display: "flex", alignItems: "center", gap: "var(--space-sm)", marginBottom: "var(--space-md)" }}>
-              <span className="badge"><span className="badge__dot" />{frontmatter.category}</span>
+              <span className="badge">{frontmatter.category}</span>
             </div>
             <h1 className="hero__title" data-reveal>{frontmatter.title}</h1>
             <div className="hero__desc" style={{ fontSize: "var(--body-sm)", color: "var(--white-muted)", marginBottom: 0 }}>
@@ -27,11 +27,11 @@ export function BlogPost({ frontmatter, mdxContent }: BlogPostProps) {
             </div>
           </div>
 
-          <div className="section-card card" data-tilt data-morph data-holo style={{ marginBottom: "var(--space-xl)" }}>
+          <div className="internal-panel section-card card" data-tilt data-morph data-holo>
             {mdxContent}
           </div>
 
-          <div className="section-card card" data-tilt data-morph data-holo>
+          <div className="internal-panel section-card card" data-tilt data-morph data-holo>
             <h2 className="section-title" style={{ marginBottom: "var(--space-xl)" }}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
               Related Articles

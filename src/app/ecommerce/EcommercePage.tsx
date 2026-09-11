@@ -21,44 +21,44 @@ export function EcommercePage() {
   return (
     <>
       <main className="main-content service-page">
-        <section className="about-hero">
+        <section className="internal-page about-hero">
           <div className="container">
-            <div className="hero__card card" data-tilt data-magnetic data-holo>
+            <div className="internal-page__hero hero__card card" data-tilt data-magnetic data-holo>
               <h1 className="hero__title">E-Commerce</h1>
               <p className="hero__desc" style={{ marginBottom: 0 }}>
                 Online stores built to sell. Secure payments, product management, and a checkout experience that turns browsers into paying customers. Built for South African businesses ready to trade online.
               </p>
             </div>
 
-            <div className="section-card card" data-tilt data-morph data-holo style={{ marginTop: "var(--space-xl)", marginBottom: "var(--space-3xl)" }}>
+            <div className="internal-panel section-card card" data-tilt data-morph data-holo>
               <div className="section-card__header">
                 <h2 className="section-title">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="18" height="18"><polygon points="12,3 21,12 12,21 3,12"/></svg>
                   What&apos;s Included
                 </h2>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "var(--space-lg)" }}>
+              <div className="service-feature-grid">
                 {features.map((feature) => (
-                  <div key={feature.title} className="contact-btn card" data-flip data-magnetic data-holo>
+                  <div key={feature.title} className="service-feature-card card" data-flip data-magnetic data-holo>
                     <div style={{ display: "flex", alignItems: "flex-start", gap: "var(--space-md)" }}>
                       <div style={{ flexShrink: 0, marginTop: 2 }}>{feature.icon}</div>
-                      <div><strong style={{ color: "var(--white)" }}>{feature.title}</strong> - {feature.desc}</div>
+                      <div><strong style={{ color: "var(--white)" }}>{feature.title}</strong>{feature.desc}</div>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="section-card card" data-tilt data-morph data-holo style={{ marginBottom: "var(--space-3xl)" }}>
+            <div className="internal-panel section-card card" data-tilt data-morph data-holo>
               <div className="section-card__header">
                 <h2 className="section-title">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="18" height="18"><polygon points="12,3 21,12 12,21 3,12"/></svg>
                   Packages
                 </h2>
               </div>
-              <div className="contact-grid" style={{ marginTop: "var(--space-lg)", display: "grid", gridTemplateColumns: "1fr", gap: "var(--space-lg)" }}>
+              <div className="service-package-grid">
                 {packages.map((pkg) => (
-                  <div key={pkg.name} className={`contact-btn card ${pkg.highlight ? "ring-2 ring-accent" : ""}`} data-flip data-magnetic data-holo style={{ flexDirection: "column", alignItems: "flex-start", padding: "var(--space-xl)", borderColor: pkg.highlight ? "var(--accent)" : "rgba(255,255,255,0.06)" }}>
+                  <div key={pkg.name} className={`service-package-card card ${pkg.highlight ? "ring-2 ring-accent" : ""}`} data-flip data-magnetic data-holo style={{ flexDirection: "column", alignItems: "flex-start", padding: "var(--space-xl)", borderColor: pkg.highlight ? "var(--accent)" : "rgba(255,255,255,0.06)" }}>
                     <h3 style={{ fontFamily: "var(--font-display)", fontSize: "var(--body-xl)", fontWeight: 700, color: "var(--white)", marginBottom: "var(--space-xs)" }}>{pkg.name}</h3>
                     <p style={{ fontSize: "var(--body-lg)", fontWeight: 600, color: "var(--accent)", marginBottom: "var(--space-lg)" }}>{pkg.price}</p>
                     <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "var(--space-sm)", marginBottom: "var(--space-xl)" }}>

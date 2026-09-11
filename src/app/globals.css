@@ -614,13 +614,34 @@ body { isolation: isolate; }
   .ch-ctas .btn { padding: 13px 22px; }
 }
 
-/* Contact page */
-.contact-page {
+/* Internal pages use the Contact page as the shared layout system. */
+.contact-page,
+.internal-page {
+  --accent: #378add;
+  --white: #fafafa;
+  --white-muted: #a1a1aa;
+  --white-dim: #d4d4d8;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --body-sm: 0.875rem;
+  --body-lg: 1.0625rem;
+  --body-xl: 1.25rem;
+  --label-sm: 0.75rem;
+  --text-h2: clamp(1.75rem, 3vw, 2.5rem);
+  --tracking-wide: 0.03em;
+  --tracking-wider: 0.08em;
+  --leading-relaxed: 1.7;
   color-scheme: dark;
   padding: clamp(36px, 6vw, 72px) 0 clamp(88px, 10vw, 140px);
 }
 
-.contact-page__hero {
+.contact-page__hero,
+.internal-page__hero {
   position: relative;
   overflow: hidden;
   margin-bottom: 24px;
@@ -631,7 +652,8 @@ body { isolation: isolate; }
     linear-gradient(145deg, rgba(20, 26, 38, 0.94), rgba(12, 13, 17, 0.96));
 }
 
-.contact-page__hero::after {
+.contact-page__hero::after,
+.internal-page__hero::after {
   position: absolute;
   right: clamp(24px, 6vw, 72px);
   bottom: -46px;
@@ -642,12 +664,154 @@ body { isolation: isolate; }
   content: "";
 }
 
-.contact-page__hero .hero__title {
+.contact-page__hero .hero__title,
+.internal-page__hero .hero__title {
   position: relative;
   z-index: 1;
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 600;
   letter-spacing: -0.03em;
+}
+
+.internal-page > .container > .internal-page__hero {
+  margin-bottom: 0;
+}
+
+.internal-page > .container > * + * {
+  margin-top: 24px !important;
+}
+
+.internal-page__hero .hero__desc {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin-top: 16px;
+  color: #b4b4bc;
+  font-size: clamp(0.95rem, 1.5vw, 1.08rem);
+  line-height: 1.7;
+}
+
+.internal-page__split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+
+.internal-page .section-card__header {
+  position: relative;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.internal-page .about-stage {
+  overflow: hidden;
+  border: 1px solid rgba(55, 138, 221, 0.16);
+  border-radius: 20px;
+  background: rgba(12, 13, 17, 0.92);
+}
+
+.internal-page .about-stage__poster {
+  width: 100%;
+}
+
+.internal-project-grid,
+.service-feature-grid,
+.service-package-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.internal-project-grid,
+.service-feature-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.service-package-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.service-feature-card {
+  min-height: 104px;
+  padding: 22px;
+  border-color: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.025);
+  color: #b4b4bc;
+}
+
+.service-feature-card strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.service-feature-card svg {
+  color: #6eade9;
+}
+
+.service-package-card {
+  display: flex;
+  min-height: 100%;
+}
+
+.service-package-card .btn {
+  margin-top: auto;
+}
+
+.internal-page .project-card,
+.internal-page .stack-card,
+.service-feature-card,
+.service-package-card {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.internal-page .project-card:hover,
+.internal-page .stack-card:hover,
+.service-feature-card:hover,
+.service-package-card:hover {
+  border-color: rgba(55, 138, 221, 0.36);
+  background: rgba(55, 138, 221, 0.055);
+}
+
+.internal-page .blog-listing {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.internal-page .blog-listing .stack-card {
+  min-height: 100%;
+  padding: 24px;
+}
+
+.privacy-content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 40px;
+}
+
+.privacy-content__intro,
+.privacy-content__contact {
+  grid-column: 1 / -1;
+}
+
+.privacy-content h2 {
+  margin-bottom: 12px;
+  color: #fafafa;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.privacy-content p {
+  color: #b4b4bc;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+
+.privacy-content a {
+  color: #79b8f2;
 }
 
 .contact-page__layout {
@@ -657,7 +821,8 @@ body { isolation: isolate; }
   gap: 24px;
 }
 
-.contact-panel {
+.contact-panel,
+.internal-panel {
   position: relative;
   overflow: hidden;
   padding: clamp(24px, 3vw, 36px);
@@ -667,7 +832,8 @@ body { isolation: isolate; }
   backdrop-filter: blur(18px);
 }
 
-.contact-panel::before {
+.contact-panel::before,
+.internal-panel::before {
   position: absolute;
   inset: 0;
   border-radius: inherit;
@@ -676,18 +842,21 @@ body { isolation: isolate; }
   content: "";
 }
 
-.contact-panel__header {
+.contact-panel__header,
+.internal-panel__header {
   position: relative;
   margin-bottom: 24px;
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.contact-panel .section-title {
+.contact-panel .section-title,
+.internal-panel .section-title {
   font-size: clamp(1.25rem, 2vw, 1.55rem);
 }
 
-.contact-panel .section-title svg {
+.contact-panel .section-title svg,
+.internal-panel .section-title svg {
   color: #378add;
 }
 
@@ -1042,7 +1211,12 @@ body { isolation: isolate; }
 .contact-form__status a { color: #79b8f2; text-decoration: underline; text-underline-offset: 3px; }
 
 @media (max-width: 900px) {
-  .contact-page__layout {
+  .contact-page__layout,
+  .internal-page__split {
+    grid-template-columns: 1fr;
+  }
+
+  .service-package-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -1053,13 +1227,28 @@ body { isolation: isolate; }
   .contact-select__trigger {
     font-size: 16px;
   }
-  .contact-page {
+  .contact-page,
+  .internal-page {
     padding-top: 24px;
   }
 
   .contact-page__hero,
-  .contact-panel {
+  .internal-page__hero,
+  .contact-panel,
+  .internal-panel {
     padding: 22px;
+  }
+
+  .internal-project-grid,
+  .service-feature-grid,
+  .internal-page .blog-listing,
+  .privacy-content {
+    grid-template-columns: 1fr;
+  }
+
+  .privacy-content__intro,
+  .privacy-content__contact {
+    grid-column: auto;
   }
 
   .contact-form__grid,

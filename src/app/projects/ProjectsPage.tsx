@@ -6,21 +6,17 @@ import { projects } from "@/data/projects";
 export function ProjectsPage() {
   return (
     <main className="main-content">
-      <section className="projects-page">
+      <section className="internal-page projects-page">
         <div className="container">
-          <div className="hero__card card" data-tilt data-magnetic data-holo>
+          <div className="internal-page__hero hero__card card" data-tilt data-magnetic data-holo>
             <h1 className="hero__title">My Projects</h1>
             <p className="hero__desc" style={{ marginBottom: 0 }}>
               23+ projects shipped across South Africa, the DRC, Mozambique, and Canada. Each build blends responsive design with intuitive UI.
             </p>
           </div>
 
-          <div className="section-card card" data-tilt data-morph data-holo style={{ marginBottom: "var(--space-3xl)" }}>
-            <div className="projects__grid" data-book style={{
-              display: "grid",
-              gridTemplateColumns: "1fr",
-              gap: "var(--space-xl)",
-            }}>
+          <div className="internal-panel section-card card" data-tilt data-morph data-holo>
+            <div className="projects__grid internal-project-grid" data-book>
               {projects.map((project) => (
                 <Link
                   key={project.title}
