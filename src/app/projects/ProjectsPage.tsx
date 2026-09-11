@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
-import { projects } from "@/data/projects";
+import { ProjectCard } from "@/components/sections/ProjectCard";
+import { PROJECTS } from "@/data/projects";
 
 export function ProjectsPage() {
   return (
@@ -23,37 +23,17 @@ export function ProjectsPage() {
               23+ projects shipped across South Africa, the DRC, Mozambique, and Canada. Each build blends responsive design with intuitive UI.
             </p>
             <div className="projects__grid internal-project-grid" data-book>
-              {projects.map((project) => (
-                <Link
-                  key={project.title}
-                  href={project.href}
-                  target={project.external ? "_blank" : undefined}
-                  rel={project.external ? "noopener noreferrer" : undefined}
-                  className="project-card card"
-                  data-tilt
-                  data-flip
-                  data-magnetic
-                  data-holo
-                >
-                  <div className="project-card__img-wrap">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="project-card__img block h-full w-full object-cover"
-                      loading="lazy"
-                    />
-                    <span className="project-card__hover-cta">View Site &rarr;</span>
-                  </div>
-                  <div className="project-card__body">
-                    <div className="project-card__tags">
-                      {project.tags.map((tag) => (
-                        <span key={tag} className="project-card__tag tech-pill">{tag}</span>
-                      ))}
-                    </div>
-                    <h3 className="project-card__title">{project.title}</h3>
-                    <p className="project-card__desc">{project.description}</p>
-                  </div>
-                </Link>
+              {PROJECTS.map((project) => (
+                <ProjectCard
+                  key={project.slug}
+                  title={project.name}
+                  description={project.description}
+                  tags={project.tags}
+                  image={project.image}
+                  href={project.url}
+                  external={Boolean(project.url)}
+                  className="card"
+                />
               ))}
             </div>
           </div>

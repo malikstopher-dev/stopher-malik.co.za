@@ -1,5 +1,5 @@
 import { ProjectCard } from "./ProjectCard";
-import { featuredProjects } from "@/data/projects";
+import { FEATURED_PROJECTS } from "@/data/projects";
 
 export function ProjectsSection() {
   return (
@@ -15,15 +15,15 @@ export function ProjectsSection() {
         </div>
 
         <div className="projects__grid grid grid-cols-1 md:grid-cols-2 gap-6" data-book>
-          {featuredProjects.map((project) => (
+          {FEATURED_PROJECTS.map((project) => (
             <ProjectCard
-              key={project.title}
-              title={project.title}
+              key={project.slug}
+              title={project.name}
               description={project.description}
               tags={project.tags}
               image={project.image}
-              href={project.href}
-              external={project.external}
+              href={project.url}
+              external={Boolean(project.url)}
             />
           ))}
         </div>
