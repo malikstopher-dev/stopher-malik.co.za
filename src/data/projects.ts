@@ -153,7 +153,7 @@ export const PROJECTS: Project[] = [
     tags: ["Fine Dining", "FR"],
     description:
       "Luxury French restaurant site in the heart of Kinshasa: reservations, menu and online ordering wrapped in an elegant gold-on-dark experience.",
-    image: "https://smk.stopher-malik.co.za/work/chez-gaby.jpg",
+    image: "/assets/chez-gaby.png",
     url: "https://chez-gaby.vercel.app/",
   },
   {
