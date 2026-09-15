@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { LegalPage } from "@/components/legal/LegalPage";
 
 export function RefundPolicyPage() {
