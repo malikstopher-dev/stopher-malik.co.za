@@ -1,11 +1,15 @@
 import { Metadata } from "next";
-import { PrivacyPage } from "./PrivacyPage";
+import { PrivacyPageContent } from "./PrivacyPage";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | SMK Web Design",
-  description: "Privacy Policy for SMK Web Design and Stopher Malik. How we handle your information.",
+  description:
+    "Learn how SMK Web Design collects, uses and protects personal information.",
+  alternates: {
+    canonical: "https://stopher-malik.co.za/privacy/",
+  },
 };
 
 export default function Privacy() {
-  return <PrivacyPage />;
+  return <PrivacyPageContent />;
 }

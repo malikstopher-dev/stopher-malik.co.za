@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { ServiceSelect } from "./ServiceSelect";
 
 export function ContactPage() {
@@ -79,7 +80,7 @@ export function ContactPage() {
 
   const whatsAppFallback = () => {
     const text = `Hi Stopher, I'm ${formData.name} (${formData.email}). I'm interested in ${formData.service}. ${formData.message}`;
-    window.open(`https://wa.me/27825100050?text=${encodeURIComponent(text)}`, "_blank");
+    window.open(`https://wa.me/27729998863?text=${encodeURIComponent(text)}`, "_blank");
   };
 
   return (
@@ -108,7 +109,7 @@ export function ContactPage() {
                     <span className="contact-link-row__label">info@stopher-malik.co.za</span>
                     <span className="contact-link-row__arrow" aria-hidden="true">&rarr;</span>
                   </a>
-                  <a href="https://wa.me/27825100050" target="_blank" rel="noopener noreferrer" className="contact-link-row">
+                  <a href="https://wa.me/27729998863" target="_blank" rel="noopener noreferrer" className="contact-link-row">
                     <span className="contact-link-row__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
                     <span className="contact-link-row__label">Book a Call</span>
                     <span className="contact-link-row__arrow" aria-hidden="true">&rarr;</span>
@@ -128,7 +129,7 @@ export function ContactPage() {
                     <span className="contact-link-row__label">Instagram</span>
                     <span className="contact-link-row__arrow" aria-hidden="true">&rarr;</span>
                   </a>
-                  <a href="https://wa.me/27825100050" target="_blank" rel="noopener noreferrer" className="contact-link-row">
+                  <a href="https://wa.me/27729998863" target="_blank" rel="noopener noreferrer" className="contact-link-row">
                     <span className="contact-link-row__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>
                     <span className="contact-link-row__label">WhatsApp Chat</span>
                     <span className="contact-link-row__arrow" aria-hidden="true">&rarr;</span>
@@ -210,11 +211,16 @@ export function ContactPage() {
                 {formStatus === "error" && (
                   <div className="contact-form__status contact-form__status--error" role="alert">
                     <p>
-                      Something went wrong. <a href="https://wa.me/27825100050" target="_blank" rel="noopener">WhatsApp me directly</a>.
+                      Something went wrong. <a href="https://wa.me/27729998863" target="_blank" rel="noopener">WhatsApp me directly</a>.
                     </p>
                   </div>
                 )}
                 </form>
+                <p className="legal-ack">
+                  By submitting this form, you acknowledge our{" "}
+                  <Link href="/privacy/">Privacy Policy</Link> and{" "}
+                  <Link href="/terms/">Terms &amp; Conditions</Link>.
+                </p>
               </section>
             </div>
           </div>

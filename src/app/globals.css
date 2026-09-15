@@ -1631,6 +1631,179 @@ body { isolation: isolate; }
   }
 }
 
+/* ================================================================
+   Legal pages — Terms, Privacy, Refund Policy
+   ================================================================ */
+
+.legal-eyebrow {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #378add;
+}
+
+.legal-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  font-size: 0.8125rem;
+  color: #71717a;
+}
+
+.legal-meta__label {
+  font-weight: 500;
+}
+
+.legal-meta__date {
+  color: #a1a1aa;
+}
+
+.legal-content {
+  display: grid;
+  gap: 32px;
+}
+
+.legal-content section {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 32px;
+}
+
+.legal-content section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.legal-content h2 {
+  margin-bottom: 12px;
+  color: #fafafa;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.legal-content p {
+  color: #b4b4bc;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+
+.legal-content a {
+  color: #79b8f2;
+}
+
+.legal-content a:hover {
+  text-decoration: underline;
+}
+
+.legal-list {
+  margin: 12px 0;
+  padding-left: 24px;
+  color: #b4b4bc;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+
+.legal-list li {
+  margin-bottom: 6px;
+}
+
+.legal-list li:last-child {
+  margin-bottom: 0;
+}
+
+.legal-contact-card {
+  margin-top: 16px;
+  padding: 20px;
+  border: 1px solid rgba(55, 138, 221, 0.18);
+  border-radius: 12px;
+  background: rgba(55, 138, 221, 0.04);
+}
+
+.legal-contact-card p {
+  margin: 4px 0;
+  font-size: 0.875rem;
+}
+
+.legal-contact-card strong {
+  color: #fafafa;
+}
+
+/* Table of contents — desktop sidebar, mobile inline */
+.legal-toc {
+  margin-bottom: 24px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.legal-toc__title {
+  margin-bottom: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #a1a1aa;
+}
+
+.legal-toc__list {
+  margin: 0;
+  padding-left: 20px;
+  columns: 2;
+  column-gap: 32px;
+  list-style-type: decimal;
+}
+
+.legal-toc__list li {
+  margin-bottom: 6px;
+  break-inside: avoid;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+.legal-toc__list a {
+  color: #b4b4bc;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.legal-toc__list a:hover {
+  color: #79b8f2;
+}
+
+/* Contact page legal acknowledgement */
+.legal-ack {
+  margin-top: 16px;
+  font-size: 0.8125rem;
+  color: #71717a;
+  line-height: 1.6;
+}
+
+.legal-ack a {
+  color: #79b8f2;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .legal-toc__list {
+    columns: 1;
+  }
+
+  .legal-content h2 {
+    font-size: 1.05rem;
+  }
+
+  .legal-content p,
+  .legal-list {
+    font-size: 0.875rem;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

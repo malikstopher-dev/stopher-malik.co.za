@@ -111,8 +111,30 @@ export function Footer() {
             }}>
               <li><a href="mailto:info@stopher-malik.co.za" className="footer__link">info@stopher-malik.co.za</a></li>
               <li><a href="tel:+27729998863" className="footer__link">+27 72 999 8863</a></li>
-              <li><a href="https://wa.me/27825100050" className="footer__link" target="_blank" rel="noopener">WhatsApp</a></li>
+              <li><a href="https://wa.me/27729998863" className="footer__link" target="_blank" rel="noopener">WhatsApp</a></li>
               <li><a href="https://www.google.com/maps?q=Paulshof,Sandton,Johannesburg" className="footer__link" target="_blank" rel="noopener">Johannesburg, South Africa</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="footer__column-title" style={{
+              fontSize: "0.75rem",
+              fontWeight: "600",
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              color: "#fafafa",
+              marginBottom: "1.5rem",
+            }}>
+              Legal
+            </h3>
+            <ul className="footer__links" style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.75rem",
+            }}>
+              <li><Link href="/terms/" className="footer__link">Terms &amp; Conditions</Link></li>
+              <li><Link href="/privacy/" className="footer__link">Privacy Policy</Link></li>
+              <li><Link href="/refund-policy/" className="footer__link">Refund &amp; Cancellation</Link></li>
             </ul>
           </div>
         </div>
@@ -132,18 +154,6 @@ export function Footer() {
           }}>
             &copy; {currentYear} SMK Web Design. All rights reserved.
           </p>
-          <div className="footer__legal" style={{
-            display: "flex",
-            gap: "2rem",
-          }}>
-            <Link href="/privacy/" className="footer__legal-link" style={{
-              fontSize: "0.8125rem",
-              color: "#52525b",
-              transition: "color 0.2s",
-            }}>
-              Privacy Policy
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

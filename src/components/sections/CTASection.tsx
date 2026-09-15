@@ -25,7 +25,7 @@ export function CTASection() {
           <Link href="/contact/" className="btn btn--accent btn--lg w-full sm:w-auto">
             Start Your Project <span aria-hidden="true">&rarr;</span>
           </Link>
-          <a href="https://wa.me/27825100050" className="btn btn--ghost btn--lg w-full sm:w-auto" target="_blank" rel="noopener">
+          <a href="https://wa.me/27729998863" className="btn btn--ghost btn--lg w-full sm:w-auto" target="_blank" rel="noopener">
             WhatsApp Me
           </a>
         </div>
