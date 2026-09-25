@@ -40,6 +40,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     return {
       title: titleMatch ? `${titleMatch[1]} | SMK Web Design` : "Post | SMK Web Design",
       description: descMatch ? descMatch[1] : "SMK Web Design blog post",
+      alternates: { canonical: `https://stopher-malik.co.za/blog/${slug}/` },
       openGraph: {
         title: titleMatch ? titleMatch[1] : "Post",
         description: descMatch ? descMatch[1] : "SMK Web Design blog post",
@@ -50,7 +51,10 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     };
   }
   
-  return { title: "Post | SMK Web Design" };
+  return { 
+    title: "Post | SMK Web Design",
+    alternates: { canonical: `https://stopher-malik.co.za/blog/${slug}/` },
+  };
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
