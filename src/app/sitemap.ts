@@ -1,5 +1,3 @@
-import fs from "fs";
-import path from "path";
 import type { MetadataRoute } from "next";
 
 const SITE = "https://stopher-malik.co.za";
@@ -23,29 +21,10 @@ const ROUTES = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const today = new Date();
 
-  const routes: MetadataRoute.Sitemap = ROUTES.map((route) => ({
+  return ROUTES.map((route) => ({
     url: `${SITE}${route.path}`,
     lastModified: today,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
-
-  const blogDir = path.join(process.cwd(), "content", "blog");
-  const posts: MetadataRoute.Sitemap = fs
-    .readdirSync(blogDir)
-    .filter((file) => file.endsWith(".mdx"))
-    .map((file) => {
-      const slug = file.replace(/\.mdx$/, "");
-      const raw = fs.readFileSync(path.join(blogDir, file), "utf-8");
-      const frontmatter = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-      const dateMatch = frontmatter && frontmatter[1].match(/date:\s*"([^"]+)"/);
-      return {
-        url: `${SITE}/blog/${slug}/`,
-        lastModified: dateMatch ? new Date(dateMatch[1]) : today,
-        changeFrequency: "monthly",
-        priority: 0.7,
-      };
-    });
-
-  return [...routes, ...posts];
 }

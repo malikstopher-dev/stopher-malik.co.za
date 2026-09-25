@@ -6,7 +6,7 @@ import { SiteShell } from "@/components/layout/SiteShell";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://stopher-malik.co.za"),
-  title: "Web Designer Johannesburg | SMK Web Design | Stopher Malik",
+  title: "Stopher Malik | Web Designer Johannesburg",
   description: "Web designer in Johannesburg helping South African businesses get more clients. High-converting websites built for performance & real results. Free quote.",
   keywords: ["web designer Johannesburg", "web design South Africa", "business websites South Africa", "website design Johannesburg", "affordable web design Johannesburg", "small business website South Africa", "conversion focused web design", "SMK Web Design", "Stopher Malik", "web developer Johannesburg", "landing page design South Africa", "SEO Johannesburg", "Sandton web designer", "Gauteng web design"],
   authors: [{ name: "Stopher Malik — SMK Web Design" }],
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://stopher-malik.co.za/",
-    title: "Web Designer Johannesburg | SMK Web Design | Stopher Malik",
+    title: "Stopher Malik | Web Designer Johannesburg",
     description: "Web designer in Johannesburg building high-converting websites for South African businesses. Get more clients & grow your business online. Free quote today.",
     images: [
       {
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@stopher_malik",
     creator: "@stopher_malik",
-    title: "Web Designer Johannesburg | SMK Web Design | Stopher Malik",
+    title: "Stopher Malik | Web Designer Johannesburg",
     description: "High-performing, conversion-focused websites for South African businesses. Free quote from SMK Web Design.",
     images: ["https://stopher-malik.co.za/assets/og-image-1200x630.png"],
   },
