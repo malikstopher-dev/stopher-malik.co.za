@@ -96,7 +96,7 @@ export function Nav() {
       <div className="container nav__inner" role="navigation" aria-label="Main navigation">
         <Link href="/" className="nav__profile" aria-label="Stopher Malik - Home">
           <div className="nav__avatar nav__avatar--portrait" aria-hidden="true">
-            <img src="/assets/stopher-portrait.png" alt="" width="56" height="56" />
+            <img src="/assets/stopher-portrait.webp" alt="" width="56" height="56" />
           </div>
           <div className="nav__identity">
             <span className="nav__name">Stopher Malik</span>

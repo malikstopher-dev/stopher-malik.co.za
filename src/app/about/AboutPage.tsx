@@ -41,7 +41,7 @@ export function AboutPage() {
                 flexShrink: 0
               }}>
                 <img
-                  src="/assets/stopher-portrait.png"
+                  src="/assets/stopher-portrait.webp"
                   alt="Stopher Malik — Web Designer & Developer, Johannesburg"
                   fetchPriority="high"
                   decoding="async"
