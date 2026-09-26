@@ -143,7 +143,7 @@ export function RefundPolicyPage() {
           If you believe a duplicate payment has been made, an incorrect amount
           has been processed, or a payment appears unauthorised, please contact
           SMK Web Design immediately at{" "}
-          <a href="mailto:info@stopher-malik.com">info@stopher-malik.com</a>.
+          <a href="mailto:info@stopher-malik.co.za">info@stopher-malik.co.za</a>.
           We will investigate and resolve the matter promptly.
         </p>
       </section>
@@ -163,7 +163,7 @@ export function RefundPolicyPage() {
         <div className="legal-contact-card">
           <p><strong>SMK Web Design</strong></p>
           <p>Contact person: Stopher Malik</p>
-          <p>Email: <a href="mailto:info@stopher-malik.com">info@stopher-malik.com</a></p>
+          <p>Email: <a href="mailto:info@stopher-malik.co.za">info@stopher-malik.co.za</a></p>
           <p>WhatsApp / Telephone: <a href="https://wa.me/27729998863">+27 72 999 8863</a></p>
           <p>Location: Johannesburg, Gauteng, South Africa</p>
         </div>

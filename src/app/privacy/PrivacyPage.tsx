@@ -40,7 +40,7 @@ export function PrivacyPageContent() {
         <div className="legal-contact-card">
           <p><strong>Business name:</strong> SMK Web Design</p>
           <p><strong>Contact person:</strong> Stopher Malik</p>
-          <p><strong>Email:</strong> <a href="mailto:info@stopher-malik.com">info@stopher-malik.com</a></p>
+          <p><strong>Email:</strong> <a href="mailto:info@stopher-malik.co.za">info@stopher-malik.co.za</a></p>
           <p><strong>WhatsApp / Telephone:</strong> <a href="https://wa.me/27729998863">+27 72 999 8863</a></p>
           <p><strong>Website:</strong> <a href="https://stopher-malik.co.za">stopher-malik.co.za</a></p>
           <p><strong>Location:</strong> Johannesburg, Gauteng, South Africa</p>
@@ -176,7 +176,7 @@ export function PrivacyPageContent() {
         </ul>
         <p>
           To exercise any of these rights, please contact us at{" "}
-          <a href="mailto:info@stopher-malik.com">info@stopher-malik.com</a>.
+          <a href="mailto:info@stopher-malik.co.za">info@stopher-malik.co.za</a>.
         </p>
       </section>
 
@@ -224,7 +224,7 @@ export function PrivacyPageContent() {
         <div className="legal-contact-card">
           <p><strong>SMK Web Design</strong></p>
           <p>Contact person: Stopher Malik</p>
-          <p>Email: <a href="mailto:info@stopher-malik.com">info@stopher-malik.com</a></p>
+          <p>Email: <a href="mailto:info@stopher-malik.co.za">info@stopher-malik.co.za</a></p>
           <p>WhatsApp / Telephone: <a href="https://wa.me/27729998863">+27 72 999 8863</a></p>
           <p>Location: Johannesburg, Gauteng, South Africa</p>
         </div>
