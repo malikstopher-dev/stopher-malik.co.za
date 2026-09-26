@@ -4,6 +4,7 @@ import fs from "fs";
 import path from "path";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { BlogPost } from "./BlogPost";
+import { JsonLd, articleSchema, breadcrumbSchema } from "@/components/json-ld";
 
 export async function generateStaticParams() {
   const blogDir = path.join(process.cwd(), "content", "blog");
@@ -72,20 +73,23 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   
   let frontmatter = {
     title: slug,
+    description: "",
     date: "",
     category: "Blog",
     readTime: "5 min read",
   };
-  
+
   if (frontmatterMatch) {
     const fm = frontmatterMatch[1];
     const titleMatch = fm.match(/title:\s*"([^"]+)"/);
+    const descMatch = fm.match(/description:\s*"([^"]+)"/);
     const dateMatch = fm.match(/date:\s*"([^"]+)"/);
     const categoryMatch = fm.match(/category:\s*"([^"]+)"/);
     const readTimeMatch = fm.match(/readTime:\s*"([^"]+)"/);
-    
+
     frontmatter = {
       title: titleMatch ? titleMatch[1] : slug,
+      description: descMatch ? descMatch[1] : "",
       date: dateMatch ? dateMatch[1] : "",
       category: categoryMatch ? categoryMatch[1] : "Blog",
       readTime: readTimeMatch ? readTimeMatch[1] : "5 min read",
@@ -99,5 +103,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     options: { parseFrontmatter: false },
   });
   
-  return <BlogPost frontmatter={frontmatter} mdxContent={mdxContent} />;
+  return <>
+    <JsonLd data={articleSchema({ ...frontmatter, slug })} />
+    <JsonLd
+      data={breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Blog", path: "/blog/" },
+        { name: frontmatter.title, path: `/blog/${slug}/` },
+      ])}
+    />
+    <BlogPost frontmatter={frontmatter} mdxContent={mdxContent} />
+  </>;
 }
