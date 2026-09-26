@@ -9,7 +9,7 @@ const stack = [
     ),
     name: "Figma",
     category: "Design Tool",
-    description: "My go-to for UI/UX design. I create wireframes, prototypes, and high-fidelity designs that translate seamlessly into code.",
+    description: "My go-to for UI/UX design. I create wireframes, prototypes, and high-fidelity designs that translate directly into code.",
   },
   {
     icon: (

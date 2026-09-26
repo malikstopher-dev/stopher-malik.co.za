@@ -19,7 +19,7 @@ export function AboutPage() {
               </h2>
             </div>
             <p className="internal-panel__intro">
-              I&apos;m Stopher, a web designer based in Johannesburg. I build websites that look premium, load fast, and turn visitors into paying clients. Every project I take on blends clean design with conversion-focused strategy.
+              I&apos;m Stopher, a web designer based in Johannesburg. I build websites that look premium, load fast, and turn visitors into paying clients. Every project I take on blends clean design with a strategy that earns its keep.
             </p>
             <p className="internal-panel__intro" style={{ marginBottom: 0 }}>
               My toolkit spans Figma, HTML, CSS, JavaScript, React, Next.js, and Cloudflare. I stay current with emerging technologies and design trends so each build stays both timeless and competitive.

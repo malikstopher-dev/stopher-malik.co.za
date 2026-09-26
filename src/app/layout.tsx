@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     site: "@stopher_malik",
     creator: "@stopher_malik",
     title: "Stopher Malik | Web Designer Johannesburg",
-    description: "High-performing, conversion-focused websites for South African businesses. Free quote from SMK Web Design.",
+    description: "High-performing websites for South African businesses. Free quote from SMK Web Design.",
     images: ["https://stopher-malik.co.za/assets/og-image-1200x630.png"],
   },
   verification: {

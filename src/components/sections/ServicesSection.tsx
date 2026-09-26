@@ -22,7 +22,7 @@ const services = [
     ),
     name: "E-Commerce",
     category: "Sell",
-    description: "Secure, conversion-optimised online stores with seamless checkout that drive sales from day one.",
+    description: "Secure, conversion-optimised online stores built to drive sales from day one.",
   },
   {
     icon: (

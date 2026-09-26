@@ -8,7 +8,7 @@ const features = [
   { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>, title: "Secure Payments", desc: "PayFast, Yoco, PayPal, EFT, and card payments ready from launch." },
   { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>, title: "Order Processing", desc: "automated confirmations, shipping rates, and tracking integration." },
   { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>, title: "E-Commerce SEO", desc: "product schema, clean URLs, and search-friendly category structure." },
-  { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18"><path d="M12 2v20M2 12h20"/></svg>, title: "Mobile Checkout", desc: "seamless buying experience on every device, from browse to pay." },
+  { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18"><path d="M12 2v20M2 12h20"/></svg>, title: "Mobile Checkout", desc: "smooth buying experience on every device, from browse to pay." },
 ];
 
 const packages = [
