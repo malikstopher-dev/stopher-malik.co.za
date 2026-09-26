@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/seo";
 import { TermsPage } from "./TermsPage";
 
 export const metadata: Metadata = {
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stopher-malik.co.za/terms/",
   },
+  openGraph: pageOpenGraph("/terms/"),
 };
 
 export default function Terms() {

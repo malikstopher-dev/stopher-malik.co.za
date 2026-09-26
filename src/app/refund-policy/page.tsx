@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/seo";
 import { RefundPolicyPage } from "./RefundPolicyPage";
 
 export const metadata: Metadata = {
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stopher-malik.co.za/refund-policy/",
   },
+  openGraph: pageOpenGraph("/refund-policy/"),
 };
 
 export default function RefundPolicy() {

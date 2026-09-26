@@ -5,6 +5,7 @@ import path from "path";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { BlogPost } from "./BlogPost";
 import { JsonLd, articleSchema, breadcrumbSchema } from "@/components/json-ld";
+import { pageOpenGraph } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const blogDir = path.join(process.cwd(), "content", "blog");
@@ -43,6 +44,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       description: descMatch ? descMatch[1] : "SMK Web Design blog post",
       alternates: { canonical: `https://stopher-malik.co.za/blog/${slug}/` },
       openGraph: {
+        ...pageOpenGraph(`/blog/${slug}/`),
         title: titleMatch ? titleMatch[1] : "Post",
         description: descMatch ? descMatch[1] : "SMK Web Design blog post",
         type: "article",
@@ -55,6 +57,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   return { 
     title: "Post | SMK Web Design",
     alternates: { canonical: `https://stopher-malik.co.za/blog/${slug}/` },
+    openGraph: pageOpenGraph(`/blog/${slug}/`),
   };
 }
 
