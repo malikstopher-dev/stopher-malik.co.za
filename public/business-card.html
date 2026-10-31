@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Stopher Malik — Luxury Business Card</title>
+  <style>
+    @page { size: 90mm 50mm; margin: 0; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: #d8d2c8; }
+    body { display: grid; justify-content: center; gap: 12mm; padding: 12mm; }
+    .card {
+      display: block;
+      width: 90mm;
+      height: 50mm;
+      object-fit: cover;
+      border-radius: 3mm;
+      box-shadow: 0 6mm 18mm rgba(18, 25, 31, 0.25);
+      break-after: page;
+      page-break-after: always;
+    }
+    .card:last-child { break-after: auto; page-break-after: auto; }
+    @media print {
+      html, body { width: 90mm; background: transparent; }
+      body { display: block; padding: 0; }
+      .card { border-radius: 0; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <img class="card" src="/downloads/stopher-malik-card-front.png" alt="Stopher Malik luxury business card front">
+  <img class="card" src="/downloads/stopher-malik-card-back.png" alt="Stopher Malik luxury business card back with QR code">
+</body>
+</html>

@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+body:has(.qr-profile-page) {
+  background: #030405;
+}
+
+body:has(.qr-profile-page) nav,
+body:has(.qr-profile-page) > footer,
+body:has(.qr-profile-page) .floating-nav,
+body:has(.qr-profile-page) .whatsapp-float,
+body:has(.qr-profile-page) .back-to-top {
+  display: none !important;
+}
+
 @layer base {
   :root {
     --background: #09090b;

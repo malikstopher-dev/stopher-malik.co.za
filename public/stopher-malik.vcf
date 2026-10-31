@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Kitenge;Stopher Malik;;;
+FN:Stopher Malik Kitenge
+ORG:SMK Web Design
+TITLE:Web Designer & Developer
+BDAY:19840818
+TEL;TYPE=CELL,VOICE,WHATSAPP:+27729998863
+EMAIL;TYPE=INTERNET,WORK:info@stopher-malik.co.za
+URL:https://stopher-malik.co.za/profile/
+ADR;TYPE=WORK:;;;Johannesburg;Gauteng;;South Africa
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/stophermalik/
+X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/stophermalik/
+NOTE:Born in Kinshasa. Studied Communication at Université de Lubumbashi from 2004 to 2009. Web design\, development\, brand identity and SEO for South African businesses.
+END:VCARD
