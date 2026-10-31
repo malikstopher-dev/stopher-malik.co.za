@@ -285,13 +285,15 @@
   letter-spacing: -0.045em;
 }
 
-.sectionIntro > p:last-child,
+.journeyCopy p,
 .professionalSection > div > p:last-of-type,
 .contactCopy > p:last-child {
   color: #aaa79f;
   font-size: 0.92rem;
   line-height: 1.8;
 }
+
+.journeyCopy p + p { margin-top: 1rem; }
 
 .route {
   display: grid;
@@ -308,12 +310,16 @@
 .route i { height: 1px; background: linear-gradient(90deg, rgba(213,164,61,0.2), var(--gold), rgba(213,164,61,0.2)); }
 
 .educationSection { padding: clamp(2.2rem, 5vw, 4.5rem); }
+.socialLinks { display: flex; flex-wrap: wrap; gap: 0.8rem; padding: 0; margin: 2rem 0 0; list-style: none; }
+.socialLinks a { display: inline-flex; gap: 1rem; padding: 0.9rem 1.2rem; border: 1px solid rgba(213,164,61,0.4); color: #e1bd65; }
+.socialLinks a:hover { background: rgba(213,164,61,0.12); }
+.socialLinks a:focus-visible { outline: 2px solid #e1bd65; outline-offset: 4px; }
 .sectionHeading { max-width: 780px; }
 .sectionHeading h2 { margin-top: 0.8rem; }
 
 .educationGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
   margin-top: 2.6rem;
 }
@@ -382,6 +388,7 @@
 }
 
 .profileFooter a { color: #c59a42; }
+.page a:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 4px; }
 
 @media (max-width: 900px) {
   .page { padding: 1rem; }
@@ -399,24 +406,65 @@
 }
 
 @media (max-width: 620px) {
-  .page { padding: 0; }
+  .page { padding: 0.7rem; background: radial-gradient(ellipse at top, #172330, #05090e 65rem); }
   .signature,
   .journeySection,
   .educationSection,
   .professionalSection,
-  .contactSection { margin-top: 0; border-right: 0; border-left: 0; }
-  .signature { border-top: 0; }
-  .portraitPanel { min-height: 118vw; }
-  .originBadge { right: 1.4rem; bottom: 1.4rem; left: 1.4rem; }
-  .storyPanel { padding: 4rem 1.5rem; }
-  .storyPanel h1 { font-size: clamp(3rem, 15.5vw, 4.5rem); }
-  .identityFacts { grid-template-columns: 1fr; }
-  .heroActions a { width: 100%; }
+  .contactSection { margin-top: 0.8rem; border: 1px solid rgba(213,164,61,0.24); border-radius: 22px; }
+  .signature { margin-top: 0; min-height: 0; }
+  .portraitPanel { min-height: 0; height: clamp(260px, 74vw, 360px); }
+  .portrait { object-position: 50% 23%; }
+  .portraitLight { background: linear-gradient(180deg, transparent 35%, rgba(5,9,14,0.9)); }
+  .originBadge { right: 1.3rem; bottom: 2.5rem; left: 1.3rem; gap: 0.15rem; border: 0; }
+  .originBadge span, .originBadge small { font-size: 0.6rem; letter-spacing: 0.12em; }
+  .originBadge strong { font-size: 1.2rem; }
+  .storyPanel { margin-top: -1.3rem; padding: 1.6rem 1.2rem 1.8rem; border-radius: 22px 22px 0 0; background: linear-gradient(150deg, #12202e, #070c12 70%); }
+  .goldFrame { display: none; }
+  .monogram { margin-bottom: 1.1rem; gap: 0.6rem; }
+  .monogram span { font-size: 2rem; }
+  .monogram small { font-size: 0.6rem; }
+  .kicker { font-size: 0.62rem; letter-spacing: 0.18em; }
+  .storyPanel h1 { margin-top: 0.65rem; font-size: clamp(2.7rem, 12vw, 4rem); line-height: 1; }
+  .role { margin-top: 0.8rem; font-size: 0.65rem; letter-spacing: 0.08em; line-height: 1.6; }
+  .heroActions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 1.2rem; }
+  .heroActions a { min-height: 48px; padding: 0.7rem 0.4rem; border-radius: 12px; font-size: 0.8rem; letter-spacing: 0; }
+  .heroActions a:first-child { background: linear-gradient(120deg, #f2d184, #d5a43d); }
+  .ornament { margin: 1.4rem 0; }
+  .lead { font-size: 1rem; line-height: 1.65; }
+  .identityFacts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; padding: 0; margin-top: 1.4rem; border: 0; }
+  .identityFacts div { padding: 0.85rem 0.7rem; border: 1px solid rgba(213,164,61,0.16); border-radius: 12px; background: rgba(255,255,255,0.025); }
+  .identityFacts dt { color: #c7ad77; font-size: 0.58rem; letter-spacing: 0.08em; }
+  .identityFacts dd { font-size: 0.78rem; line-height: 1.5; overflow-wrap: anywhere; }
+  .storyPanel blockquote { padding-left: 1rem; border-left: 2px solid var(--gold); }
   .journeySection,
   .educationSection,
   .professionalSection,
-  .contactSection { padding: 2.7rem 1.35rem; }
+  .contactSection { padding: 1.7rem 1.2rem; }
+  .sectionIntro, .professionalSection, .contactSection { gap: 1.2rem; }
+  .sectionIntro h2, .sectionHeading h2, .professionalSection h2, .contactCopy h2 { font-size: clamp(1.9rem, 8.5vw, 2.6rem); line-height: 1.08; }
+  .educationGrid { margin-top: 1.5rem; gap: 0.75rem; }
+  .educationGrid article { padding: 1.2rem; border-radius: 16px; }
+  .educationGrid article > span { font-size: 1.65rem; }
+  .educationGrid small { margin-top: 0.8rem; color: #c7ad77; font-size: 0.65rem; letter-spacing: 0.07em; line-height: 1.5; }
+  .educationGrid h3 { font-size: 1.35rem; line-height: 1.2; }
+  .educationGrid p { font-size: 0.88rem; color: #b7b7b2; }
+  .experienceGrid { padding-left: 0.8rem; border-left: 1px solid rgba(213,164,61,0.35); }
+  .experienceGrid article { position: relative; }
+  .experienceGrid article::before { position: absolute; content: ''; left: -1.1rem; top: 1.65rem; width: 8px; height: 8px; background: var(--gold-light); border-radius: 50%; box-shadow: 0 0 0 4px #080a0d; }
+  .experienceGrid small { margin-top: 0; }
+  .socialLinks { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; margin-top: 1.4rem; }
+  .socialLinks a { min-height: 48px; width: 100%; justify-content: space-between; border-radius: 12px; padding: 0.8rem; font-size: 0.85rem; }
+  .contactList > * { min-height: 52px; font-size: 0.85rem; }
+  .contactList small { color: #c7ad77; font-size: 0.62rem; }
+  .qrSeal { justify-self: center; border-radius: 16px; margin-top: 0.5rem; }
   .route { grid-template-columns: 1fr; gap: 0.9rem; }
   .route i { width: 1px; height: 34px; margin-left: 0.35rem; background: linear-gradient(rgba(213,164,61,0.2), var(--gold)); }
-  .profileFooter { align-items: flex-start; flex-direction: column; padding: 1.2rem 1.35rem 2rem; }
+  .profileFooter { align-items: center; text-align: center; flex-direction: column; padding: 1.2rem 0.5rem max(1.5rem, env(safe-area-inset-bottom)); color: #aaa08e; }
+  .profileFooter a { display: inline-flex; align-items: center; min-height: 48px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroActions a { transition: none; }
+  .heroActions a:hover { transform: none; }
 }
