@@ -232,7 +232,7 @@ export default function ProfilePage() {
 
       <footer className={styles.profileFooter}>
         <span>Stopher Malik Kitenge</span>
-        <a href="/downloads/stopher-malik-business-card.pdf" download>Download business card</a>
+        <a href="/downloads/stopher-malik-business-card.pdf?v=approved-artwork-2" download>Download business card</a>
         <span>SMK · Johannesburg</span>
       </footer>
     </main>

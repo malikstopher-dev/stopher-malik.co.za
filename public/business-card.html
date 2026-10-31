@@ -5,21 +5,22 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Stopher Malik — Luxury Business Card</title>
   <style>
-    @page { size: 90mm 50mm; margin: 0; }
+    @page { size: 90mm 60mm; margin: 0; }
     * { box-sizing: border-box; }
     html, body { margin: 0; background: #d8d2c8; }
     body { display: grid; justify-content: center; gap: 12mm; padding: 12mm; }
     .card {
       display: block;
       width: 90mm;
-      height: 50mm;
-      object-fit: cover;
+      height: 60mm;
+      overflow: hidden;
       border-radius: 3mm;
       box-shadow: 0 6mm 18mm rgba(18, 25, 31, 0.25);
       break-after: page;
       page-break-after: always;
     }
     .card:last-child { break-after: auto; page-break-after: auto; }
+    .card svg { display: block; width: 100%; height: 100%; }
     @media print {
       html, body { width: 90mm; background: transparent; }
       body { display: block; padding: 0; }
@@ -28,7 +29,16 @@
   </style>
 </head>
 <body>
-  <img class="card" src="/downloads/stopher-malik-card-front.png" alt="Stopher Malik luxury business card front">
-  <img class="card" src="/downloads/stopher-malik-card-back.png" alt="Stopher Malik luxury business card back with QR code">
+  <!-- Use the approved artwork directly so downloads cannot drift from the mockup. -->
+  <div class="card" id="front">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="34 278 698 470" role="img" aria-label="Stopher Malik luxury business card front">
+      <image href="downloads/stopher-malik-business-card-mockup.png" width="1491" height="1055" />
+    </svg>
+  </div>
+  <div class="card" id="back">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="759 274 700 474" role="img" aria-label="Stopher Malik luxury business card back with QR code">
+      <image href="downloads/stopher-malik-business-card-mockup.png" width="1491" height="1055" />
+    </svg>
+  </div>
 </body>
 </html>
