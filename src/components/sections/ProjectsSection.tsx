@@ -1,21 +1,34 @@
+import Link from "next/link";
 import { ProjectCard } from "./ProjectCard";
 import { FEATURED_PROJECTS } from "@/data/projects";
 
 export function ProjectsSection() {
   return (
-    <section className="projects py-5xl" id="projects" aria-labelledby="projects-heading">
+    <section className="work-section" id="work" aria-labelledby="work-heading">
       <div className="container">
-        <div className="section-card">
-        <div className="cin-section-head mb-12">
-          <div>
-            <span className="cin-kicker">Selected Work</span>
-            <h2 id="projects-heading">Projects</h2>
+        <header className="section-head" data-reveal>
+          <div className="section-head__meta">
+            <p className="section-kicker"><span>01</span> Selected work</p>
+            <p className="section-note">2021 — 2026 · South Africa, DRC, Mozambique, Canada</p>
           </div>
-          <a href="/projects/" className="btn btn--ghost btn--sm">All Projects <span aria-hidden="true">&rarr;</span></a>
-        </div>
+          <div className="section-head__body">
+            <h2 id="work-heading">
+              Built to be<br /><em>remembered.</em>
+            </h2>
+            <div className="section-head__aside">
+              <p>
+                Websites for restaurants, builders and businesses that needed to look
+                as serious as the work they do.
+              </p>
+              <Link href="/projects/" className="text-link">
+                All 23 projects <span aria-hidden="true">↗</span>
+              </Link>
+            </div>
+          </div>
+        </header>
 
-        <div className="projects__grid grid grid-cols-1 md:grid-cols-2 gap-6" data-book>
-          {FEATURED_PROJECTS.map((project) => (
+        <div className="work-grid">
+          {FEATURED_PROJECTS.map((project, index) => (
             <ProjectCard
               key={project.slug}
               title={project.name}
@@ -24,10 +37,18 @@ export function ProjectsSection() {
               image={project.image}
               href={project.url}
               external={Boolean(project.url)}
+              index={index + 1}
+              eager={index === 0}
             />
           ))}
         </div>
-        </div>
+
+        <footer className="work-footer" data-reveal>
+          <p>Available for a limited number of projects each quarter.</p>
+          <Link href="/contact/" className="btn btn--accent">
+            Start a project <span aria-hidden="true">↗</span>
+          </Link>
+        </footer>
       </div>
     </section>
   );

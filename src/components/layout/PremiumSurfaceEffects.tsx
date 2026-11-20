@@ -5,6 +5,11 @@ import { useEffect } from "react";
 const SURFACE_SELECTOR = [
   ".internal-page .card",
   ".contact-page .card",
+  ".project-card__link",
+  ".service-plan",
+  ".voice",
+  ".service-detail__feature",
+  ".contact-link-row",
 ].join(",");
 
 export function PremiumSurfaceEffects() {
@@ -41,6 +46,11 @@ export function PremiumSurfaceEffects() {
     let pointerX = 0;
     let pointerY = 0;
     let animationFrame = 0;
+    const sky = document.querySelector<HTMLElement>(".cosmic-background");
+    const resetSky = () => {
+      sky?.style.removeProperty("--orbit-x");
+      sky?.style.removeProperty("--orbit-y");
+    };
 
     const resetSurface = () => {
       if (!activeSurface) return;
@@ -54,6 +64,9 @@ export function PremiumSurfaceEffects() {
 
     const updateSurface = () => {
       animationFrame = 0;
+      if (reducedMotion.matches) { resetSky(); resetSurface(); return; }
+      sky?.style.setProperty("--orbit-x", `${(pointerX / window.innerWidth - .5) * 64}px`);
+      sky?.style.setProperty("--orbit-y", `${(pointerY / window.innerHeight - .5) * 38}px`);
       const surface = pointerTarget?.closest<HTMLElement>(SURFACE_SELECTOR) ?? null;
 
       if (surface !== activeSurface) {
@@ -70,7 +83,7 @@ export function PremiumSurfaceEffects() {
       const x = Math.min(1, Math.max(0, (pointerX - rect.left) / rect.width));
       const y = Math.min(1, Math.max(0, (pointerY - rect.top) / rect.height));
       const isForm = surface.classList.contains("contact-panel--form");
-      const tilt = isForm ? 0 : rect.width > 520 ? 1.2 : 3.2;
+      const tilt = isForm ? 0 : rect.width > 520 ? 7 : 12;
 
       surface.style.setProperty("--surface-x", `${(x * 100).toFixed(2)}%`);
       surface.style.setProperty("--surface-y", `${(y * 100).toFixed(2)}%`);
@@ -88,6 +101,7 @@ export function PremiumSurfaceEffects() {
     const onPointerOut = (event: PointerEvent) => {
       if (event.relatedTarget) return;
       pointerTarget = null;
+      resetSky();
       if (animationFrame) cancelAnimationFrame(animationFrame);
       animationFrame = 0;
       resetSurface();
@@ -100,6 +114,7 @@ export function PremiumSurfaceEffects() {
 
     return () => {
       observer.disconnect();
+      resetSky();
       document.removeEventListener("pointermove", onPointerMove);
       document.removeEventListener("pointerout", onPointerOut);
       window.removeEventListener("scroll", resetSurface);

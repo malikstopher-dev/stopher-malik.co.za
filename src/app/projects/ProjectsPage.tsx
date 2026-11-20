@@ -1,41 +1,69 @@
 "use client";
+import { InnerFilm } from "@/components/sections/InnerFilm";
 
 import { ProjectCard } from "@/components/sections/ProjectCard";
 import { PROJECTS } from "@/data/projects";
 
 export function ProjectsPage() {
   return (
-    <main className="main-content">
-      <section className="internal-page projects-page">
+    <main className="work-index-page">
+      <section className="work-index__intro" aria-labelledby="work-index-title">
+        <InnerFilm />
         <div className="container">
-          <div className="internal-page__hero hero__card card" data-tilt data-magnetic data-holo>
-            <h1 className="hero__title">My Projects</h1>
-          </div>
-
-          <div className="internal-panel section-card card" data-tilt data-morph data-holo>
-            <div className="internal-panel__header">
-              <h2 className="section-title">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="18" height="18" aria-hidden="true"><polygon points="12,3 21,12 12,21 3,12"/></svg>
-                Selected Work
-              </h2>
-            </div>
-            <p className="internal-panel__intro">
-              23+ projects shipped across South Africa, the DRC, Mozambique, and Canada. Each build blends responsive design with intuitive UI.
+          <p className="section-kicker" data-reveal>
+            <span>Selected</span> 2021 — 2026
+          </p>
+          <h1 id="work-index-title" data-reveal>
+            Work that earns
+            <br />
+            <em>attention.</em>
+          </h1>
+          <div className="work-index__foot">
+            <p data-reveal>
+              {PROJECTS.length} projects shipped across South Africa, the DRC,
+              Mozambique, and Canada. Every build pairs considered design with
+              front-end craft and an eye on the result.
             </p>
-            <div className="projects__grid internal-project-grid" data-book>
-              {PROJECTS.map((project) => (
-                <ProjectCard
-                  key={project.slug}
-                  title={project.name}
-                  description={project.description}
-                  tags={project.tags}
-                  image={project.image}
-                  href={project.url}
-                  external={Boolean(project.url)}
-                  className="card"
-                />
-              ))}
-            </div>
+            <dl className="work-index__meta" data-reveal>
+              <div>
+                <dt>Projects</dt>
+                <dd>23+</dd>
+              </div>
+              <div>
+                <dt>Markets</dt>
+                <dd>4 countries</dd>
+              </div>
+              <div>
+                <dt>Scope</dt>
+                <dd>Design &amp; build</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section className="work-index__body" aria-label="All projects">
+        <div className="container">
+          <div className="work-index__bar">
+            <p className="section-kicker">
+              <span>Index</span> All work
+            </p>
+            <p className="section-note">{PROJECTS.length} entries</p>
+          </div>
+          <div className="work-grid work-index__grid">
+            {PROJECTS.map((project, index) => (
+              <ProjectCard
+                key={project.slug}
+                title={project.name}
+                description={project.description}
+                tags={project.tags}
+                image={project.image}
+                href={project.url}
+                external={Boolean(project.url)}
+                index={index + 1}
+                eager={index < 2}
+              />
+            ))}
           </div>
         </div>
       </section>

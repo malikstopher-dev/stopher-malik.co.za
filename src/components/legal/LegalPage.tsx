@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { InnerFilm } from "@/components/sections/InnerFilm";
 
 interface LegalPageProps {
   eyebrow?: string;
@@ -20,6 +21,7 @@ export function LegalPage({
       <section className="internal-page">
         <div className="container">
           <div className="internal-page__hero hero__card card" data-tilt data-magnetic data-holo>
+            <InnerFilm />
             <p className="legal-eyebrow">{eyebrow}</p>
             <h1 className="hero__title">{title}</h1>
             {description && (

@@ -62,7 +62,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://api.web3forms.com" />
       </head>
       <body
-        className={`${baiJamjuree.variable} ${inter.variable} antialiased has-floating-nav`}
+        className={`${baiJamjuree.variable} ${inter.variable} antialiased`}
       >
         <CosmicBackground />
         <SiteShell>{children}</SiteShell>

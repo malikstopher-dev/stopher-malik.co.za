@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     return { title: "Post Not Found" };
   }
   
-  const content = fs.readFileSync(filePath, "utf-8");
+  const content = fs.readFileSync(filePath, "utf-8").replace(/\r\n/g, "\n");
   const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
   
   if (frontmatterMatch) {
@@ -70,7 +70,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
   
-  const content = fs.readFileSync(filePath, "utf-8");
+  const content = fs.readFileSync(filePath, "utf-8").replace(/\r\n/g, "\n");
   const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
   const body = content.replace(/^---\n[\s\S]*?\n---/, "").trim();
   

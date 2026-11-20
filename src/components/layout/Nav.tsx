@@ -1,182 +1,193 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useCallback, useEffect, useRef, useState } from "react";
+import styles from "./site-nav.module.css";
+import { socials } from "@/lib/socials";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about/", label: "About" },
-  { href: "/projects/", label: "Projects" },
-  { href: "/stack/", label: "Stack" },
-  { href: "/blog/", label: "Blog" },
-  { href: "/contact/", label: "Contact" },
+const links = [
+  { href: "/projects/", label: "Work", index: "01" },
+  { href: "/about/", label: "About", index: "02" },
+  { href: "/web-design/", label: "Services", index: "03" },
+  { href: "/blog/", label: "Journal", index: "04" },
+  { href: "/contact/", label: "Contact", index: "05" },
 ];
 
-const socialLinks = [
-  { href: "https://www.facebook.com/profile.php?id=61584357221305", label: "Facebook", icon: "facebook" },
-  { href: "https://www.instagram.com/stophermalik/", label: "Instagram", icon: "instagram" },
-  { href: "https://www.linkedin.com/in/stophermalik/", label: "LinkedIn", icon: "linkedin" },
-  { href: "https://x.com/stopher_malik", label: "X", icon: "x" },
-  { href: "https://www.tiktok.com/@stopher_malik", label: "TikTok", icon: "tiktok" },
-  { href: "https://www.youtube.com/channel/UCh92kSW3JN6gLHXo1kenLWQ", label: "YouTube", icon: "youtube" },
-];
-
-const socialIcons: Record<string, React.ReactNode> = {
-  facebook: (
-    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
-      <path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z" />
-    </svg>
-  ),
-  instagram: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16" aria-hidden="true">
-      <rect x="2" y="2" width="20" height="20" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" />
-    </svg>
-  ),
-  linkedin: (
-    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
-      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-    </svg>
-  ),
-  x: (
-    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  ),
-  tiktok: (
-    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
-      <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
-    </svg>
-  ),
-  youtube: (
-    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
-      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-    </svg>
-  ),
-  portfolio: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16" aria-hidden="true">
-      <circle cx="12" cy="12" r="10" />
-      <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
-    </svg>
-  ),
-};
+const menuLinks = [{ href: "/", label: "Home", index: "00" }, ...links];
 
 export function Nav() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const navRef = useRef<HTMLElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const isHome = pathname === "/";
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const top = window.scrollY;
+      setScrolled(top > 24);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      navRef.current?.style.setProperty("--nav-progress", String(max > 0 ? Math.min(1, top / max) : 0));
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? "hidden" : "";
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setIsMenuOpen(false);
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isMenuOpen]);
+    if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const toggle = toggleRef.current;
+    const first = menuRef.current?.querySelector<HTMLElement>('[data-menu-home]');
+    const focusTimer = window.setTimeout(() => first?.focus({ preventScroll: true }), 90);
+    menuRef.current?.scrollTo({ top: 0, behavior: 'instant' });
 
-  const closeMenu = () => setIsMenuOpen(false);
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggle?.focus();
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const focusable = [
+        ...(menuRef.current?.querySelectorAll<HTMLElement>("a[href], button:not([disabled])") ?? []),
+        ...(toggle ? [toggle] : []),
+      ];
+      if (!focusable.length) return;
+      const firstNode = focusable[0];
+      const lastNode = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === firstNode) {
+        event.preventDefault();
+        lastNode.focus();
+      } else if (!event.shiftKey && document.activeElement === lastNode) {
+        event.preventDefault();
+        firstNode.focus();
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      window.clearTimeout(focusTimer);
+      document.body.style.overflow = previous;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
+  const close = useCallback(() => {
+    setOpen(false);
+    toggleRef.current?.focus();
+  }, []);
 
   return (
-    <nav 
-      className={`nav ${isScrolled ? "is-scrolled" : ""}`}
+    <nav
+      ref={navRef}
+      className={`${styles.nav} ${isHome ? styles.overlay : ""} ${scrolled ? styles.scrolled : ""} ${open ? styles.menuOpen : ""}`}
       aria-label="Main navigation"
     >
-      <div className="container nav__inner" role="navigation" aria-label="Main navigation">
-        <Link href="/" className="nav__profile" aria-label="Stopher Malik - Home">
-          <div className="nav__avatar nav__avatar--portrait" aria-hidden="true">
-            <img src="/assets/stopher-portrait.webp" alt="" width="56" height="56" />
-          </div>
-          <div className="nav__identity">
-            <span className="nav__name">Stopher Malik</span>
-            <span className="nav__role">Web Designer & Developer</span>
-          </div>
+      <span className={styles.progress} aria-hidden="true" />
+      <div className={styles.inner}>
+        <Link href="/" className={styles.brand} aria-label="Stopher Malik — home">
+          <img className={styles.mark} src="/assets/stopher-portrait.webp" alt="" width="56" height="56" />
+          <span className={styles.wordmark}>
+            <span className={styles.name}>Stopher Malik</span>
+            <span className={styles.role}>SMK · Web design</span>
+          </span>
         </Link>
 
-        <span className="badge hidden md:inline-flex" data-reveal>
-          <span className="badge__dot" aria-hidden="true"></span>
-          Available for work
-        </span>
-
-        <div className="nav__socials hidden md:flex items-center gap-2">
-          {socialLinks.map((social) => (
-            <a
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav__social-icon"
-              aria-label={social.label}
-            >
-              {socialIcons[social.icon]}
-            </a>
-          ))}
-          <Link href="/projects/" className="nav__social-icon" aria-label="Portfolio">
-            {socialIcons.portfolio}
-          </Link>
+        <div className={styles.links}>
+          {links.map((link) => {
+            const active = pathname === link.href || pathname.startsWith(link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={styles.link}
+                aria-current={active ? "page" : undefined}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
 
-        <div className="nav__actions flex items-center gap-3 md:hidden">
+        <div className={styles.actions}>
+          <span className={styles.status}>
+            <span aria-hidden="true" />
+            Open for work
+          </span>
+          <Link href="/contact/" className={styles.cta}>
+            Let&rsquo;s talk <span aria-hidden="true">↗</span>
+          </Link>
           <button
-            className={`nav__menu-btn ${isMenuOpen ? "is-open" : ""}`}
-            onClick={() => setIsMenuOpen((open) => !open)}
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-menu"
+            ref={toggleRef}
+            type="button"
+            className={styles.toggle}
+            onClick={() => setOpen((value) => !value)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="site-menu"
           >
-            <span className="nav__menu-line" aria-hidden="true"></span>
-            <span className="nav__menu-line" aria-hidden="true"></span>
-            <span className="nav__menu-line" aria-hidden="true"></span>
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
           </button>
         </div>
       </div>
 
       <div
-        id="mobile-menu"
-        className={`mobile-menu ${isMenuOpen ? "is-open" : ""}`}
+        id="site-menu"
+        ref={menuRef}
+        className={styles.menu}
         role="dialog"
         aria-modal="true"
-        aria-label="Mobile menu"
-        aria-hidden={!isMenuOpen}
-        onClick={(event) => {
-          if (event.target === event.currentTarget) closeMenu();
-        }}
+        aria-label="Site menu"
+        aria-hidden={!open}
       >
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="mobile-menu__link text-center text-3xl font-display font-medium text-white hover:text-accent transition-colors py-4"
-              onClick={closeMenu}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <div className="flex items-center gap-4 mt-8">
-            {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="nav__social-icon text-white/70 hover:text-accent transition-colors"
-                aria-label={social.label}
-              >
-                {socialIcons[social.icon]}
-              </a>
+        <div className={styles.menuInner}>
+          <div className={styles.socialStrip} aria-label="Social profiles" role="group">
+            <strong>Find me online</strong>
+            {socials.map(({ label, href }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer">{label}<span aria-hidden="true"> ↗</span></a>
             ))}
           </div>
+          <div className={styles.menuNav}>
+            <p className={styles.menuLabel}>Index</p>
+            <ul className={styles.menuLinks}>
+              {menuLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} onClick={close} data-menu-home={link.href === "/" ? "" : undefined} aria-current={pathname === link.href ? "page" : undefined}>
+                    <span>{link.index}</span>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className={styles.menuAside}>
+            <figure className={styles.menuPortrait}>
+              <img src="/assets/stopher-portrait.webp" alt="" loading="lazy" decoding="async" />
+              <figcaption>Stopher Malik — Johannesburg</figcaption>
+            </figure>
+            <div className={styles.menuContact}>
+              <a href="mailto:info@stopher-malik.co.za">info@stopher-malik.co.za</a>
+              <a href="tel:+27729998863">+27 72 999 8863</a>
+            </div>
+          </div>
+        </div>
       </div>
     </nav>
   );

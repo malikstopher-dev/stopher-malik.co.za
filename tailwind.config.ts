@@ -20,12 +20,11 @@ const config: Config = {
         "white-muted": "#a1a1aa",
         "white-ghost": "#52525b",
 
-        // Original primary green; navigation and pills retain blue.
-        accent: "#22c55e",
-        "accent-light": "#4ade80",
-        "accent-glow": "rgba(34, 197, 94, 0.12)",
-        "accent-cyan": "#378ADD",
-        "accent-cyan-glow": "rgba(55, 138, 221, 0.12)",
+        accent: "#378ADD",
+        "accent-light": "#62A7F5",
+        "accent-glow": "rgba(55, 138, 221, 0.14)",
+        "accent-cyan": "#66C7FF",
+        "accent-cyan-glow": "rgba(102, 199, 255, 0.12)",
         "accent-violet": "#8b5cf6",
         "accent-violet-glow": "rgba(139, 92, 246, 0.12)",
         "accent-gold": "#fbbf24",

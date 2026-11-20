@@ -7,64 +7,62 @@ interface ProjectCardProps {
   image: string;
   href?: string;
   external?: boolean;
+  index?: number;
+  eager?: boolean;
   className?: string;
 }
 
-export function ProjectCard({ 
-  title, 
-  description, 
-  tags, 
-  image, 
-  href, 
+export function ProjectCard({
+  title,
+  description,
+  tags,
+  image,
+  href,
   external = false,
-  className = "" 
+  index,
+  eager = false,
+  className = "",
 }: ProjectCardProps) {
   const content = (
     <>
-      <div className="project-card__img-wrap relative overflow-hidden aspect-[16/10]">
+      <div className="project-card__media">
         <img
           src={image}
-          alt={title}
-          className="project-card__img w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          loading="lazy"
+          alt={`${title} website preview`}
+          className="project-card__img"
+          loading={eager ? "eager" : "lazy"}
+          fetchPriority={eager ? "high" : "auto"}
+          decoding="async"
         />
-        {href && (
-          <span className="project-card__hover-cta absolute bottom-4 right-4 bg-black/80 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            View Site <span aria-hidden="true">&rarr;</span>
-          </span>
-        )}
+        {index ? <span className="project-card__index" aria-hidden="true">{String(index).padStart(2, "0")}</span> : null}
+        {href ? <span className="project-card__open">View live <span aria-hidden="true">↗</span></span> : null}
       </div>
-      <div className="project-card__body p-6">
-        <div className="project-card__tags flex flex-wrap gap-2 mb-4">
-          {tags.map((tag) => (
-            <span key={tag} className="project-card__tag">
-              {tag}
-            </span>
-          ))}
+      <div className="project-card__caption">
+        <div className="project-card__intro">
+          <h3 className="project-card__title">{title}</h3>
+          <p className="project-card__desc">{description}</p>
         </div>
-        <h3 className="project-card__title text-white font-display font-semibold text-xl mb-2 group-hover:text-accent transition-colors">
-          {title}
-        </h3>
-        <p className="project-card__desc text-white-muted text-body-md leading-relaxed">
-          {description}
-        </p>
+        <ul className="project-card__tags" aria-label="Project services">
+          {tags.map((tag) => <li key={tag}>{tag}</li>)}
+        </ul>
       </div>
     </>
   );
 
   return (
-    <article className={`project-card relative overflow-hidden group ${className}`} data-tilt data-magnetic data-holo data-book>
+    <article className={`project-card ${className}`} data-reveal>
       {href ? (
         <Link
           href={href}
           target={external ? "_blank" : undefined}
           rel={external ? "noopener noreferrer" : undefined}
-          className="block"
+          className="project-card__link"
+          aria-label={`${title}${external ? " — opens in a new tab" : ""}`}
         >
           {content}
         </Link>
       ) : (
-        <div className="block">{content}</div>
+        <div className="project-card__link">{content}</div>
       )}
     </article>
   );

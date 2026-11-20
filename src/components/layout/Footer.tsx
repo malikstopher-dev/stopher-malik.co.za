@@ -1,159 +1,73 @@
 import Link from "next/link";
+import { LocalTime } from "./LocalTime";
+
+import { socials } from "@/lib/socials";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="footer border-t border-white/5" style={{ paddingBottom: "120px" }}>
+    <footer className="site-footer">
       <div className="container">
-        <div className="footer__grid">
-          <div className="footer__brand" style={{ maxWidth: "280px" }}>
-            <div className="footer__logo" style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.75rem",
-              marginBottom: "1.5rem",
-            }}>
-              <div className="footer__logo-mark" style={{
-                width: "28px",
-                height: "28px",
-                background: "#22c55e",
-                borderRadius: "6px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontFamily: "var(--font-display)",
-                fontWeight: "700",
-                fontSize: "0.875rem",
-                color: "#09090b",
-              }}>
-                S
-              </div>
-              <span className="footer__logo-text" style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: "700",
-                fontSize: "1rem",
-              }}>
-                SMK
-              </span>
-            </div>
-            <p className="footer__tagline" style={{
-              fontSize: "0.875rem",
-              color: "#a1a1aa",
-              lineHeight: "1.7",
-            }}>
-              Premium web design for South African businesses. Built to convert, designed to impress.
+        <div className="site-footer__top">
+          <div className="site-footer__brand">
+            <span className="site-footer__mark" aria-hidden="true">SM</span>
+            <p>
+              Independent web design<br />and development practice.
             </p>
           </div>
+          <a href="mailto:info@stopher-malik.co.za" className="site-footer__email">
+            Let&rsquo;s make<br /><em>something.</em>
+          </a>
+        </div>
 
-          <div>
-            <h3 className="footer__column-title" style={{
-              fontSize: "0.75rem",
-              fontWeight: "600",
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              color: "#fafafa",
-              marginBottom: "1.5rem",
-            }}>
-              Navigation
-            </h3>
-            <ul className="footer__links" style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "0.75rem",
-            }}>
-              <li><Link href="/projects/" className="footer__link">Projects</Link></li>
-              <li><Link href="/stack/" className="footer__link">Stack</Link></li>
-              <li><Link href="/blog/" className="footer__link">Blog</Link></li>
-              <li><Link href="/about/" className="footer__link">About</Link></li>
-              <li><Link href="/contact/" className="footer__link">Contact</Link></li>
+        <div className="site-footer__grid">
+          <div className="site-footer__column site-footer__column--wide">
+            <h3>Stopher Malik</h3>
+            <p>
+              Distinctive websites, identities and digital systems for businesses in
+              South Africa and abroad. Designed with intent, built to perform.
+            </p>
+            <LocalTime />
+          </div>
+          <div className="site-footer__column">
+            <h3>Explore</h3>
+            <ul>
+              <li><Link href="/projects/">Work</Link></li>
+              <li><Link href="/about/">About</Link></li>
+              <li><Link href="/blog/">Journal</Link></li>
+              <li><Link href="/contact/">Contact</Link></li>
             </ul>
           </div>
-
-          <div>
-            <h3 className="footer__column-title" style={{
-              fontSize: "0.75rem",
-              fontWeight: "600",
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              color: "#fafafa",
-              marginBottom: "1.5rem",
-            }}>
-              Services
-            </h3>
-            <ul className="footer__links" style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "0.75rem",
-            }}>
-              <li><Link href="/web-design/" className="footer__link">Web Design</Link></li>
-              <li><Link href="/ecommerce/" className="footer__link">E-Commerce</Link></li>
-              <li><Link href="/seo-performance/" className="footer__link">SEO & Performance</Link></li>
-              <li><Link href="/branding/" className="footer__link">Branding</Link></li>
+          <div className="site-footer__column">
+            <h3>Services</h3>
+            <ul>
+              <li><Link href="/web-design/">Web design</Link></li>
+              <li><Link href="/ecommerce/">E-commerce</Link></li>
+              <li><Link href="/seo-performance/">SEO &amp; performance</Link></li>
+              <li><Link href="/branding/">Branding</Link></li>
             </ul>
           </div>
-
-          <div>
-            <h3 className="footer__column-title" style={{
-              fontSize: "0.75rem",
-              fontWeight: "600",
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              color: "#fafafa",
-              marginBottom: "1.5rem",
-            }}>
-              Connect
-            </h3>
-            <ul className="footer__links" style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "0.75rem",
-            }}>
-              <li><a href="mailto:info@stopher-malik.co.za" className="footer__link">info@stopher-malik.co.za</a></li>
-              <li><a href="tel:+27729998863" className="footer__link">+27 72 999 8863</a></li>
-              <li><a href="https://wa.me/27729998863" className="footer__link" target="_blank" rel="noopener">WhatsApp</a></li>
-              <li><a href="https://www.google.com/maps?q=Paulshof,Sandton,Johannesburg" className="footer__link" target="_blank" rel="noopener">Johannesburg, South Africa</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="footer__column-title" style={{
-              fontSize: "0.75rem",
-              fontWeight: "600",
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              color: "#fafafa",
-              marginBottom: "1.5rem",
-            }}>
-              Legal
-            </h3>
-            <ul className="footer__links" style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "0.75rem",
-            }}>
-              <li><Link href="/terms/" className="footer__link">Terms &amp; Conditions</Link></li>
-              <li><Link href="/privacy/" className="footer__link">Privacy Policy</Link></li>
-              <li><Link href="/refund-policy/" className="footer__link">Refund &amp; Cancellation</Link></li>
+          <div className="site-footer__column">
+            <h3>Elsewhere</h3>
+            <ul>
+              {socials.map((social) => (
+                <li key={social.label}>
+                  <a href={social.href} target="_blank" rel="noopener noreferrer">{social.label}</a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        <div className="footer__bottom" style={{
-          display: "flex",
-          flexWrap: "wrap",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: "1.5rem",
-          paddingTop: "2rem",
-          borderTop: "1px solid rgba(255,255,255,0.05)",
-        }}>
-          <p className="footer__copyright" style={{
-            fontSize: "0.8125rem",
-            color: "#52525b",
-          }}>
-            &copy; {currentYear} SMK Web Design. All rights reserved.
-          </p>
+        <div className="site-footer__bottom">
+          <p>&copy; {year} SMK Web Design. All rights reserved.</p>
+          <div>
+            <Link href="/privacy/">Privacy</Link>
+            <Link href="/terms/">Terms</Link>
+            <Link href="/refund-policy/">Refunds</Link>
+          </div>
+          <p>Johannesburg · South Africa</p>
         </div>
       </div>
     </footer>

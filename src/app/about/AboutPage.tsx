@@ -1,112 +1,220 @@
 "use client";
 
+import Link from "next/link";
+import { InnerFilm } from "@/components/sections/InnerFilm";
 import { AboutSequence } from "./AboutSequence";
+
+const experience = [
+  {
+    period: "2023 — Now",
+    role: "Lead Web Designer",
+    company: "SMK Web Design · Johannesburg",
+    copy: "Leading the design and build of premium, conversion-focused websites for South African businesses and international clients.",
+  },
+  {
+    period: "2021 — 2023",
+    role: "UI/UX Designer",
+    company: "Freelance · South Africa",
+    copy: "Designed user-centred interfaces, wireframes, and prototypes for mobile and web products.",
+  },
+];
+
+const capabilities = [
+  {
+    index: "01",
+    title: "Web design",
+    copy: "Custom, mobile-first interfaces built to convert visitors into clients.",
+  },
+  {
+    index: "02",
+    title: "Brand identity",
+    copy: "Logos, colour systems, and visual guidelines that make businesses recognisable.",
+  },
+  {
+    index: "03",
+    title: "SEO & performance",
+    copy: "Technical SEO, Core Web Vitals, and local search built for South African markets.",
+  },
+  {
+    index: "04",
+    title: "Development",
+    copy: "Figma to React and Next.js, shipped fast on modern infrastructure.",
+  },
+];
 
 export function AboutPage() {
   return (
-    <main className="main-content">
-      <section className="internal-page about-hero">
+    <main className="about-page">
+      <section className="about-intro" aria-labelledby="about-title">
+        <InnerFilm />
         <div className="container">
-          <div className="internal-page__hero hero__card card" data-tilt data-magnetic data-holo>
-            <h1 className="hero__title">Get to Know Me Better!</h1>
-          </div>
-
-          <section className="internal-panel card" data-tilt data-morph data-holo>
-            <div className="internal-panel__header">
-              <h2 className="section-title">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="18" height="18" aria-hidden="true"><polygon points="12,3 21,12 12,21 3,12"/></svg>
-                About Stopher
-              </h2>
-            </div>
-            <p className="internal-panel__intro">
-              I&apos;m Stopher, a web designer based in Johannesburg. I build websites that look premium, load fast, and turn visitors into paying clients. Every project I take on blends clean design with a strategy that earns its keep.
+          <p className="section-kicker" data-reveal>
+            <span>About</span> The practice
+          </p>
+          <h1 id="about-title" data-reveal>
+            Designing for the
+            <br />
+            moment <em>attention lands.</em>
+          </h1>
+          <div className="about-intro__foot">
+            <p data-reveal>
+              I&apos;m Stopher, a web designer and developer in Johannesburg. I build
+              websites that look premium, load fast, and turn attention into paying
+              clients.
             </p>
-            <p className="internal-panel__intro" style={{ marginBottom: 0 }}>
-              My toolkit spans Figma, HTML, CSS, JavaScript, React, Next.js, and Cloudflare. I stay current with emerging technologies and design trends so each build stays both timeless and competitive.
+            <dl className="about-meta" data-reveal>
+              <div>
+                <dt>Based</dt>
+                <dd>Johannesburg, ZA</dd>
+              </div>
+              <div>
+                <dt>Practice</dt>
+                <dd>Design &amp; build</dd>
+              </div>
+              <div>
+                <dt>Since</dt>
+                <dd>2021</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <AboutSequence />
+
+      <section className="about-story" aria-labelledby="about-story-title">
+        <div className="container about-story__grid">
+          <figure className="about-portrait" data-reveal>
+            <img
+              src="/assets/stopher-portrait.webp"
+              alt="Stopher Malik, web designer and developer in Johannesburg"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              <span>Stopher Malik</span>
+              <span>26°12′ S / 28°02′ E</span>
+            </figcaption>
+          </figure>
+
+          <div className="about-story__copy">
+            <p className="section-kicker" data-reveal>
+              <span>01</span> The person
             </p>
-          </section>
+            <h2 id="about-story-title" data-reveal>
+              A designer who <em>ships.</em>
+            </h2>
+            <p data-reveal>
+              I started with interfaces, wireframes, and prototypes. Today I take
+              the whole arc: strategy, identity, design, and the build. That means
+              fewer hand-offs, fewer compromises, and a site that stays true to the
+              idea from first sketch to final deploy.
+            </p>
+            <p data-reveal>
+              My toolkit spans Figma, HTML, CSS, JavaScript, React, Next.js, and
+              Cloudflare. I keep the stack deliberately lean so every project loads
+              fast, ranks well, and is simple to maintain long after launch.
+            </p>
 
-          <AboutSequence />
+            <dl className="about-facts" data-reveal>
+              <div>
+                <dt>Markets</dt>
+                <dd>South Africa, DRC, Mozambique, Canada</dd>
+              </div>
+              <div>
+                <dt>Approach</dt>
+                <dd>Strategy first. Then design. Then build.</dd>
+              </div>
+              <div>
+                <dt>Availability</dt>
+                <dd>
+                  <span className="about-status" aria-hidden="true" />
+                  Open for select projects
+                </dd>
+              </div>
+            </dl>
 
-          <div className="internal-panel card" data-tilt>
-            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", gap: "var(--space-xl)", justifyContent: "flex-start" }}>
-              <div style={{
-                position: "relative",
-                width: "160px",
-                height: "160px",
-                borderRadius: "50%",
-                overflow: "hidden",
-                border: "3px solid var(--accent)",
-                boxShadow: "0 0 0 6px rgba(0,212,255,0.08), 0 20px 60px rgba(0,212,255,0.15)",
-                flexShrink: 0
-              }}>
-                <img
-                  src="/assets/stopher-portrait.webp"
-                  alt="Stopher Malik — Web Designer & Developer, Johannesburg"
-                  fetchPriority="high"
-                  decoding="async"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 28%", display: "block" }}
-                />
-                <div style={{ position: "absolute", inset: 0, borderRadius: "50%", boxShadow: "inset 0 0 40px rgba(3,7,15,0.4)", pointerEvents: "none" }} />
-              </div>
-              <div style={{ flex: "1 1 280px", minWidth: 0 }}>
-                <h2 style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-h2)", fontWeight: 700, color: "var(--white)", margin: 0 }}>
-                  Stopher Malik
-                </h2>
-                <p style={{ fontSize: "var(--body-md)", color: "var(--accent)", margin: "4px 0 0", letterSpacing: "var(--tracking-wide)" }}>
-                  Web Designer & Developer
+            <Link href="/projects/" className="text-link about-story__link">
+              Selected work <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="about-detail" aria-labelledby="about-record-title">
+        <div className="container">
+          <header className="section-head section-head--compact">
+            <div className="section-head__meta">
+              <p className="section-kicker">
+                <span>02</span> The record
+              </p>
+              <p className="section-note">Experience &amp; capabilities</p>
+            </div>
+            <div className="section-head__body">
+              <h2 id="about-record-title" data-reveal>
+                A short <em>record.</em>
+              </h2>
+              <div className="section-head__aside" data-reveal>
+                <p>
+                  Four years of designing and building for ambitious businesses,
+                  from first identity to measurable results.
                 </p>
-                <p style={{ fontSize: "var(--label-sm)", color: "var(--white-muted)", margin: "8px 0 0", textTransform: "uppercase", letterSpacing: "var(--tracking-wider)" }}>
-                  Johannesburg, South Africa
-                </p>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 14px", background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.25)", borderRadius: "999px", marginTop: "var(--space-lg)" }}>
-                  <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#4ade80", boxShadow: "0 0 8px #4ade80" }} />
-                  <span style={{ fontSize: "var(--label-sm)", color: "var(--white)", fontWeight: 500 }}>Available for projects</span>
-                </div>
               </div>
+            </div>
+          </header>
+
+          <div className="about-detail__columns">
+            <div className="about-list" data-reveal>
+              <h3>Experience</h3>
+              <ol>
+                {experience.map((item) => (
+                  <li key={item.role}>
+                    <span className="about-list__period">{item.period}</span>
+                    <div>
+                      <h4>{item.role}</h4>
+                      <p className="about-list__meta">{item.company}</p>
+                      <p>{item.copy}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            <div className="about-list" data-reveal>
+              <h3>Capabilities</h3>
+              <ol>
+                {capabilities.map((item) => (
+                  <li key={item.title}>
+                    <span className="about-list__period">{item.index}</span>
+                    <div>
+                      <h4>{item.title}</h4>
+                      <p>{item.copy}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="internal-page__split">
-            <div className="internal-panel card">
-              <h2 className="hero__skills-title">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="18" height="18"><polygon points="12,3 21,12 12,21 3,12"/></svg>
-                Experience
-              </h2>
-              <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-xl)", marginTop: "var(--space-lg)" }}>
-                <div>
-                  <h3 style={{ fontSize: "var(--body-lg)", fontWeight: 600, color: "var(--white)" }}>Lead Web Designer</h3>
-                  <p style={{ fontSize: "var(--label-sm)", color: "var(--accent)", margin: "2px 0 6px" }}>SMK Web Design (2023 - Present)</p>
-                  <p style={{ fontSize: "var(--body-sm)", color: "var(--white-muted)", lineHeight: 1.5 }}>Designing premium, converting digital experiences for diverse South African clients.</p>
-                </div>
-                <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: "var(--space-lg)" }}>
-                  <h3 style={{ fontSize: "var(--body-lg)", fontWeight: 600, color: "var(--white)" }}>UI/UX Designer</h3>
-                  <p style={{ fontSize: "var(--label-sm)", color: "var(--accent)", margin: "2px 0 6px" }}>Freelance (2021 - 2023)</p>
-                  <p style={{ fontSize: "var(--body-sm)", color: "var(--white-muted)", lineHeight: 1.5 }}>Created user-centered interfaces, wireframes, and prototypes for mobile and web apps.</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="internal-panel card">
-              <h2 className="hero__skills-title">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="18" height="18"><polygon points="12,3 21,12 12,21 3,12"/></svg>
-                What I Do
-              </h2>
-              <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-xl)", marginTop: "var(--space-lg)" }}>
-                <div>
-                  <h3 style={{ fontSize: "var(--body-lg)", fontWeight: 600, color: "var(--white)" }}>Web Design</h3>
-                  <p style={{ fontSize: "var(--body-sm)", color: "var(--white-muted)", lineHeight: 1.5 }}>Custom websites built to convert visitors into clients. Mobile-first, fast, SEO-ready.</p>
-                </div>
-                <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: "var(--space-lg)" }}>
-                  <h3 style={{ fontSize: "var(--body-lg)", fontWeight: 600, color: "var(--white)" }}>Brand Identity</h3>
-                  <p style={{ fontSize: "var(--body-sm)", color: "var(--white-muted)", lineHeight: 1.5 }}>Logos, colour systems, and visual guidelines that make businesses instantly recognisable.</p>
-                </div>
-                <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: "var(--space-lg)" }}>
-                  <h3 style={{ fontSize: "var(--body-lg)", fontWeight: 600, color: "var(--white)" }}>SEO & Performance</h3>
-                  <p style={{ fontSize: "var(--body-sm)", color: "var(--white-muted)", lineHeight: 1.5 }}>Technical SEO, Core Web Vitals, and local search optimisation for South African markets.</p>
-                </div>
-              </div>
-            </div>
+      <section className="about-close" aria-labelledby="about-close-title">
+        <div className="container about-close__inner">
+          <div>
+            <p className="section-kicker">
+              <span>03</span> Next
+            </p>
+            <h2 id="about-close-title" data-reveal>
+              Let&apos;s make the next one <em>count.</em>
+            </h2>
+          </div>
+          <div className="about-close__actions" data-reveal>
+            <Link href="/contact/" className="btn btn--accent btn--lg">
+              Start a project <span aria-hidden="true">↗</span>
+            </Link>
+            <a href="mailto:info@stopher-malik.co.za" className="about-close__email">
+              info@stopher-malik.co.za
+            </a>
           </div>
         </div>
       </section>

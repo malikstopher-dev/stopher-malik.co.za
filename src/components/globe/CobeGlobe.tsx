@@ -78,7 +78,7 @@ interface CobeGlobeProps {
 export function CobeGlobe({
   markers = DEFAULT_MARKERS,
   className = "",
-  speed = 0.0022,
+  speed = 0.001,
 }: CobeGlobeProps) {
   const vecs = useMemo(
     () => markers.map((m) => latLngToVec(m.location)),
@@ -168,6 +168,8 @@ export function CobeGlobe({
     if (!canvas || width === 0 || !markers.length) return;
 
     let frame = 0;
+    let running = false;
+    let onScreen = false;
     let shown = false;
     const prefersReduced = reducedRef.current;
 
@@ -196,7 +198,7 @@ export function CobeGlobe({
       theta: baseTheta.current,
       dark: 1,
       diffuse: 1.4,
-      mapSamples: 20000,
+      mapSamples: 12000,
       mapBrightness: 6,
       baseColor: [0.3, 0.3, 0.32],
       markerColor: [1, 1, 1],
@@ -209,6 +211,9 @@ export function CobeGlobe({
     });
 
     const animate = () => {
+      frame = 0;
+      if (!running || document.hidden) return;
+
       const dragging = pointerStart.current !== null;
 
       if (!dragging && !pausedRef.current && !hoveredRef.current) {
@@ -246,10 +251,44 @@ export function CobeGlobe({
       }
       frame = requestAnimationFrame(animate);
     };
-    frame = requestAnimationFrame(animate);
+
+    const start = () => {
+      if (running) return;
+      running = true;
+      if (!frame) frame = requestAnimationFrame(animate);
+    };
+
+    const stop = () => {
+      running = false;
+      if (frame) {
+        cancelAnimationFrame(frame);
+        frame = 0;
+      }
+    };
+
+    const host = wrapRef.current;
+    const io = host
+      ? new IntersectionObserver(
+          ([entry]) => {
+            onScreen = entry.isIntersecting;
+            if (onScreen) start();
+            else stop();
+          },
+          { rootMargin: "120px" },
+        )
+      : null;
+    if (host && io) io.observe(host);
+
+    const onVisibility = () => {
+      if (document.hidden) stop();
+      else if (onScreen) start();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
 
     return () => {
-      cancelAnimationFrame(frame);
+      stop();
+      io?.disconnect();
+      document.removeEventListener("visibilitychange", onVisibility);
       globe.destroy();
     };
   }, [width, speed, markers, vecs, shouldRender]);
@@ -324,10 +363,10 @@ export function CobeGlobe({
             <span className="absolute left-0 top-0 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-md ring-2 ring-gray-950/60 transition-transform duration-150 group-hover:scale-125" />
             <span
               role="tooltip"
-              className="pointer-events-none absolute bottom-4 left-0 hidden w-max max-w-[240px] -translate-x-1/2 translate-y-1 rounded-2xl bg-white px-3.5 py-2 text-left opacity-0 shadow-xl transition-all duration-150 group-hover:translate-y-0 group-hover:opacity-100 lg:block"
+              className="pointer-events-none absolute bottom-4 left-0 hidden w-max max-w-[240px] -translate-x-1/2 translate-y-1 rounded-lg border border-white/10 bg-[#08111a] px-3.5 py-2 text-left opacity-0 shadow-2xl transition-all duration-150 group-hover:translate-y-0 group-hover:opacity-100 lg:block"
             >
-              <span className="block text-xs font-semibold text-gray-900">{m.country}</span>
-              <span className="mt-0.5 block text-[11px] leading-snug text-gray-600">{m.work}</span>
+              <span className="block text-xs font-semibold text-white">{m.country}</span>
+              <span className="mt-0.5 block text-[11px] leading-snug text-white/55">{m.work}</span>
             </span>
           </div>
         ))}

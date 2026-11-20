@@ -1,4 +1,5 @@
 "use client";
+import { InnerFilm } from "@/components/sections/InnerFilm";
 
 const tools = [
   {
@@ -128,6 +129,7 @@ export function StackPage() {
       <section className="internal-page stack-page">
         <div className="container">
           <div className="internal-page__hero hero__card card" data-tilt data-magnetic data-holo>
+            <InnerFilm />
             <h1 className="hero__title">Full Stack</h1>
           </div>
 
