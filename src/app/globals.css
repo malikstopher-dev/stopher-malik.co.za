@@ -4562,8 +4562,10 @@ body {
   #main-content .internal-page__hero:has(> .inner-film) { padding-right: var(--space-xl,24px); }
 }
 @media(prefers-reduced-motion: no-preference) {
-  @keyframes film-push { from { transform: scale(1.015) translateX(-.4%); } to { transform: scale(1.08) translateX(.6%); } }
-  .inner-film canvas { animation: film-push 9s ease-in-out infinite alternate; transform-origin: 55% 36%; }
+  /* Same camera move for all portrait sequences. Scroll still controls the edit,
+     but the lens travels in and back out even when the page is stationary. */
+  @keyframes portrait-zoom { from { scale: 1; } to { scale: 1.18; } }
+  canvas[data-portrait-playing] { animation: portrait-zoom 4.5s ease-in-out infinite alternate; transform-origin: 50% 36%; }
   .portrait-orbit { position: absolute; z-index: 5; pointer-events: none; right: 3%; bottom: 16%; width: clamp(100px, 15vw, 210px); aspect-ratio: 1; perspective: 600px; }
   .portrait-orbit i { position: absolute; inset: 0; border: 1px solid rgb(144 200 255 / .48); border-radius: 50%; transform-style: preserve-3d; animation: portrait-revolve 5s linear infinite; }
   .portrait-orbit i::before { content: ''; position: absolute; top: 50%; left: -5px; width: 13px; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 30% 28%,#edf8ff,#77b9f5 35%,#193d68 70%,#08192e); box-shadow: 0 0 12px #5893d3; }

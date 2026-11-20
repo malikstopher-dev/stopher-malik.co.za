@@ -5,8 +5,12 @@ import Link from "next/link";
 import { InnerFilm } from "@/components/sections/InnerFilm";
 import { ServiceSelect } from "./ServiceSelect";
 
+// This public Web3Forms form key determines the receiving inbox at build time.
+const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY?.trim() || "23d51a8d-11fc-48a5-bae3-02ca670202c3";
+
 export function ContactPage() {
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -47,17 +51,20 @@ export function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (formStatus === "submitting") return;
     if (formData.honeypot || formData.honeypot2) {
-      setFormStatus("success");
+      setErrorMessage("The spam check blocked this enquiry before it was sent.");
+      setFormStatus("error");
       return;
     }
     setFormStatus("submitting");
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          access_key: "23d51a8d-11fc-48a5-bae3-02ca670202c3",
+          access_key: accessKey,
+          subject: "New portfolio enquiry — Stopher Malik",
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
@@ -66,15 +73,17 @@ export function ContactPage() {
           honeypot: formData.honeypot,
         }),
       });
-      const result = await response.json();
-      if (result.success) {
+      const result = await response.json().catch(() => null);
+      if (response.ok && result?.success === true) {
         setFormStatus("success");
         formRef.current?.reset();
         setFormData({ name: "", email: "", phone: "", service: "", message: "", honeypot: "", honeypot2: "" });
       } else {
+        setErrorMessage(typeof result?.message === "string" && result.message ? result.message : `The email service did not confirm your enquiry (HTTP ${response.status}).`);
         setFormStatus("error");
       }
     } catch {
+      setErrorMessage("We couldn’t confirm submission with the email service. Your draft is still here.");
       setFormStatus("error");
     }
   };
@@ -223,14 +232,14 @@ export function ContactPage() {
 
               {formStatus === "success" && (
                 <div className="contact-form__status contact-form__status--success" role="status" aria-live="polite">
-                  <p>Message sent. I&apos;ll get back to you within 24 hours.</p>
+                  <p>Thanks. The email service accepted your enquiry. I’ll reply to the email address you provided.</p>
                 </div>
               )}
 
               {formStatus === "error" && (
                 <div className="contact-form__status contact-form__status--error" role="alert">
                   <p>
-                    Something went wrong. <a href="https://wa.me/27729998863" target="_blank" rel="noopener">WhatsApp me directly</a>.
+                    {errorMessage} <a href="mailto:info@stopher-malik.co.za">Email me directly</a> or <a href="https://wa.me/27729998863" target="_blank" rel="noopener">use WhatsApp</a>.
                   </p>
                 </div>
               )}

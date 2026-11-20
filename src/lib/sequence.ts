@@ -223,6 +223,7 @@ export function createSequence({
   const observer = new IntersectionObserver(
     ([entry]) => {
       visible = entry.isIntersecting;
+      canvas.toggleAttribute('data-portrait-playing', visible && !document.hidden);
       if (visible) wake();
       else sleep();
     },
@@ -230,6 +231,7 @@ export function createSequence({
   );
 
   const onVisibility = () => {
+    canvas.toggleAttribute('data-portrait-playing', visible && !document.hidden);
     if (document.hidden) sleep();
     else wake();
   };
@@ -247,6 +249,7 @@ export function createSequence({
 
   return () => {
     alive = false;
+    canvas.removeAttribute('data-portrait-playing');
     sleep();
     observer.disconnect();
     resizeObserver.disconnect();
