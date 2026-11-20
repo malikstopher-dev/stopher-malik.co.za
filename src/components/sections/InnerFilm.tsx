@@ -18,7 +18,7 @@ export function InnerFilm() {
       const connection = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
       if (!motion.matches || connection?.saveData || connection?.effectiveType === '2g') return;
       const mobile = compact.matches;
-      stop = createSequence({ track, canvas, count: mobile ? 96 : 192, exitScrub: true, idleFrames: mobile ? 10 : 16,
+      stop = createSequence({ track, canvas, count: mobile ? 96 : 192, exitScrub: true, autoplay: true,
         cacheSize: mobile ? 13 : 20, concurrency: mobile ? 2 : 3,
         source: i => `/assets/hero-frames/${mobile ? 'mobile' : 'desktop'}/frame_${String(i + 1).padStart(4, '0')}.webp`,
         onFrame: () => { canvas.style.opacity = '1'; },

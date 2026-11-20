@@ -7,7 +7,7 @@ export interface SequenceOptions {
   focusY?: number;
   smoothing?: number;
   exitScrub?: boolean;
-  idleFrames?: number;
+  autoplay?: boolean;
   cacheSize?: number;
   concurrency?: number;
   phase?: (progress: number) => string;
@@ -23,7 +23,7 @@ export function createSequence({
   focusY = 0.32,
   smoothing = 0.16,
   exitScrub = false,
-  idleFrames = 0,
+  autoplay = false,
   cacheSize = 20,
   concurrency = 3,
   phase,
@@ -47,7 +47,7 @@ export function createSequence({
   let lastPhase = "";
   let width = 0;
   let height = 0;
-  let idleTime = 0;
+  let direction = 1;
   let lastTick = 0;
 
   const progress = () => {
@@ -96,6 +96,7 @@ export function createSequence({
         wake();
       } else {
         failed.add(index);
+        if (autoplay && index === target) wake();
       }
       pump();
     };
@@ -171,14 +172,16 @@ export function createSequence({
     shown += (raw - shown) * smoothing;
     if (Math.abs(raw - shown) < 0.0004) shown = raw;
 
-    // Animate the opening shot independently of scroll-driven copy and phases.
-    const idle = idleFrames > 0 && raw < 0.12;
+    // Play the actual images independently of the scroll-driven text.
     const now = performance.now();
-    if (idle && lastTick) idleTime += Math.min(now - lastTick, 120);
-    lastTick = idle ? now : 0;
-    const offset = idle ? (1 - Math.cos(idleTime * Math.PI / 2400)) * .5 * idleFrames * (1 - raw / .12) : 0;
-    const nextTarget = Math.min(count - 1, Math.round(shown * (count - 1) + offset));
-    if (nextTarget !== target) target = nextTarget;
+    const interval = 10000 / count;
+    if (!autoplay) target = Math.round(shown * (count - 1));
+    else if (count > 1 && now - lastTick >= interval && (drawn === target || failed.has(target))) {
+      if (target === count - 1) direction = -1;
+      if (target === 0) direction = 1;
+      target += direction;
+      lastTick = now;
+    }
 
     track.style.setProperty("--p", shown.toFixed(4));
     if (phase) {
@@ -197,7 +200,9 @@ export function createSequence({
     const moving = Math.abs(raw - shown) > 0.0004;
     // Completed image loads wake the renderer themselves.
     if (moving) wake();
-    else if (idle) idleTimer = window.setTimeout(wake, 80);
+    else if (autoplay && (drawn === target || failed.has(target))) {
+      idleTimer = window.setTimeout(wake, Math.max(1, interval - (now - lastTick)));
+    }
   };
 
   let idleTimer = 0;

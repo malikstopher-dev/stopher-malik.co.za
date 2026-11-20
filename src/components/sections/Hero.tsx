@@ -58,7 +58,7 @@ export function Hero() {
         track,
         canvas,
         count,
-        idleFrames: mobile ? 10 : 16,
+        autoplay: true,
         source: (index) => frameSource(mobile, index),
         focusY: mobile ? 0.5 : 0.3,
         smoothing: mobile ? 0.18 : 0.14,

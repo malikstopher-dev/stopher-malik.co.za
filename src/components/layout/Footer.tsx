@@ -11,7 +11,15 @@ export function Footer() {
       <div className="container">
         <div className="site-footer__top">
           <div className="site-footer__brand">
-            <span className="site-footer__mark" aria-hidden="true">SM</span>
+            <img
+              className="site-footer__mark"
+              src="/assets/stopher-portrait.webp"
+              alt=""
+              width="40"
+              height="40"
+              loading="lazy"
+              decoding="async"
+            />
             <p>
               Independent web design<br />and development practice.
             </p>
@@ -37,6 +45,7 @@ export function Footer() {
               <li><Link href="/about/">About</Link></li>
               <li><Link href="/blog/">Journal</Link></li>
               <li><Link href="/contact/">Contact</Link></li>
+              <li><Link href="/profile/">Business card</Link></li>
             </ul>
           </div>
           <div className="site-footer__column">
