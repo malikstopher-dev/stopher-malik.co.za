@@ -28,6 +28,26 @@ export const PROJECT_CATEGORIES: { id: ProjectCategory | "all"; label: string }[
 
 export const PROJECTS: Project[] = [
   {
+    name: "GIGI Cloud Solutions",
+    slug: "gigi-cloud-solutions",
+    category: "business",
+    tags: ["Technology", "Multilingual"],
+    description:
+      "A multilingual site where Johannesburg businesses can explore security, connectivity and solar services and request a quote for their premises.",
+    image: "/assets/gigi-cloud-solutions.jpg",
+    url: "https://www.gigicloudsolutions.co.za/",
+  },
+  {
+    name: "TwinFinish Painting & Tiling",
+    slug: "twinfinish",
+    category: "construction",
+    tags: ["Painting & Tiling", "Cape Town"],
+    description:
+      "A Cape Town contractor’s website with painting and tiling service guides, a project gallery and a direct quotation request for homeowners and businesses.",
+    image: "/assets/twinfinish.jpg",
+    url: "https://twin-finish.malikstopher.workers.dev/",
+  },
+  {
     name: "AK Global Trading",
     slug: "ak-global-trading",
     category: "business",

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PROJECTS } from "@/data/projects";
 import { LocationCard } from "./LocationCard";
 
 const skills = [
@@ -32,7 +33,7 @@ export function StudioSection() {
             <dl className="studio-facts">
               <div><dt>Based</dt><dd>Sandton, Johannesburg</dd></div>
               <div><dt>Working</dt><dd>South Africa &amp; worldwide</dd></div>
-              <div><dt>Since</dt><dd>2021 · 23+ projects shipped</dd></div>
+              <div><dt>Since</dt><dd>2021 · {PROJECTS.length}+ projects shipped</dd></div>
             </dl>
             <Link href="/about/" className="text-link">
               More about the practice <span aria-hidden="true">↗</span>

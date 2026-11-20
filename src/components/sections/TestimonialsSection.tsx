@@ -1,3 +1,5 @@
+import { PROJECTS } from "@/data/projects";
+
 const testimonials = [
   {
     quote:
@@ -55,7 +57,7 @@ export function TestimonialsSection() {
         </div>
 
         <div className="voices-stats" data-reveal>
-          <p><strong>23+</strong> projects shipped</p>
+          <p><strong>{PROJECTS.length}+</strong> projects shipped</p>
           <p><strong>04</strong> countries reached</p>
           <p><strong>Most</strong> work comes by referral</p>
         </div>

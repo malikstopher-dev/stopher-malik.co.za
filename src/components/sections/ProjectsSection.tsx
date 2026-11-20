@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ProjectCard } from "./ProjectCard";
-import { FEATURED_PROJECTS } from "@/data/projects";
+import { FEATURED_PROJECTS, PROJECTS } from "@/data/projects";
 
 export function ProjectsSection() {
   return (
@@ -21,7 +21,7 @@ export function ProjectsSection() {
                 as serious as the work they do.
               </p>
               <Link href="/projects/" className="text-link">
-                All 23 projects <span aria-hidden="true">↗</span>
+                All {PROJECTS.length} projects <span aria-hidden="true">↗</span>
               </Link>
             </div>
           </div>

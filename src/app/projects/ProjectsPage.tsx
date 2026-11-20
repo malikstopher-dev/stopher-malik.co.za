@@ -27,7 +27,7 @@ export function ProjectsPage() {
             <dl className="work-index__meta" data-reveal>
               <div>
                 <dt>Projects</dt>
-                <dd>23+</dd>
+                <dd>{PROJECTS.length}+</dd>
               </div>
               <div>
                 <dt>Markets</dt>
