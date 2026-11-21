@@ -112,7 +112,7 @@ export function localBusinessSchema() {
         closes: "14:00",
       },
     ],
-    priceRange: "R1500–R9000+",
+    priceRange: "R1500 to R9000+",
     currenciesAccepted: "ZAR",
     paymentAccepted: "EFT, SnapScan, Card",
     contactPoint: {

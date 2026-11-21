@@ -252,7 +252,7 @@
   transition: 180ms ease;
 }
 
-.heroActions a:first-child { background: var(--gold); color: #151006; }
+.heroActions a:first-child { background: #3c2c13; color: #fff; }
 .heroActions a:hover { transform: translateY(-2px); border-color: var(--gold-light); }
 
 .journeySection,
@@ -372,8 +372,8 @@
 .contactList span { min-width: 0; overflow-wrap: anywhere; }
 .contactList small { display: block; margin-bottom: 0.18rem; color: #847655; font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase; }
 
-.qrSeal { display: grid; place-items: center; gap: 0.7rem; padding: 0.9rem; border: 1px solid rgba(213,164,61,0.3); background: #f8f5ef; }
-.qrSeal img { width: 135px; height: 135px; }
+.qrSeal { display: grid; place-items: center; gap: 0.7rem; padding: 0.9rem; border: 1px solid rgba(213,164,61,0.3); background: #0b111a; }
+.qrSeal img { width: 135px; height: 135px; background: #fff; }
 .qrSeal span { color: #332813; font-size: 0.57rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
 
 .profileFooter {
@@ -429,7 +429,6 @@
   .role { margin-top: 0.8rem; font-size: 0.65rem; letter-spacing: 0.08em; line-height: 1.6; }
   .heroActions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 1.2rem; }
   .heroActions a { min-height: 48px; padding: 0.7rem 0.4rem; border-radius: 12px; font-size: 0.8rem; letter-spacing: 0; }
-  .heroActions a:first-child { background: linear-gradient(120deg, #f2d184, #d5a43d); }
   .ornament { margin: 1.4rem 0; }
   .lead { font-size: 1rem; line-height: 1.65; }
   .identityFacts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; padding: 0; margin-top: 1.4rem; border: 0; }

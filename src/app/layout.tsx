@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { baiJamjuree, inter } from "@/lib/fonts";
 import "./globals.css";
-import { CosmicBackground } from "@/components/layout/CosmicBackground";
+import { CodeBackground } from "@/components/layout/CodeBackground";
 import { SiteShell } from "@/components/layout/SiteShell";
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Stopher Malik | Web Designer Johannesburg",
   description: "Web designer in Johannesburg helping South African businesses get more clients. High-converting websites built for performance & real results. Free quote.",
   keywords: ["web designer Johannesburg", "web design South Africa", "business websites South Africa", "website design Johannesburg", "affordable web design Johannesburg", "small business website South Africa", "conversion focused web design", "SMK Web Design", "Stopher Malik", "web developer Johannesburg", "landing page design South Africa", "SEO Johannesburg", "Sandton web designer", "Gauteng web design"],
-  authors: [{ name: "Stopher Malik — SMK Web Design" }],
+  authors: [{ name: "Stopher Malik, SMK Web Design" }],
   robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   icons: {
     icon: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         url: "https://stopher-malik.co.za/assets/og-image-1200x630.png",
         width: 1200,
         height: 630,
-        alt: "SMK Web Design — Professional Website Design in Johannesburg, South Africa",
+        alt: "SMK Web Design, professional website design in Johannesburg, South Africa",
       },
     ],
     locale: "en_ZA",
@@ -64,7 +64,7 @@ export default function RootLayout({
       <body
         className={`${baiJamjuree.variable} ${inter.variable} antialiased`}
       >
-        <CosmicBackground />
+        <CodeBackground />
         <SiteShell>{children}</SiteShell>
       </body>
     </html>

@@ -116,7 +116,7 @@ export function Hero() {
             <span className={`${styles.line} ${styles.surname}`}><span>Malik</span></span>
           </h1>
           <p className={styles.lede}>
-            Websites with <em>depth</em> — designed to hold attention and built to earn trust.
+            I design and build fast, easy-to-use websites for businesses.
           </p>
           <div className={styles.actions}>
             <a href="#work" className={styles.primary}>
@@ -133,8 +133,8 @@ export function Hero() {
 
         <div ref={outroRef} className={styles.outro} aria-hidden="true">
           <p className={styles.kicker}>The reveal</p>
-          <h2>Clarity,<br /><em>by design.</em></h2>
-          <p>Less noise. More meaning. Strategy, design and development under one roof.</p>
+          <h2>From idea<br /><em>to launch.</em></h2>
+          <p>I handle the design and development from the first sketch to launch.</p>
           <a href="#work">View selected work <span aria-hidden="true">↓</span></a>
         </div>
 
@@ -145,7 +145,7 @@ export function Hero() {
         </div>
 
         <div className={styles.meta} aria-hidden="true">
-          <span ref={counterRef}>Portrait study — blue pigment</span>
+          <span ref={counterRef}>Portrait study in blue pigment</span>
           <span>Design · Development · SEO</span>
         </div>
 

@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Use one text color across the portfolio, including locally styled components. */
+body :is(h1, h2, h3, h4, h5, h6, p, a, span, strong, em, b, small, li, dt, dd, blockquote, figcaption, code, th, td, time, label, input, textarea, select, option, button) {
+  color: #fff !important;
+}
+
+body :is(input, textarea)::placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+body option {
+  background: #0b1627;
+}
+
 body:has(.qr-profile-page) {
   background: #030405;
 }
@@ -81,8 +95,8 @@ body:has(.qr-profile-page) .back-to-top {
   }
 
   ::selection {
-    background: #378ADD;
-    color: #09090b;
+    background: #174476;
+    color: #fff;
   }
 
   ::-webkit-scrollbar {
@@ -128,7 +142,7 @@ body:has(.qr-profile-page) .back-to-top {
   }
 
   .btn--accent {
-    @apply bg-accent text-black hover:bg-accent-light active:bg-[#2a7acc] px-6 py-3 text-body-lg;
+    @apply bg-[#12355a] text-white hover:bg-[#1c4d7b] active:bg-[#102b48] px-6 py-3 text-body-lg;
   }
 
   .btn--ghost {
@@ -645,60 +659,22 @@ body:has(.qr-profile-page) .back-to-top {
 @media (min-width: 768px) {
   .footer__grid { grid-template-columns: 2fr 1fr 1fr 1fr; gap: 64px; }
 }
-/* Static rendering of the original cosmic palette, without a perpetual canvas loop. */
+/* Keep the fixed backdrop behind content and above the body background. */
 body { isolation: isolate; }
-.cosmic-background {
-  position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
-  background: radial-gradient(ellipse 120% 55% at 50% 0%, #0c1c36 0%, #050b1a 45%, #020508 75%, transparent 100%), linear-gradient(175deg, #020408, #040a1c 22%, #030710 64%, #010305);
-}
-.cosmic-stars { position: absolute; width: 100%; height: 100%; }
-.cosmic-moon {
-  position: absolute; top: 7vh; right: 8vw; width: clamp(72px,9vw,130px); aspect-ratio: 1; border-radius: 50%;
-  background: radial-gradient(circle at 30% 36%, rgba(30,40,60,.3), transparent 10%), radial-gradient(circle at 63% 24%, rgba(30,40,60,.24), transparent 7%), radial-gradient(ellipse at 52% 44%, rgba(40,50,70,.35), transparent 32%), radial-gradient(circle at 50% 50%, transparent 52%, rgba(5,8,18,.8) 100%), radial-gradient(circle at 38% 36%, #cdd2de, #adb5c4 35%, #8e98aa 65%, #454e60);
-  box-shadow: 0 0 28px 6px rgba(160,185,230,.12), 0 0 60px 16px rgba(120,155,210,.07);
-}
-.cosmic-planet { position: absolute; border-radius: 50%; aspect-ratio: 1; opacity: .55; }
-.cosmic-planet--amber {
-  top: 28vh; left: -65px; width: clamp(70px,8.5vw,130px);
-  background: repeating-linear-gradient(0deg, transparent 0% 9%, rgba(190,110,55,.22) 9% 14%), radial-gradient(circle at 40% 36%, #d48840, #a85c20 30%, #743308 58%, #180700);
-  box-shadow: inset -14px -10px 28px rgba(0,0,0,.75);
-}
-.cosmic-planet--amber::after { content: ""; position: absolute; inset: -50%; border-radius: 50%; transform: rotateX(70deg); box-shadow: 0 0 0 7px rgba(210,170,90,.22), 0 0 0 12px rgba(195,150,70,.14); }
-.cosmic-planet--blue { top: 58vh; right: -30px; width: clamp(48px,5.5vw,85px); background: radial-gradient(circle at 32% 26%, rgba(160,240,255,.3), transparent 32%), radial-gradient(circle at 46% 44%, #1464aa, #0a3e7e 28%, #061e52 56%, #010618); }
 .hero__bottom { gap: 24px; margin: 24px 0; }
-.orbital-plane { position: absolute; inset: 0; perspective: 850px; }
-.orbital-giant { position: absolute; width: clamp(155px, 25vw, 430px); top: 33%; right: -5%; }
-.orbital-plane .cosmic-moon { width: clamp(32px, 4vw, 65px); top: 23%; left: 6%; opacity: .72; }
 #main-content :is(.about-intro, .work-index__intro, .service-detail__hero, .contact-editorial__intro, .journal-hero, .article-hero, .about-close, .service-detail__packages) {
-  background: linear-gradient(105deg, rgb(7 10 15 / .58), transparent 69%), radial-gradient(ellipse at 88% 35%, rgb(51 115 170 / .14), transparent 58%);
-}
-body:has(.about-intro, .work-index__intro, .service-detail__hero, .contact-editorial__intro, .journal-hero, .article-hero) .orbital-giant {
-  width: clamp(205px, 36vw, 610px); right: -2%; top: 19%;
+  background: linear-gradient(105deg, rgb(7 10 15 / .32), transparent 69%), radial-gradient(ellipse at 88% 35%, rgb(51 115 170 / .14), transparent 58%);
 }
 @media (prefers-reduced-motion: no-preference) {
-  .orbital-giant, .orbital-plane .cosmic-moon, .cosmic-stars { transition: translate .55s ease-out; }
-  .orbital-giant { translate: var(--orbit-x, 0px) var(--orbit-y, 0px); }
-  .orbital-plane .cosmic-moon { translate: calc(-.65 * var(--orbit-x, 0px)) calc(-.65 * var(--orbit-y, 0px)); }
-  .cosmic-stars { translate: calc(.2 * var(--orbit-x, 0px)) calc(.2 * var(--orbit-y, 0px)); }
   .service-plan.premium-surface > h3, .service-plan.premium-surface > .service-plan__price { transform: translateZ(18px); }
 }
 
-/* Let the distant sky show through the reading surfaces, keeping the foreground solid. */
+/* Let the backdrop show through while keeping reading surfaces dark. */
 #main-content :is(.work-section, .studio-section, .services-section, .voices-section,
   .about-page, .work-index-page, .contact-editorial, .journal-page, .article-page, .service-detail) {
-  background: linear-gradient(110deg, rgb(7 10 15 / .9), rgb(7 10 15 / .54));
+  background: linear-gradient(110deg, rgb(7 10 15 / .56), rgb(7 10 15 / .32));
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .orbital-giant { animation: orbital-drift 32s ease-in-out infinite alternate; }
-  @keyframes orbital-drift {
-    to { transform: translate3d(-8px, -13px, 18px) rotate(-2deg); }
-  }
-  @supports (animation-timeline: scroll()) {
-    .orbital-plane { animation: orbital-parallax linear both; animation-timeline: scroll(root); }
-    @keyframes orbital-parallax { from { translate: 0 4vh; } to { translate: 0 -6vh; } }
-  }
-}
 .location-card, .skills-card {
   padding: 24px 32px;
   min-height: 400px;
@@ -1369,7 +1345,7 @@ body:has(.about-intro, .work-index__intro, .service-detail__hero, .contact-edito
 .contact-form .form-input:-webkit-autofill,
 .contact-form .form-input:-webkit-autofill:hover,
 .contact-form .form-input:-webkit-autofill:focus {
-  -webkit-text-fill-color: #fafafa;
+  -webkit-text-fill-color: #fff;
   box-shadow: 0 0 0 1000px #090d15 inset, 0 0 0 3px rgba(55, 138, 221, 0.18);
   caret-color: #fafafa;
 }
@@ -1499,13 +1475,13 @@ body:has(.about-intro, .work-index__intro, .service-detail__hero, .contact-edito
 
 .contact-form__submit.btn--accent {
   border: 1px solid #4c9be6;
-  background: #378add;
+  background: #12355a;
   color: #ffffff;
   box-shadow: 0 12px 30px rgba(55, 138, 221, 0.2);
 }
 
 .contact-form__submit.btn--accent:hover {
-  background: #4a98e2;
+  background: #1c4d7b;
   box-shadow: 0 16px 38px rgba(55, 138, 221, 0.28);
 }
 
@@ -1894,8 +1870,8 @@ section[id] {
   z-index: 2000;
   padding: 0.7rem 1rem;
   border: 1px solid #8ac4f8;
-  background: #f3f0e8;
-  color: #071019;
+  background: #12355a;
+  color: #fff;
   font-family: var(--font-display);
   font-size: 0.72rem;
   font-weight: 600;
@@ -2219,8 +2195,8 @@ section[id] {
   gap: 0.55rem;
   padding: 0.55rem 0.8rem;
   border-radius: 1px;
-  background: #f3f0e8;
-  color: #08111a;
+  background: #12355a;
+  color: #fff;
   font-family: var(--font-display);
   font-size: 0.56rem;
   font-weight: 600;
@@ -3228,8 +3204,8 @@ body {
 
 .back-to-top:hover {
   border-color: #d8ecff;
-  background: #d8ecff;
-  color: #071019;
+  background: #12355a;
+  color: #fff;
 }
 
 .work-footer .btn--accent,
@@ -4565,7 +4541,7 @@ body {
   .portrait-orbit i:nth-child(2) { inset: 17%; animation-duration: 3.5s; animation-direction: reverse; }
   @keyframes portrait-revolve { from { transform: rotateZ(-24deg) rotateX(58deg) rotateZ(0deg); } to { transform: rotateZ(-24deg) rotateX(58deg) rotateZ(360deg); } }
   @keyframes board-float { from { rotate: 1 .8 0 -4deg; translate: 0 3px; } to { rotate: 1 .8 0 4deg; translate: 0 -6px; } }
-  @keyframes type-depth { from { transform: perspective(850px) rotateY(-5deg) rotateX(2deg); text-shadow: 1px 2px #34506b, 0 6px 18px #172c45; } to { transform: perspective(850px) rotateY(3deg) rotateX(-2deg); text-shadow: -1px 3px #34506b, 0 9px 24px #26425d; } }
+  @keyframes type-depth { from { transform: perspective(850px) rotateY(-5deg) rotateX(2deg); text-shadow: 0 2px 7px rgb(0 0 0 / .52); } to { transform: perspective(850px) rotateY(3deg) rotateX(-2deg); text-shadow: 0 3px 10px rgb(0 0 0 / .62); } }
   #main-content :is(.service-plans,.work-grid,.voices-grid,.service-detail__grid) { perspective: 1200px; }
   #main-content :is(.service-plan,.project-card,.voices-grid > figure,.studio-globe,.stack-card,.service-detail__feature) { animation: board-float 3.2s ease-in-out infinite alternate; }
   @media (hover: hover) and (pointer: fine) {

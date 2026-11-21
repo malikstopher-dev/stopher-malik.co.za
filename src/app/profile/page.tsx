@@ -19,7 +19,7 @@ const socialLinks = [
 // Current roles supplied directly; earlier roles transcribed from LinkedIn screenshots.
 const experience = [
   {
-    period: "2023—Present", title: "Stock Control Manager & Administrator",
+    period: "2023 to present", title: "Stock Control Manager & Administrator",
     employer: "The Boma Cafe", location: "Sandton, South Africa",
     detail: "Managing stock control and administration alongside independent web design and development work.",
   },
@@ -29,27 +29,27 @@ const experience = [
     detail: "Working independently to design and develop websites for businesses.",
   },
   {
-    period: "June 2023—March 2025", title: "Tracking Clerk",
+    period: "June 2023 to March 2025", title: "Tracking Clerk",
     employer: "KCT Logistics", location: "Johannesburg, Gauteng",
     detail: "Tracked incoming and outgoing shipments and maintained logistics records and tracking systems.",
   },
   {
-    period: "January—May 2023 · Seasonal", title: "Construction Worker",
+    period: "January to May 2023 · Seasonal", title: "Construction Worker",
     employer: "MAbatho Construction", location: "Durban, KwaZulu-Natal",
     detail: "Assisted skilled workers on construction sites and loaded and unloaded materials.",
   },
   {
-    period: "March 2021—January 2023", title: "Sales Representative",
+    period: "March 2021 to January 2023", title: "Sales Representative",
     employer: "Linklayer", location: "Durban, KwaZulu-Natal",
     detail: "Promoted company products and maintained customer relationships.",
   },
   {
-    period: "December 2012—January 2021", title: "Maintenance Manager",
+    period: "December 2012 to January 2021", title: "Maintenance Manager",
     employer: "Marulani Game Ranch", location: "Waterberg, Limpopo",
     detail: "Managed maintenance and repair work and supervised daily work activities.",
   },
   {
-    period: "September 2009—December 2012", title: "Security Guard",
+    period: "September 2009 to December 2012", title: "Security Guard",
     employer: "ISFO Security", location: "Johannesburg, Gauteng",
     detail: "Monitored facilities, controlled access, responded to incidents and prepared security reports.",
   },
@@ -121,7 +121,7 @@ const education = [
     detail: "A formative chapter that nurtured curiosity, discipline and an early interest in language, culture and people.",
   },
   {
-    label: "University · 2004—2009",
+    label: "University · 2004 to 2009",
     title: "Université de Lubumbashi",
     detail: "Communication studies spanning storytelling, media, public engagement and the power of a well-shaped message.",
   },
@@ -133,7 +133,7 @@ const education = [
   {
     label: "IT studies · Diploma",
     title: "University of South Africa",
-    detail: "Continued his education at UNISA, earning a diploma. His combined period of IT study at Boston City College and UNISA spanned 2010–2017.",
+    detail: "Studied IT at Boston City College and UNISA from 2010 to 2017, earning a diploma at UNISA.",
   },
 ];
 
@@ -201,8 +201,8 @@ export default function ProfilePage() {
           <dl className={styles.identityFacts}>
             <div><dt>College</dt><dd>St Victorien</dd></div>
             <div><dt>University</dt><dd>Université de Lubumbashi</dd></div>
-            <div><dt>Study period</dt><dd>Communication · 2004—2009</dd></div>
-            <div><dt>IT education</dt><dd>Boston City College, then UNISA · 2010—2017</dd></div>
+            <div><dt>Study period</dt><dd>Communication · 2004 to 2009</dd></div>
+            <div><dt>IT education</dt><dd>Boston City College, then UNISA · 2010 to 2017</dd></div>
             <div><dt>Qualification</dt><dd>Diploma · University of South Africa</dd></div>
             <div><dt>Current role</dt><dd>Stock Control Manager &amp; Administrator · The Boma Cafe</dd></div>
             <div><dt>Independent work</dt><dd>Web Designer &amp; Developer</dd></div>

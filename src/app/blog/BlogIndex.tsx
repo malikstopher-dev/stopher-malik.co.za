@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { InnerFilm } from "@/components/sections/InnerFilm";
+import { formatJournalCopy } from "@/lib/journal-copy";
 import fs from "fs";
 import path from "path";
 
@@ -31,9 +32,7 @@ function getPosts(): JournalPost[] {
     .filter((file) => file.endsWith(".mdx"))
     .map((file) => {
       const slug = file.replace(/\.mdx$/, "");
-      const source = fs
-        .readFileSync(path.join(blogDir, file), "utf-8")
-        .replace(/\r\n/g, "\n");
+      const source = formatJournalCopy(fs.readFileSync(path.join(blogDir, file), "utf-8"));
       const match = source.match(/^---\n([\s\S]*?)\n---/);
       const frontmatter = match ? match[1] : "";
       const read = (key: string) => {
@@ -71,8 +70,7 @@ export function BlogIndex() {
           </h1>
           <div className="journal-hero__foot">
             <p data-reveal>
-              Practical thinking on design, search, and the craft of building
-              websites that earn attention and convert it into work.
+              Guides on web design, SEO and what to consider before building or updating a site.
             </p>
             <dl className="journal-hero__meta" data-reveal>
               <div>

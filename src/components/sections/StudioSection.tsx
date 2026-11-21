@@ -23,12 +23,11 @@ export function StudioSection() {
           <div className="studio-copy" data-reveal>
             <p className="section-kicker"><span>02</span> The studio</p>
             <h2 id="studio-heading">
-              A small practice with a <em>wide view.</em>
+              An independent <em>web design studio.</em>
             </h2>
             <p className="studio-lede">
               I&rsquo;m Stopher Malik, a designer and developer in Johannesburg. I work
-              with a short list of clients who care about how their business looks,
-              reads and performs — from the first line of code to the last detail.
+              directly with a few clients at a time on websites, branding and search optimisation.
             </p>
             <dl className="studio-facts">
               <div><dt>Based</dt><dd>Sandton, Johannesburg</dd></div>

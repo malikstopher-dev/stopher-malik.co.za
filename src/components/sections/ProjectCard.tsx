@@ -57,7 +57,7 @@ export function ProjectCard({
           target={external ? "_blank" : undefined}
           rel={external ? "noopener noreferrer" : undefined}
           className="project-card__link"
-          aria-label={`${title}${external ? " — opens in a new tab" : ""}`}
+          aria-label={`${title}${external ? " (opens in a new tab)" : ""}`}
         >
           {content}
         </Link>

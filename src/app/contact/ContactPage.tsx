@@ -64,7 +64,7 @@ export function ContactPage() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: accessKey,
-          subject: "New portfolio enquiry — Stopher Malik",
+          subject: "New portfolio enquiry: Stopher Malik",
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
@@ -109,8 +109,7 @@ export function ContactPage() {
             </h1>
             <div className="contact-editorial__aside" data-reveal>
               <p>
-                Share the idea, the timeline, and what success looks like. I&apos;ll
-                come back with a clear next step, usually within one working day.
+                Tell me what you need and when you need it. I&apos;ll usually reply within one working day.
               </p>
               <p className="contact-editorial__availability">
                 <span aria-hidden="true" />

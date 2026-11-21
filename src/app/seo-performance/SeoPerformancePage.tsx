@@ -13,7 +13,7 @@ const features = [
 
 const packages = [
   { name: "SEO Audit", price: "R1,500", features: ["Full technical audit report", "Core Web Vitals baseline", "Schema gap analysis", "Priority fix list"], cta: "Get Audit" },
-  { name: "Optimisation Sprint", price: "R4,000–8,000", features: ["All audit fixes implemented", "Speed optimisation", "Schema markup deployment", "30-day monitoring"], cta: "Start Sprint", highlight: true },
+  { name: "Optimisation Sprint", price: "R4,000 to R8,000", features: ["All audit fixes implemented", "Speed optimisation", "Schema markup deployment", "30-day monitoring"], cta: "Start Sprint", highlight: true },
   { name: "Monthly SEO", price: "R2,500/mo", features: ["Ongoing technical monitoring", "Content optimisation", "Rank tracking + reports", "Quarterly strategy calls"], cta: "Start Monthly" },
 ];
 

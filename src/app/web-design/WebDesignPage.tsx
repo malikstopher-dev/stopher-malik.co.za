@@ -12,8 +12,8 @@ const features = [
 ];
 
 const packages = [
-  { name: "Starter", price: "R1,500–3,000", features: ["Up to 5 pages", "Mobile-responsive", "Basic SEO setup", "Contact form + WhatsApp", "1 revision round"], cta: "Start Starter" },
-  { name: "Business Growth", price: "R4,000–8,000", features: ["Up to 15 pages", "Custom animations", "Advanced SEO + schema", "CMS for blog or portfolio", "3 revision rounds"], cta: "Start Growth", highlight: true },
+  { name: "Starter", price: "R1,500 to R3,000", features: ["Up to 5 pages", "Mobile-responsive", "Basic SEO setup", "Contact form + WhatsApp", "1 revision round"], cta: "Start Starter" },
+  { name: "Business Growth", price: "R4,000 to R8,000", features: ["Up to 15 pages", "Custom animations", "Advanced SEO + schema", "CMS for blog or portfolio", "3 revision rounds"], cta: "Start Growth", highlight: true },
   { name: "Premium Brand", price: "R9,000+", features: ["Unlimited pages", "Design system", "Full SEO + analytics", "Custom integrations", "Unlimited revisions"], cta: "Start Premium" },
 ];
 

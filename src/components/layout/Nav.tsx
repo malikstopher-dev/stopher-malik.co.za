@@ -100,7 +100,7 @@ export function Nav() {
     >
       <span className={styles.progress} aria-hidden="true" />
       <div className={styles.inner}>
-        <Link href="/" className={styles.brand} aria-label="Stopher Malik — home">
+        <Link href="/" className={styles.brand} aria-label="Stopher Malik, home">
           <img className={styles.mark} src="/assets/stopher-portrait.webp" alt="" width="56" height="56" />
           <span className={styles.wordmark}>
             <span className={styles.name}>Stopher Malik</span>
@@ -180,7 +180,7 @@ export function Nav() {
           <div className={styles.menuAside}>
             <figure className={styles.menuPortrait}>
               <img src="/assets/stopher-portrait.webp" alt="" loading="lazy" decoding="async" />
-              <figcaption>Stopher Malik — Johannesburg</figcaption>
+              <figcaption>Stopher Malik, Johannesburg</figcaption>
             </figure>
             <div className={styles.menuContact}>
               <a href="mailto:info@stopher-malik.co.za">info@stopher-malik.co.za</a>

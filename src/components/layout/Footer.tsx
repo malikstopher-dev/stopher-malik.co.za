@@ -33,8 +33,7 @@ export function Footer() {
           <div className="site-footer__column site-footer__column--wide">
             <h3>Stopher Malik</h3>
             <p>
-              Distinctive websites, identities and digital systems for businesses in
-              South Africa and abroad. Designed with intent, built to perform.
+              Web design, branding and SEO for businesses in South Africa and abroad.
             </p>
             <LocalTime />
           </div>

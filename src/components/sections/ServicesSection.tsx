@@ -11,7 +11,7 @@ const services = [
   {
     index: "02",
     name: "E-commerce",
-    copy: "Stores that make buying feel effortless — catalogue, checkout and the operational details behind them.",
+    copy: "Online stores with a clear product catalogue, simple checkout and the tools to manage orders.",
     href: "/ecommerce/",
     tags: "Shopify · Headless · Payments",
   },
@@ -44,7 +44,7 @@ export function ServicesSection() {
             <h2 id="services-heading">What I <em>build.</em></h2>
             <div className="section-head__aside">
               <p>
-                Most projects combine all four. Start where it hurts most — the rest
+                Most projects combine all four. Start with what your business needs most. The rest
                 can follow.
               </p>
               <Link href="/contact/" className="text-link">

@@ -6,13 +6,13 @@ import { AboutSequence } from "./AboutSequence";
 
 const experience = [
   {
-    period: "2023 — Now",
+    period: "2023 to present",
     role: "Lead Web Designer",
     company: "SMK Web Design · Johannesburg",
     copy: "Leading the design and build of premium, conversion-focused websites for South African businesses and international clients.",
   },
   {
-    period: "2021 — 2023",
+    period: "2021 to 2023",
     role: "UI/UX Designer",
     company: "Freelance · South Africa",
     copy: "Designed user-centred interfaces, wireframes, and prototypes for mobile and web products.",

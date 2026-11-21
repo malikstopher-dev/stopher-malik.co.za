@@ -46,10 +46,10 @@ export function PremiumSurfaceEffects() {
     let pointerX = 0;
     let pointerY = 0;
     let animationFrame = 0;
-    const sky = document.querySelector<HTMLElement>(".cosmic-background");
-    const resetSky = () => {
-      sky?.style.removeProperty("--orbit-x");
-      sky?.style.removeProperty("--orbit-y");
+    const backdrop = document.querySelector<HTMLElement>("[data-code-background]");
+    const resetBackdrop = () => {
+      backdrop?.style.removeProperty("--code-x");
+      backdrop?.style.removeProperty("--code-y");
     };
 
     const resetSurface = () => {
@@ -64,9 +64,9 @@ export function PremiumSurfaceEffects() {
 
     const updateSurface = () => {
       animationFrame = 0;
-      if (reducedMotion.matches) { resetSky(); resetSurface(); return; }
-      sky?.style.setProperty("--orbit-x", `${(pointerX / window.innerWidth - .5) * 64}px`);
-      sky?.style.setProperty("--orbit-y", `${(pointerY / window.innerHeight - .5) * 38}px`);
+      if (reducedMotion.matches) { resetBackdrop(); resetSurface(); return; }
+      backdrop?.style.setProperty("--code-x", `${(pointerX / window.innerWidth - .5) * 16}px`);
+      backdrop?.style.setProperty("--code-y", `${(pointerY / window.innerHeight - .5) * 10}px`);
       const surface = pointerTarget?.closest<HTMLElement>(SURFACE_SELECTOR) ?? null;
 
       if (surface !== activeSurface) {
@@ -101,7 +101,7 @@ export function PremiumSurfaceEffects() {
     const onPointerOut = (event: PointerEvent) => {
       if (event.relatedTarget) return;
       pointerTarget = null;
-      resetSky();
+      resetBackdrop();
       if (animationFrame) cancelAnimationFrame(animationFrame);
       animationFrame = 0;
       resetSurface();
@@ -114,7 +114,7 @@ export function PremiumSurfaceEffects() {
 
     return () => {
       observer.disconnect();
-      resetSky();
+      resetBackdrop();
       document.removeEventListener("pointermove", onPointerMove);
       document.removeEventListener("pointerout", onPointerOut);
       window.removeEventListener("scroll", resetSurface);

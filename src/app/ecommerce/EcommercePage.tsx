@@ -12,8 +12,8 @@ const features = [
 ];
 
 const packages = [
-  { name: "Starter Store", price: "R3,000–5,000", features: ["Up to 20 products", "Basic theme customisation", "PayFast + EFT", "Order notifications", "Mobile checkout"], cta: "Start Starter" },
-  { name: "Growth Store", price: "R6,000–12,000", features: ["Up to 200 products", "Custom design system", "All SA gateways (Yoco, PayPal)", "Inventory + variants", "Abandoned cart recovery"], cta: "Start Growth", highlight: true },
+  { name: "Starter Store", price: "R3,000 to R5,000", features: ["Up to 20 products", "Basic theme customisation", "PayFast + EFT", "Order notifications", "Mobile checkout"], cta: "Start Starter" },
+  { name: "Growth Store", price: "R6,000 to R12,000", features: ["Up to 200 products", "Custom design system", "All SA gateways (Yoco, PayPal)", "Inventory + variants", "Abandoned cart recovery"], cta: "Start Growth", highlight: true },
   { name: "Enterprise", price: "R15,000+", features: ["Unlimited products", "Headless / Next.js build", "Custom integrations", "Multi-currency / language", "Dedicated support"], cta: "Start Enterprise" },
 ];
 

@@ -6,6 +6,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import { BlogPost } from "./BlogPost";
 import { JsonLd, articleSchema, breadcrumbSchema } from "@/components/json-ld";
 import { pageOpenGraph } from "@/lib/seo";
+import { formatJournalCopy } from "@/lib/journal-copy";
 
 export async function generateStaticParams() {
   const blogDir = path.join(process.cwd(), "content", "blog");
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     return { title: "Post Not Found" };
   }
   
-  const content = fs.readFileSync(filePath, "utf-8").replace(/\r\n/g, "\n");
+  const content = formatJournalCopy(fs.readFileSync(filePath, "utf-8"));
   const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
   
   if (frontmatterMatch) {
@@ -70,7 +71,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
   
-  const content = fs.readFileSync(filePath, "utf-8").replace(/\r\n/g, "\n");
+  const content = formatJournalCopy(fs.readFileSync(filePath, "utf-8"));
   const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
   const body = content.replace(/^---\n[\s\S]*?\n---/, "").trim();
   

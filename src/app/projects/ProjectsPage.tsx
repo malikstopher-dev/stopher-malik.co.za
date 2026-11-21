@@ -11,7 +11,7 @@ export function ProjectsPage() {
         <InnerFilm />
         <div className="container">
           <p className="section-kicker" data-reveal>
-            <span>Selected</span> 2021 — 2026
+            <span>Selected</span> 2021 to 2026
           </p>
           <h1 id="work-index-title" data-reveal>
             Work that earns

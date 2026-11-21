@@ -9,7 +9,7 @@ export function ProjectsSection() {
         <header className="section-head" data-reveal>
           <div className="section-head__meta">
             <p className="section-kicker"><span>01</span> Selected work</p>
-            <p className="section-note">2021 — 2026 · South Africa, DRC, Mozambique, Canada</p>
+            <p className="section-note">2021 to 2026 · South Africa, DRC, Mozambique, Canada</p>
           </div>
           <div className="section-head__body">
             <h2 id="work-heading">

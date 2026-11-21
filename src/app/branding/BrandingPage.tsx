@@ -13,7 +13,7 @@ const features = [
 
 const packages = [
   { name: "Logo Only", price: "R2,500", features: ["Primary + secondary logo", "Icon / favicon", "Full colour + mono", "PNG, SVG, WebP formats"], cta: "Get Logo" },
-  { name: "Brand Kit", price: "R5,000–8,000", features: ["Everything in Logo Only", "Colour palette + typography", "Brand guidelines (PDF)", "Social media templates"], cta: "Get Brand Kit", highlight: true },
+  { name: "Brand Kit", price: "R5,000 to R8,000", features: ["Everything in Logo Only", "Colour palette + typography", "Brand guidelines (PDF)", "Social media templates"], cta: "Get Brand Kit", highlight: true },
   { name: "Full Identity", price: "R12,000+", features: ["Everything in Brand Kit", "Stationery suite", "Print collateral", "Rollout support (3 months)"], cta: "Get Full Identity" },
 ];
 
