@@ -30,7 +30,9 @@ function CircuitBank({ side }: { side: 0 | 1 }) {
         <g className={styles.trace} key={line}>
           <path className={styles.wire} d={line} />
           <circle className={styles.node} cx={x} cy={y} r={index % 3 === 0 ? 6 : 4} />
-          <path className={styles.pulse} d={line} pathLength={100} />
+          {(index === 0 || index === (side ? 5 : 4)) && (
+            <path className={styles.pulse} d={line} pathLength={100} />
+          )}
         </g>
       ))}
       <path className={styles.chevrons} d="m183 291 8 8-8 8m18-16 8 8-8 8m18-16 8 8-8 8M321 711l8 8-8 8m18-16 8 8-8 8m18-16 8 8-8 8" />

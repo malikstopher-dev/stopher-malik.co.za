@@ -77,7 +77,6 @@
     stroke: #91f3ff;
     stroke-width: 3.6;
     stroke-dasharray: 9 91;
-    filter: drop-shadow(0 0 4px #1bddff);
     animation: signal 4.2s linear infinite;
   }
 
@@ -100,6 +99,5 @@
 
 @media (max-width: 768px) {
   .circuits { width: max(61%, 300px); opacity: .77; }
-  .right .trace:nth-child(even) .pulse { display: none; }
   .code { left: -5.6rem; opacity: .17; }
 }

@@ -12,12 +12,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Stopher Malik, SMK Web Design" }],
   robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   icons: {
-    icon: [
-      { url: "/favicon.ico", type: "image/x-icon", sizes: "32x32" },
-      { url: "/assets/logo.png", type: "image/png", sizes: "240x240" },
-    ],
+    icon: { url: "/brand-symbol-128.png", type: "image/png", sizes: "128x128" },
     shortcut: "/favicon.ico",
-    apple: [{ url: "/assets/logo.png", type: "image/png", sizes: "240x240" }],
+    apple: { url: "/brand-symbol-128.png", type: "image/png", sizes: "128x128" },
   },
   openGraph: {
     type: "website",

@@ -2,32 +2,31 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { createSequence } from "@/lib/sequence";
+import { canAnimatePortrait, heroPortrait, mountPortraitVideo } from "@/lib/portrait-video";
+import { watchSequenceScroll } from "@/lib/sequence";
 import styles from "./hero.module.css";
-
-const DESKTOP_FRAMES = 192;
-const MOBILE_FRAMES = 96;
-
-function frameSource(compact: boolean, index: number) {
-  const folder = compact ? "mobile" : "desktop";
-  return `/assets/hero-frames/${folder}/frame_${String(index + 1).padStart(4, "0")}.webp`;
-}
 
 export function Hero() {
   const trackRef = useRef<HTMLElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const counterRef = useRef<HTMLSpanElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
   const outroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const track = trackRef.current;
-    const canvas = canvasRef.current;
-    if (!track || !canvas) return;
+    const video = videoRef.current;
+    const film = video?.parentElement;
+    if (!track || !video || !film) return;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     const compact = window.matchMedia("(max-width: 768px)");
-    let dispose: (() => void) | undefined;
+    let stopScroll: (() => void) | undefined;
+    const stopVideo = mountPortraitVideo(video, heroPortrait, (index, count) => {
+      if (counterRef.current) {
+        counterRef.current.textContent = `Frame ${String(index + 1).padStart(3, "0")} / ${count}`;
+      }
+    });
 
     const syncPhase = (name: string) => {
       copyRef.current?.toggleAttribute("inert", name !== "intro");
@@ -43,37 +42,20 @@ export function Hero() {
     };
 
     const start = () => {
-      dispose?.();
-      dispose = undefined;
+      stopScroll?.();
+      stopScroll = undefined;
+      track.dataset.phase = "intro";
+      track.style.removeProperty("--p");
       syncPhase("intro");
-      const connection = (navigator as Navigator & {
-        connection?: { saveData?: boolean; effectiveType?: string };
-      }).connection;
-      if (reduced.matches || connection?.saveData || connection?.effectiveType === "2g") return;
+      if (!canAnimatePortrait()) return;
 
-      const mobile = compact.matches;
-      const count = mobile ? MOBILE_FRAMES : DESKTOP_FRAMES;
-
-      dispose = createSequence({
-        track,
-        canvas,
-        count,
-        autoplay: true,
-        source: (index) => frameSource(mobile, index),
-        focusY: mobile ? 0.5 : 0.3,
-        smoothing: mobile ? 0.18 : 0.14,
-        cacheSize: mobile ? 13 : 24,
-        concurrency: mobile ? 2 : 3,
-        phase: (value) => {
-          const name = value < 0.15 ? "intro" : value < 0.56 ? "film" : "outro";
+      stopScroll = watchSequenceScroll(track, film, compact.matches ? 0.18 : 0.14, (value) => {
+        const name = value < 0.15 ? "intro" : value < 0.56 ? "film" : "outro";
+        track.style.setProperty("--p", value.toFixed(4));
+        if (track.dataset.phase !== name) {
+          track.dataset.phase = name;
           syncPhase(name);
-          return name;
-        },
-        onFrame: (index) => {
-          if (counterRef.current) {
-            counterRef.current.textContent = `Frame ${String(index + 1).padStart(3, "0")} / ${count}`;
-          }
-        },
+        }
       });
     };
 
@@ -82,7 +64,8 @@ export function Hero() {
     reduced.addEventListener("change", start);
 
     return () => {
-      dispose?.();
+      stopScroll?.();
+      stopVideo();
       compact.removeEventListener("change", start);
       reduced.removeEventListener("change", start);
     };
@@ -99,7 +82,7 @@ export function Hero() {
             <source media="(prefers-reduced-motion: reduce)" srcSet="/assets/hero-frames/desktop/frame_0192.webp" />
             <img src="/assets/hero-frames/poster-desktop.webp" alt="" fetchPriority="high" />
           </picture>
-          <canvas ref={canvasRef} />
+          <video ref={videoRef} muted loop playsInline preload="none" />
           <div className={styles.grain} />
           <div className="portrait-orbit" aria-hidden="true"><i /><i /></div>
         </div>

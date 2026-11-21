@@ -4528,7 +4528,8 @@ body {
 
 /* Service detail pages */
 .inner-film { position: absolute; inset: 0 0 0 auto; width: 46%; overflow: hidden; pointer-events: none; background: #080d14 url('/assets/hero-frames/poster-desktop.webp') center 32% / cover no-repeat; mask-image: linear-gradient(to right,transparent,#000 18%); }
-.inner-film canvas { width: 100%; height: 100%; display: block; opacity: 0; }
+.inner-film video { width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 32%; opacity: 0; transition: opacity 500ms ease; }
+.inner-film video[data-ready] { opacity: 1; }
 .inner-film::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 55% 40%,transparent 40%,rgb(5 9 17 / .44)),linear-gradient(0deg,rgb(6 12 22 / .48),transparent 26%); }
 #main-content :has(> .inner-film) { position: relative; isolation: isolate; overflow: hidden; padding-block: clamp(3rem,7vw,7rem); }
 #main-content :has(> .inner-film)::after { display: none; }

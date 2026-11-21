@@ -6,14 +6,58 @@ export interface SequenceOptions {
   focusX?: number;
   focusY?: number;
   smoothing?: number;
-  exitScrub?: boolean;
-  autoplay?: boolean;
-  playbackDurationMs?: number;
-  followFrames?: boolean;
   cacheSize?: number;
   concurrency?: number;
   phase?: (progress: number) => string;
   onFrame?: (index: number) => void;
+}
+
+function scrollProgress(track: HTMLElement, viewport: HTMLElement | null) {
+  const rect = track.getBoundingClientRect();
+  const travel = rect.height - (viewport?.clientHeight ?? window.innerHeight);
+  return travel > 0 ? Math.min(1, Math.max(0, -rect.top / travel)) : 0;
+}
+
+export function watchSequenceScroll(
+  track: HTMLElement,
+  viewport: HTMLElement,
+  smoothing: number,
+  update: (progress: number) => void,
+) {
+  let raf = 0;
+  let visible = false;
+  let shown = scrollProgress(track, viewport);
+  update(shown);
+
+  const measure = () => {
+    raf = 0;
+    if (!visible || document.hidden) return;
+    const raw = scrollProgress(track, viewport);
+    shown += (raw - shown) * smoothing;
+    if (Math.abs(raw - shown) < 0.0004) shown = raw;
+    update(shown);
+    if (raw !== shown) wake();
+  };
+
+  function wake() {
+    if (visible && !document.hidden && !raf) raf = requestAnimationFrame(measure);
+  }
+
+  const observer = new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting;
+    wake();
+  });
+  observer.observe(track);
+  window.addEventListener("scroll", wake, { passive: true });
+  window.addEventListener("resize", wake);
+  document.addEventListener("visibilitychange", wake);
+  return () => {
+    cancelAnimationFrame(raf);
+    observer.disconnect();
+    window.removeEventListener("scroll", wake);
+    window.removeEventListener("resize", wake);
+    document.removeEventListener("visibilitychange", wake);
+  };
 }
 
 export function createSequence({
@@ -24,10 +68,6 @@ export function createSequence({
   focusX = 0.5,
   focusY = 0.32,
   smoothing = 0.16,
-  exitScrub = false,
-  autoplay = false,
-  playbackDurationMs = 10000,
-  followFrames = false,
   cacheSize = 20,
   concurrency = 3,
   phase,
@@ -51,15 +91,6 @@ export function createSequence({
   let lastPhase = "";
   let width = 0;
   let height = 0;
-  let direction = 1;
-  let lastTick = 0;
-
-  const progress = () => {
-    const rect = track.getBoundingClientRect();
-    const travel = exitScrub ? rect.height : rect.height - (viewport?.clientHeight ?? window.innerHeight);
-    if (travel <= 0) return 0;
-    return Math.min(1, Math.max(0, -rect.top / travel));
-  };
 
   const desired = () => {
     const order: number[] = [];
@@ -100,7 +131,6 @@ export function createSequence({
         wake();
       } else {
         failed.add(index);
-        if (autoplay && index === target) wake();
       }
       pump();
     };
@@ -172,29 +202,19 @@ export function createSequence({
     if (!alive || !visible || document.hidden) return;
     if (resize && !measure()) return;
 
-    const raw = progress();
+    const raw = scrollProgress(track, viewport);
     shown += (raw - shown) * smoothing;
     if (Math.abs(raw - shown) < 0.0004) shown = raw;
 
-    // Play the actual images independently of the scroll-driven text.
-    const now = performance.now();
-    const interval = playbackDurationMs / count;
-    if (!autoplay) target = Math.round(shown * (count - 1));
-    else if (count > 1 && now - lastTick >= interval && (drawn === target || failed.has(target))) {
-      if (target === count - 1) direction = -1;
-      if (target === 0) direction = 1;
-      target += direction;
-      lastTick = now;
-    }
+    target = Math.round(shown * (count - 1));
 
     pump();
     const available = nearest();
     if (available >= 0 && available !== drawn) draw(available);
 
-    const visualProgress = followFrames ? Math.max(0, drawn) / Math.max(1, count - 1) : shown;
-    track.style.setProperty("--p", visualProgress.toFixed(4));
+    track.style.setProperty("--p", shown.toFixed(4));
     if (phase) {
-      const nextPhase = phase(visualProgress);
+      const nextPhase = phase(shown);
       if (nextPhase !== lastPhase) {
         lastPhase = nextPhase;
         track.dataset.phase = nextPhase;
@@ -204,21 +224,14 @@ export function createSequence({
     const moving = Math.abs(raw - shown) > 0.0004;
     // Completed image loads wake the renderer themselves.
     if (moving) wake();
-    else if (autoplay && (drawn === target || failed.has(target))) {
-      idleTimer = window.setTimeout(wake, Math.max(1, interval - (now - lastTick)));
-    }
   };
 
-  let idleTimer = 0;
   function wake() {
-    clearTimeout(idleTimer);
     if (!alive || !visible || document.hidden || raf) return;
     raf = requestAnimationFrame(render);
   }
 
   const sleep = () => {
-    clearTimeout(idleTimer);
-    lastTick = 0;
     if (!raf) return;
     cancelAnimationFrame(raf);
     raf = 0;
@@ -232,7 +245,6 @@ export function createSequence({
   const observer = new IntersectionObserver(
     ([entry]) => {
       visible = entry.isIntersecting;
-      canvas.toggleAttribute('data-portrait-playing', visible && !document.hidden);
       if (visible) wake();
       else sleep();
     },
@@ -240,7 +252,6 @@ export function createSequence({
   );
 
   const onVisibility = () => {
-    canvas.toggleAttribute('data-portrait-playing', visible && !document.hidden);
     if (document.hidden) sleep();
     else wake();
   };
@@ -258,7 +269,6 @@ export function createSequence({
 
   return () => {
     alive = false;
-    canvas.removeAttribute('data-portrait-playing');
     sleep();
     observer.disconnect();
     resizeObserver.disconnect();
@@ -270,5 +280,6 @@ export function createSequence({
     failed.clear();
     delete track.dataset.frame;
     delete track.dataset.phase;
+    track.style.removeProperty("--p");
   };
 }

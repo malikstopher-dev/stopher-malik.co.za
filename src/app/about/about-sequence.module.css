@@ -62,7 +62,8 @@
 }
 
 .poster,
-.film canvas {
+.film canvas,
+.film video {
   position: absolute;
   inset: 0;
   display: block;
@@ -78,13 +79,19 @@
   transition: opacity 600ms ease;
 }
 
-.film canvas {
+.film canvas,
+.film video {
   z-index: 2;
   opacity: 0;
   transition: opacity 600ms ease;
 }
 
-.track[data-frame] .film canvas {
+.film video {
+  display: none;
+}
+
+.track[data-frame] .film canvas,
+.film video[data-ready] {
   opacity: 1;
 }
 
@@ -241,6 +248,18 @@
     width: 100%;
     aspect-ratio: 4 / 3;
     max-height: 52svh;
+  }
+
+  .film canvas {
+    display: none;
+  }
+
+  .film video {
+    display: block;
+  }
+
+  .progress span {
+    transition: transform 200ms linear;
   }
 
   .head h2 {

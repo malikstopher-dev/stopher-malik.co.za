@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { aboutPortrait, canAnimatePortrait, mountPortraitVideo } from "@/lib/portrait-video";
 import { createSequence } from "@/lib/sequence";
 import styles from "./about-sequence.module.css";
 
@@ -17,23 +18,37 @@ const chapters = [
 export function AboutSequence() {
   const trackRef = useRef<HTMLElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const counterRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const track = trackRef.current;
     const canvas = canvasRef.current;
-    if (!track || !canvas) return;
+    const video = videoRef.current;
+    if (!track || !canvas || !video) return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     const compact = window.matchMedia("(max-width: 768px)");
+    const phase = (value: number) => String(Math.min(2, Math.floor(value * 3)));
+    const updateCounter = (index: number) => {
+      if (counterRef.current) {
+        counterRef.current.textContent = `${String(index + 1).padStart(2, "0")} / ${FRAME_COUNT}`;
+      }
+    };
+    const stopVideo = mountPortraitVideo(video, aboutPortrait, (index, count) => {
+      const progress = index / (count - 1);
+      track.style.setProperty("--p", progress.toFixed(4));
+      track.dataset.phase = phase(progress);
+      updateCounter(index);
+    });
     let stop: (() => void) | undefined;
     const start = () => {
       stop?.();
+      stop = undefined;
       track.dataset.phase = "0";
-      if (reduced.matches) return;
+      track.style.removeProperty("--p");
+      updateCounter(0);
+      if (compact.matches || !canAnimatePortrait()) return;
       stop = createSequence({
-        autoplay: compact.matches,
-        followFrames: compact.matches,
-        playbackDurationMs: 7500,
         track,
         canvas,
         count: FRAME_COUNT,
@@ -42,12 +57,8 @@ export function AboutSequence() {
         smoothing: 0.14,
         cacheSize: 20,
         concurrency: 3,
-        phase: (value) => String(Math.min(2, Math.floor(value * 3))),
-        onFrame: (index) => {
-          if (counterRef.current) {
-            counterRef.current.textContent = `${String(index + 1).padStart(2, "0")} / ${FRAME_COUNT}`;
-          }
-        },
+        phase,
+        onFrame: updateCounter,
       });
     };
     start();
@@ -57,6 +68,7 @@ export function AboutSequence() {
       compact.removeEventListener("change", start);
       reduced.removeEventListener("change", start);
       stop?.();
+      stopVideo();
     };
   }, []);
 
@@ -79,6 +91,7 @@ export function AboutSequence() {
             decoding="async"
           />
           <canvas ref={canvasRef} aria-hidden="true" />
+          <video ref={videoRef} aria-hidden="true" muted loop playsInline preload="none" />
           <div className={styles.vignette} aria-hidden="true" />
           <div className={styles.hud} aria-hidden="true">
             <span>Portrait study / 02</span>
