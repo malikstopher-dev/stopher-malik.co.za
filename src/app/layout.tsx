@@ -12,9 +12,8 @@ export const metadata: Metadata = {
   authors: [{ name: "Stopher Malik, SMK Web Design" }],
   robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   icons: {
-    icon: { url: "/brand-symbol-128.png", type: "image/png", sizes: "128x128" },
-    shortcut: "/favicon.ico",
-    apple: { url: "/brand-symbol-128.png", type: "image/png", sizes: "128x128" },
+    icon: { url: "/brand-symbol-128.png?v=portrait-2", type: "image/png", sizes: "128x128" },
+    apple: { url: "/brand-symbol-128.png?v=portrait-2", type: "image/png", sizes: "128x128" },
   },
   openGraph: {
     type: "website",

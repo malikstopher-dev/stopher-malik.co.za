@@ -662,7 +662,7 @@ body:has(.qr-profile-page) .back-to-top {
 /* Keep the fixed backdrop behind content and above the body background. */
 body { isolation: isolate; }
 .hero__bottom { gap: 24px; margin: 24px 0; }
-#main-content :is(.about-intro, .work-index__intro, .service-detail__hero, .contact-editorial__intro, .journal-hero, .article-hero, .about-close, .service-detail__packages) {
+#main-content :is(.about-intro, .editorial-intro, .service-detail__hero, .contact-editorial__intro, .journal-hero, .article-hero, .about-close, .service-detail__packages) {
   background: linear-gradient(105deg, rgb(7 10 15 / .32), transparent 69%), radial-gradient(ellipse at 88% 35%, rgb(51 115 170 / .14), transparent 58%);
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -671,7 +671,7 @@ body { isolation: isolate; }
 
 /* Let the backdrop show through while keeping reading surfaces dark. */
 #main-content :is(.work-section, .studio-section, .services-section, .voices-section,
-  .about-page, .work-index-page, .contact-editorial, .journal-page, .article-page, .service-detail) {
+  .about-page, .work-index-page, .stack-page, .contact-editorial, .journal-page, .article-page, .service-detail) {
   background: linear-gradient(110deg, rgb(7 10 15 / .56), rgb(7 10 15 / .32));
 }
 
@@ -3638,7 +3638,7 @@ body {
   background: #070a0f;
 }
 
-.work-index__intro {
+.editorial-intro {
   position: relative;
   overflow: hidden;
   padding: clamp(8.5rem, 17vh, 13rem) 0 clamp(2.5rem, 5vw, 4rem);
@@ -3647,7 +3647,7 @@ body {
     linear-gradient(180deg, #070a0f 0%, #080c12 100%);
 }
 
-.work-index__intro::after {
+.editorial-intro::after {
   position: absolute;
   top: 18%;
   right: -7rem;
@@ -3659,7 +3659,7 @@ body {
   content: "";
 }
 
-.work-index__intro h1 {
+.editorial-intro h1 {
   position: relative;
   z-index: 1;
   max-width: 16ch;
@@ -3673,7 +3673,7 @@ body {
   text-wrap: balance;
 }
 
-.work-index__intro h1 em {
+.editorial-intro h1 em {
   color: #cfe4fa;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.07em;
@@ -3682,7 +3682,7 @@ body {
   letter-spacing: -0.05em;
 }
 
-.work-index__foot {
+.editorial-intro__foot {
   position: relative;
   z-index: 1;
   display: grid;
@@ -3694,20 +3694,20 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.09);
 }
 
-.work-index__foot > p {
+.editorial-intro__foot > p {
   max-width: 46ch;
   color: #9eafbf;
   font-size: clamp(0.95rem, 1.3vw, 1.08rem);
   line-height: 1.75;
 }
 
-.work-index__meta {
+.editorial-intro__meta {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.2rem;
 }
 
-.work-index__meta dt {
+.editorial-intro__meta dt {
   margin-bottom: 0.35rem;
   color: #6fa9df;
   font-family: var(--font-display);
@@ -3717,7 +3717,7 @@ body {
   text-transform: uppercase;
 }
 
-.work-index__meta dd {
+.editorial-intro__meta dd {
   color: #d8e6f3;
   font-family: var(--font-display);
   font-size: 0.78rem;
@@ -3744,7 +3744,7 @@ body {
 }
 
 @media (max-width: 1000px) {
-  .work-index__foot {
+  .editorial-intro__foot {
     grid-template-columns: 1fr;
     align-items: start;
     gap: 2rem;
@@ -3752,15 +3752,15 @@ body {
 }
 
 @media (max-width: 700px) {
-  .work-index__intro {
+  .editorial-intro {
     padding-top: clamp(7rem, 15vh, 9rem);
   }
 
-  .work-index__intro h1 {
+  .editorial-intro h1 {
     font-size: clamp(2.8rem, 12.5vw, 4.4rem);
   }
 
-  .work-index__meta {
+  .editorial-intro__meta {
     grid-template-columns: 1fr;
     gap: 0.9rem;
   }
@@ -4535,7 +4535,7 @@ body {
 #main-content :has(> .inner-film)::after { display: none; }
 #main-content .inner-film ~ .container { position: relative; z-index: 1; padding-right: 46%; }
 #main-content .inner-film ~ .container h1 { font-size: clamp(2.4rem,4.9vw,5.4rem); overflow-wrap: break-word; }
-#main-content .inner-film ~ .container :is(.about-intro__foot,.work-index__foot,.journal-hero__foot,.service-detail__foot,.contact-editorial__head) { grid-template-columns: minmax(0,1fr); gap: 1.35rem; }
+#main-content .inner-film ~ .container :is(.about-intro__foot,.editorial-intro__foot,.journal-hero__foot,.service-detail__foot,.contact-editorial__head) { grid-template-columns: minmax(0,1fr); gap: 1.35rem; }
 #main-content .internal-page__hero:has(> .inner-film) { padding-right: 48%; min-height: 17rem; }
 @media(max-width: 768px) {
   #main-content :has(> .inner-film) { padding-top: 0; }

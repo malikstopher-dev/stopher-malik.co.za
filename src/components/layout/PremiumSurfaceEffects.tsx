@@ -10,6 +10,7 @@ const SURFACE_SELECTOR = [
   ".voice",
   ".service-detail__feature",
   ".contact-link-row",
+  ".stack-card",
 ].join(",");
 
 export function PremiumSurfaceEffects() {

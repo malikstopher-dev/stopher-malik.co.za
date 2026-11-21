@@ -1,67 +1,64 @@
-"use client";
+import type { CSSProperties } from "react";
 import { InnerFilm } from "@/components/sections/InnerFilm";
+import styles from "./stack.module.css";
 
 const tools = [
-  { name: "Figma", category: "Design", logos: ["figma"] },
-  { name: "React", category: "Frontend", logos: ["react"] },
-  { name: "Next.js", category: "Framework", logos: ["nextjs"] },
-  { name: "Cloudflare", category: "Infrastructure", logos: ["cloudflare"] },
-  { name: "TypeScript", category: "Language", logos: ["typescript"] },
-  { name: "Tailwind CSS", category: "Styling", logos: ["tailwindcss"] },
-  { name: "HTML / CSS", category: "Core", logos: ["html5", "css3"] },
-  { name: "JavaScript", category: "Language", logos: ["javascript"] },
-  { name: "Git", category: "Version Control", logos: ["git"] },
-  { name: "WordPress", category: "CMS", logos: ["wordpress"] },
-  { name: "Vercel", category: "Hosting", logos: ["vercel"] },
-  { name: "SEO", category: "Optimisation", logos: [] },
+  { name: "Figma", category: "Design", logos: ["figma"], accent: "157 119 241" },
+  { name: "React", category: "Frontend", logos: ["react"], accent: "75 204 241" },
+  { name: "Next.js", category: "Framework", logos: ["nextjs"], accent: "158 183 220" },
+  { name: "Cloudflare", category: "Infrastructure", logos: ["cloudflare"], accent: "244 147 64" },
+  { name: "TypeScript", category: "Language", logos: ["typescript"], accent: "73 151 247" },
+  { name: "Tailwind CSS", category: "Styling", logos: ["tailwindcss"], accent: "50 199 219" },
+  { name: "HTML / CSS", category: "Core", logos: ["html5", "css3"], accent: "107 153 246" },
+  { name: "JavaScript", category: "Language", logos: ["javascript"], accent: "226 200 79" },
+  { name: "Git", category: "Version Control", logos: ["git"], accent: "244 119 99" },
+  { name: "WordPress", category: "CMS", logos: ["wordpress"], accent: "99 163 229" },
+  { name: "Vercel", category: "Hosting", logos: ["vercel"], accent: "168 194 221" },
+  { name: "SEO", category: "Optimisation", logos: [], accent: "74 205 163" },
 ];
 
 export function StackPage() {
   return (
-    <main className="main-content">
-      <section className="internal-page stack-page">
+    <main className="stack-page">
+      <section className="editorial-intro" aria-labelledby="stack-title">
+        <InnerFilm />
         <div className="container">
-          <div className="internal-page__hero hero__card card" data-tilt data-magnetic data-holo>
-            <InnerFilm />
-            <h1 className="hero__title">Full Stack</h1>
-          </div>
-
-          <div className="internal-panel section-card card" data-tilt data-morph data-holo>
-            <div className="internal-panel__header">
-              <h2 className="section-title">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="18" height="18" aria-hidden="true"><polygon points="12,3 21,12 12,21 3,12"/></svg>
-                Tools &amp; Platforms
-              </h2>
-            </div>
-            <p className="internal-panel__intro">
-              Design tools, frontend frameworks, infrastructure, and everything in between. I pick the right tool for each job and keep the stack lean.
+          <p className="section-kicker" data-reveal><span>Stack</span> Design &amp; development</p>
+          <h1 id="stack-title" data-reveal>
+            My web<br /><em>development stack.</em>
+          </h1>
+          <div className="editorial-intro__foot">
+            <p data-reveal>
+              The tools I use to design, build and host websites, from the first Figma layout to deployment.
             </p>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "var(--space-lg)" }}>
-              {tools.map((item) => (
-                <div
-                  key={item.name}
-                  className="stack-card card"
-                  data-tilt
-                  data-flip
-                  data-magnetic
-                  data-holo
-                  style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "var(--space-xl)", gap: "var(--space-md)" }}
-                >
-                  <div className="stack-card__icon-wrap" style={{ display: "flex", gap: 4, alignItems: "center" }} aria-hidden="true">
-                    {item.logos.length ? item.logos.map((logo) => (
-                      <img key={logo} src={`/assets/stack/${logo}.svg`} alt="" width="40" height="40" style={{ objectFit: "contain", filter: ["vercel", "wordpress", "nextjs"].includes(logo) ? "drop-shadow(0 0 2px white)" : undefined }} />
-                    )) : (
-                      <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="10" cy="10" r="7" /><path d="m15 15 6 6M6 12l3-3 2 1 3-4" /></svg>
-                    )}
-                  </div>
-                  <div>
-                    <h3 className="stack-card__name">{item.name}</h3>
-                    <p className="stack-card__category" style={{ marginBottom: 0 }}>{item.category}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
+        </div>
+      </section>
+
+      <section className={styles.tools} aria-labelledby="stack-tools">
+        <div className="container">
+          <header className={styles.header}>
+            <h2 id="stack-tools">Tools &amp; Platforms</h2>
+            <p className="section-note">{tools.length} entries</p>
+          </header>
+          <ul className={styles.grid} role="list">
+            {tools.map((item, index) => (
+              <li key={item.name} className={`stack-card ${styles.board}`} style={{ "--tool-accent": item.accent } as CSSProperties}>
+                <span className={styles.index} aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                <div className={styles.logos} aria-hidden="true">
+                  {item.logos.length ? item.logos.map((logo) => (
+                    <img key={logo} className={logo === "vercel" ? styles.inverse : undefined} src={`/assets/stack/${logo}.svg`} alt="" width="40" height="40" loading="lazy" decoding="async" />
+                  )) : (
+                    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="10" cy="10" r="7" /><path d="m15 15 6 6M6 12l3-3 2 1 3-4" /></svg>
+                  )}
+                </div>
+                <div className={styles.label}>
+                  <h3>{item.name}</h3>
+                  <p>{item.category}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </main>

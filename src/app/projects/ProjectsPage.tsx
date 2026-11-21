@@ -7,7 +7,7 @@ import { PROJECTS } from "@/data/projects";
 export function ProjectsPage() {
   return (
     <main className="work-index-page">
-      <section className="work-index__intro" aria-labelledby="work-index-title">
+      <section className="editorial-intro" aria-labelledby="work-index-title">
         <InnerFilm />
         <div className="container">
           <p className="section-kicker" data-reveal>
@@ -18,13 +18,13 @@ export function ProjectsPage() {
             <br />
             <em>attention.</em>
           </h1>
-          <div className="work-index__foot">
+          <div className="editorial-intro__foot">
             <p data-reveal>
               {PROJECTS.length} projects shipped across South Africa, the DRC,
               Mozambique, and Canada. Every build pairs considered design with
               front-end craft and an eye on the result.
             </p>
-            <dl className="work-index__meta" data-reveal>
+            <dl className="editorial-intro__meta" data-reveal>
               <div>
                 <dt>Projects</dt>
                 <dd>{PROJECTS.length}+</dd>
