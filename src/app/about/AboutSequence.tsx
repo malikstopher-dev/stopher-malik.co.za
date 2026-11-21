@@ -24,26 +24,40 @@ export function AboutSequence() {
     const canvas = canvasRef.current;
     if (!track || !canvas) return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (reduced.matches) return;
-
-    const sequence = createSequence({
-      track,
-      canvas,
-      count: FRAME_COUNT,
-      source,
-      focusY: 0.5,
-      smoothing: 0.14,
-      cacheSize: 20,
-      concurrency: 3,
-      phase: (value) => String(Math.min(2, Math.floor(value * 3))),
-      onFrame: (index) => {
-        if (counterRef.current) {
-          counterRef.current.textContent = `${String(index + 1).padStart(2, "0")} / ${FRAME_COUNT}`;
-        }
-      },
-    });
-
-    return sequence;
+    const compact = window.matchMedia("(max-width: 768px)");
+    let stop: (() => void) | undefined;
+    const start = () => {
+      stop?.();
+      track.dataset.phase = "0";
+      if (reduced.matches) return;
+      stop = createSequence({
+        autoplay: compact.matches,
+        followFrames: compact.matches,
+        playbackDurationMs: 7500,
+        track,
+        canvas,
+        count: FRAME_COUNT,
+        source,
+        focusY: 0.5,
+        smoothing: 0.14,
+        cacheSize: 20,
+        concurrency: 3,
+        phase: (value) => String(Math.min(2, Math.floor(value * 3))),
+        onFrame: (index) => {
+          if (counterRef.current) {
+            counterRef.current.textContent = `${String(index + 1).padStart(2, "0")} / ${FRAME_COUNT}`;
+          }
+        },
+      });
+    };
+    start();
+    compact.addEventListener("change", start);
+    reduced.addEventListener("change", start);
+    return () => {
+      compact.removeEventListener("change", start);
+      reduced.removeEventListener("change", start);
+      stop?.();
+    };
   }, []);
 
   return (

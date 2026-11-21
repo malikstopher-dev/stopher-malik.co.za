@@ -8,6 +8,8 @@ export interface SequenceOptions {
   smoothing?: number;
   exitScrub?: boolean;
   autoplay?: boolean;
+  playbackDurationMs?: number;
+  followFrames?: boolean;
   cacheSize?: number;
   concurrency?: number;
   phase?: (progress: number) => string;
@@ -24,6 +26,8 @@ export function createSequence({
   smoothing = 0.16,
   exitScrub = false,
   autoplay = false,
+  playbackDurationMs = 10000,
+  followFrames = false,
   cacheSize = 20,
   concurrency = 3,
   phase,
@@ -174,7 +178,7 @@ export function createSequence({
 
     // Play the actual images independently of the scroll-driven text.
     const now = performance.now();
-    const interval = 10000 / count;
+    const interval = playbackDurationMs / count;
     if (!autoplay) target = Math.round(shown * (count - 1));
     else if (count > 1 && now - lastTick >= interval && (drawn === target || failed.has(target))) {
       if (target === count - 1) direction = -1;
@@ -183,19 +187,19 @@ export function createSequence({
       lastTick = now;
     }
 
-    track.style.setProperty("--p", shown.toFixed(4));
+    pump();
+    const available = nearest();
+    if (available >= 0 && available !== drawn) draw(available);
+
+    const visualProgress = followFrames ? Math.max(0, drawn) / Math.max(1, count - 1) : shown;
+    track.style.setProperty("--p", visualProgress.toFixed(4));
     if (phase) {
-      const nextPhase = phase(shown);
+      const nextPhase = phase(visualProgress);
       if (nextPhase !== lastPhase) {
         lastPhase = nextPhase;
         track.dataset.phase = nextPhase;
       }
     }
-
-    pump();
-
-    const available = nearest();
-    if (available >= 0 && available !== drawn) draw(available);
 
     const moving = Math.abs(raw - shown) > 0.0004;
     // Completed image loads wake the renderer themselves.

@@ -227,10 +227,12 @@
 
 @media (max-width: 768px) {
   .track {
-    height: 260svh;
+    height: auto;
   }
 
   .stage {
+    position: relative;
+    height: auto;
     gap: 1.1rem;
     padding: 4.8rem 0.9rem 1.2rem;
   }
@@ -267,8 +269,7 @@
   }
 
   .hint {
-    font-size: 0.54rem;
-    letter-spacing: 0.14em;
+    display: none;
   }
 }
 

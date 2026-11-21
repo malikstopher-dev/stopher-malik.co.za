@@ -2,125 +2,18 @@
 import { InnerFilm } from "@/components/sections/InnerFilm";
 
 const tools = [
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="24" height="24" aria-hidden="true">
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <circle cx="8.5" cy="8.5" r="1.5" />
-        <path d="M21 15l-5-5L5 21" />
-      </svg>
-    ),
-    name: "Figma",
-    category: "Design",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="24" height="24" aria-hidden="true">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-      </svg>
-    ),
-    name: "React",
-    category: "Frontend",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="24" height="24" aria-hidden="true">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-      </svg>
-    ),
-    name: "Next.js",
-    category: "Framework",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="24" height="24" aria-hidden="true">
-        <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z" />
-      </svg>
-    ),
-    name: "Cloudflare",
-    category: "Infrastructure",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="24" height="24" aria-hidden="true">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
-        <path d="M8 12l3 3 5-5" />
-      </svg>
-    ),
-    name: "TypeScript",
-    category: "Language",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="24" height="24" aria-hidden="true">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
-        <path d="M15 9l-6 6M9 9l6 6" />
-      </svg>
-    ),
-    name: "Tailwind CSS",
-    category: "Styling",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="24" height="24" aria-hidden="true">
-        <path d="M4 4h16v16H4z" />
-        <path d="M4 9h16M9 4v16" />
-      </svg>
-    ),
-    name: "HTML / CSS",
-    category: "Core",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="24" height="24" aria-hidden="true">
-        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-        <path d="M2 17l10 5 10-5" />
-        <path d="M2 12l10 5 10-5" />
-      </svg>
-    ),
-    name: "JavaScript",
-    category: "Language",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="24" height="24" aria-hidden="true">
-        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-        <path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" />
-      </svg>
-    ),
-    name: "Git",
-    category: "Version Control",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="24" height="24" aria-hidden="true">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M12 6v6l4 2" />
-      </svg>
-    ),
-    name: "WordPress",
-    category: "CMS",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="24" height="24" aria-hidden="true">
-        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-      </svg>
-    ),
-    name: "Vercel",
-    category: "Hosting",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="24" height="24" aria-hidden="true">
-        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-        <line x1="12" y1="9" x2="12" y2="13" />
-        <line x1="12" y1="17" x2="12.01" y2="17" />
-      </svg>
-    ),
-    name: "SEO",
-    category: "Optimisation",
-  },
+  { name: "Figma", category: "Design", logos: ["figma"] },
+  { name: "React", category: "Frontend", logos: ["react"] },
+  { name: "Next.js", category: "Framework", logos: ["nextjs"] },
+  { name: "Cloudflare", category: "Infrastructure", logos: ["cloudflare"] },
+  { name: "TypeScript", category: "Language", logos: ["typescript"] },
+  { name: "Tailwind CSS", category: "Styling", logos: ["tailwindcss"] },
+  { name: "HTML / CSS", category: "Core", logos: ["html5", "css3"] },
+  { name: "JavaScript", category: "Language", logos: ["javascript"] },
+  { name: "Git", category: "Version Control", logos: ["git"] },
+  { name: "WordPress", category: "CMS", logos: ["wordpress"] },
+  { name: "Vercel", category: "Hosting", logos: ["vercel"] },
+  { name: "SEO", category: "Optimisation", logos: [] },
 ];
 
 export function StackPage() {
@@ -154,8 +47,12 @@ export function StackPage() {
                   data-holo
                   style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "var(--space-xl)", gap: "var(--space-md)" }}
                 >
-                  <div className="stack-card__icon-wrap">
-                    {item.icon}
+                  <div className="stack-card__icon-wrap" style={{ display: "flex", gap: 4, alignItems: "center" }} aria-hidden="true">
+                    {item.logos.length ? item.logos.map((logo) => (
+                      <img key={logo} src={`/assets/stack/${logo}.svg`} alt="" width="40" height="40" style={{ objectFit: "contain", filter: ["vercel", "wordpress", "nextjs"].includes(logo) ? "drop-shadow(0 0 2px white)" : undefined }} />
+                    )) : (
+                      <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="10" cy="10" r="7" /><path d="m15 15 6 6M6 12l3-3 2 1 3-4" /></svg>
+                    )}
                   </div>
                   <div>
                     <h3 className="stack-card__name">{item.name}</h3>
