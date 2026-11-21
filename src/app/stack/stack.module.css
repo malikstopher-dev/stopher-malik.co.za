@@ -35,28 +35,96 @@
   place-content: center;
   justify-items: center;
   gap: .9rem;
-  padding: 1.8rem .6rem 1.15rem;
+  padding: 2.1rem .6rem 1.15rem;
   border: 1px solid rgb(var(--tool-accent) / .28);
   border-radius: 8px;
   background:
-    radial-gradient(ellipse at 50% 3%, rgb(var(--tool-accent) / .27), transparent 68%),
+    radial-gradient(ellipse at 16% 6%, rgb(var(--tool-accent) / .25), transparent 72%),
     linear-gradient(150deg, #0d1b31, #07101d 70%);
   box-shadow: inset 0 1px 0 rgb(255 255 255 / .07), 0 12px 30px rgb(0 4 13 / .32);
   text-align: center;
 }
 
-.board::before {
+.terminal {
   position: absolute;
   z-index: -1;
   inset: 1px;
+  overflow: hidden;
   border-radius: inherit;
-  background:
-    linear-gradient(90deg, rgb(var(--tool-accent) / .42), rgb(var(--tool-accent) / .42)) center top / 26% 1px no-repeat,
-    repeating-linear-gradient(90deg, rgb(var(--tool-accent) / .1) 0 1px, transparent 1px 17px),
-    repeating-linear-gradient(0deg, rgb(var(--tool-accent) / .1) 0 1px, transparent 1px 17px);
-  mask-image: linear-gradient(155deg, #000, transparent 43%, rgb(0 0 0 / .34) 75%, #000);
-  content: "";
+  text-align: left;
   pointer-events: none;
+}
+
+.prompt {
+  display: flex;
+  align-items: center;
+  gap: .38rem;
+  height: 1.85rem;
+  padding-inline: .65rem 1.65rem;
+  overflow: hidden;
+  border-bottom: 1px solid rgb(var(--tool-accent) / .17);
+  background: rgb(4 11 23 / .65);
+  font: clamp(.5rem, 1vw, .67rem) / 1.2 ui-monospace, Consolas, monospace;
+}
+
+.prompt::before {
+  color: rgb(var(--tool-accent));
+  content: ">";
+}
+
+.command {
+  display: block;
+  width: calc(var(--command-length) * 1ch);
+  min-width: 0;
+  box-sizing: content-box;
+  overflow: hidden;
+  border-inline-end: 1px solid rgb(var(--tool-accent));
+  font: inherit;
+  white-space: pre;
+}
+
+.feed {
+  position: absolute;
+  inset: 1.85rem 0 0;
+  overflow: hidden;
+  mask-image: linear-gradient(180deg, transparent, #000 14% 82%, transparent);
+}
+
+.feed::after {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 52% 60%, rgb(6 14 26 / .96) 14%, rgb(6 14 26 / .76) 37%, transparent 72%);
+  content: "";
+}
+
+.stream {
+  color: rgb(255 255 255 / .32);
+}
+
+.stream pre {
+  padding: 0 .65rem;
+  font: .64rem / 1.84 ui-monospace, Consolas, monospace;
+  white-space: pre;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .command {
+    animation: type-command 8s steps(var(--command-length), end) var(--terminal-offset) infinite;
+  }
+
+  .stream {
+    animation: stream-lines 10s linear var(--terminal-offset) infinite;
+  }
+
+  @keyframes type-command {
+    0%, 8% { width: 0; }
+    48%, 94% { width: calc(var(--command-length) * 1ch); }
+    100% { width: 0; }
+  }
+
+  @keyframes stream-lines {
+    to { transform: translateY(calc(-100% / 3)); }
+  }
 }
 
 .index {
@@ -67,6 +135,7 @@
   font-size: .58rem;
   font-variant-numeric: tabular-nums;
   letter-spacing: .12em;
+  line-height: 1;
 }
 
 .logos {
@@ -97,6 +166,7 @@
   font-family: var(--font-display);
   font-size: clamp(.9rem, 1.55vw, 1.25rem);
   font-weight: 600;
+  text-shadow: 0 1px 5px #060e1a;
 }
 
 .label p {

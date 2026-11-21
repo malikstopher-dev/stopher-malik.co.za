@@ -1,21 +1,7 @@
 import type { CSSProperties } from "react";
 import { InnerFilm } from "@/components/sections/InnerFilm";
 import styles from "./stack.module.css";
-
-const tools = [
-  { name: "Figma", category: "Design", logos: ["figma"], accent: "157 119 241" },
-  { name: "React", category: "Frontend", logos: ["react"], accent: "75 204 241" },
-  { name: "Next.js", category: "Framework", logos: ["nextjs"], accent: "158 183 220" },
-  { name: "Cloudflare", category: "Infrastructure", logos: ["cloudflare"], accent: "244 147 64" },
-  { name: "TypeScript", category: "Language", logos: ["typescript"], accent: "73 151 247" },
-  { name: "Tailwind CSS", category: "Styling", logos: ["tailwindcss"], accent: "50 199 219" },
-  { name: "HTML / CSS", category: "Core", logos: ["html5", "css3"], accent: "107 153 246" },
-  { name: "JavaScript", category: "Language", logos: ["javascript"], accent: "226 200 79" },
-  { name: "Git", category: "Version Control", logos: ["git"], accent: "244 119 99" },
-  { name: "WordPress", category: "CMS", logos: ["wordpress"], accent: "99 163 229" },
-  { name: "Vercel", category: "Hosting", logos: ["vercel"], accent: "168 194 221" },
-  { name: "SEO", category: "Optimisation", logos: [], accent: "74 205 163" },
-];
+import { toolPreviews } from "./tool-previews";
 
 export function StackPage() {
   return (
@@ -39,11 +25,23 @@ export function StackPage() {
         <div className="container">
           <header className={styles.header}>
             <h2 id="stack-tools">Tools &amp; Platforms</h2>
-            <p className="section-note">{tools.length} entries</p>
+            <p className="section-note">{toolPreviews.length} entries</p>
           </header>
           <ul className={styles.grid} role="list">
-            {tools.map((item, index) => (
-              <li key={item.name} className={`stack-card ${styles.board}`} style={{ "--tool-accent": item.accent } as CSSProperties}>
+            {toolPreviews.map((item, index) => (
+              <li key={item.name} className={`stack-card ${styles.board}`} style={{
+                "--tool-accent": item.accent,
+                "--command-length": item.prompt.length,
+                "--terminal-offset": `${(index % 5) * -1.35}s`,
+              } as CSSProperties}>
+                <div className={styles.terminal} aria-hidden="true">
+                  <div className={styles.prompt}><code className={styles.command}>{item.prompt}</code></div>
+                  <div className={styles.feed}>
+                    <div className={styles.stream}>
+                      {[0, 1, 2].map(copy => <pre key={copy}>{item.code.join("\n")}</pre>)}
+                    </div>
+                  </div>
+                </div>
                 <span className={styles.index} aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
                 <div className={styles.logos} aria-hidden="true">
                   {item.logos.length ? item.logos.map((logo) => (
